@@ -1,0 +1,1056 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>دستیار رمل انوار</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#9a6b1e"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<style>@font-face{font-family:"Vazirmatn";font-weight:400;font-style:normal;font-display:swap;src:local("Vazirmatn Regular"),url(Vazirmatn-Regular.woff2) format("woff2")}@font-face{font-family:"Vazirmatn";font-weight:600;font-style:normal;font-display:swap;src:local("Vazirmatn SemiBold"),url(Vazirmatn-SemiBold.woff2) format("woff2")}@font-face{font-family:"Vazirmatn";font-weight:800;font-style:normal;font-display:swap;src:local("Vazirmatn ExtraBold"),url(Vazirmatn-ExtraBold.woff2) format("woff2")}@font-face{font-family:"Vazirmatn";font-weight:900;font-style:normal;font-display:swap;src:local("Vazirmatn Black"),url(Vazirmatn-Black.woff2) format("woff2")}</style>
+<style>
+/* Layout: one column on phone; a figure-table page and an engine page; every house shows its book source */
+:root{
+  --bg:#eef1f3; --panel:#ffffff; --ink:#1b2530; --muted:#5b6876; --line:#cfd6dc;
+  --accent:#2a3f8f; --accent-soft:#e3e8f6; --ok:#1f6b45; --ok-soft:#dff0e6; --warn:#8a5a00; --warn-soft:#f6ead0; --dot:#1b2530;
+  --f-body:"Vazirmatn",Tahoma,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111820; --panel:#19222c; --ink:#e6ebf0; --muted:#9aa7b4; --line:#2e3a47;
+  --accent:#8fa6ff; --accent-soft:#232d4d; --ok:#6fd3a0; --ok-soft:#173226; --warn:#e5b659; --warn-soft:#3a2d12; --dot:#e6ebf0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111820; --panel:#19222c; --ink:#e6ebf0; --muted:#9aa7b4; --line:#2e3a47;
+  --accent:#8fa6ff; --accent-soft:#232d4d; --ok:#6fd3a0; --ok-soft:#173226; --warn:#e5b659; --warn-soft:#3a2d12; --dot:#e6ebf0; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.8;font-size:15px;
+  padding-block:16px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));direction:rtl}
+main{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-size:1.5rem;font-weight:800;margin:0;text-wrap:balance}
+h2{font-size:1.1rem;font-weight:800;margin:0 0 8px}
+p{margin:0}
+.sub{color:var(--muted);font-size:.9rem}
+section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;min-width:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button,.btn{font:inherit;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:6px 12px;border-radius:8px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tabs button[aria-pressed="true"]{color:#111820}}
+:root[data-theme="dark"] .tabs button[aria-pressed="true"]{color:#111820}
+button:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+/* figure glyph: four rows, fire on top; one dot = fard, two dots = zawj */
+.fig{display:inline-flex;flex-direction:column;gap:3px;align-items:center;direction:ltr}
+.row{display:flex;gap:5px;height:9px;align-items:center;justify-content:center;width:26px}
+.d{width:9px;height:9px;border-radius:50%;background:var(--dot);display:block}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}
+th{font-size:.8rem;color:var(--muted);font-weight:600}
+td.bits{font-variant-numeric:tabular-nums;direction:ltr;text-align:center;letter-spacing:.2em;font-weight:600}
+.flag{font-size:.78rem;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.ok{background:var(--ok-soft);color:var(--ok)}
+.warn{background:var(--warn-soft);color:var(--warn)}
+.mothers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.mom{display:flex;flex-direction:column;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:8px 4px;min-width:0}
+.mom label{font-size:.8rem;color:var(--muted)}
+.mom select{font:inherit;font-size:.82rem;max-width:100%;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:3px}
+.rowbtn{font:inherit;display:flex;gap:6px;align-items:center;justify-content:space-between;width:100%;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:6px;padding:3px 8px;cursor:pointer;direction:rtl}
+.rowbtn small{color:var(--muted);font-size:.72rem}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.house{border:1px solid var(--line);border-radius:8px;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;text-align:center}
+.house b{font-size:.8rem;color:var(--accent)}
+.house span.n{font-size:.82rem;font-weight:600;text-wrap:balance}
+.house small{color:var(--muted);font-size:.7rem;line-height:1.4}
+.grp{font-size:.85rem;color:var(--muted);margin:10px 0 6px;font-weight:600}
+.notes{display:flex;flex-direction:column;gap:10px}
+.note{border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:4px}
+.note h3{margin:0;font-size:.95rem;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.note p{font-size:.88rem;color:var(--muted)}
+[hidden]{display:none!important}
+  .kl{display:block;font-size:12px;margin-bottom:3px}
+  #qTopic,#qType{font-size:14px;padding:6px;width:100%}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mono{direction:ltr;font-variant-numeric:tabular-nums}
+@media (max-width:420px){.house small{display:none}}
+#homeOut,#homeOut *{box-sizing:border-box;max-width:100%}
+#homeOut select{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)}
+#homeOut label{display:block}
+#homeOut details{overflow-x:auto}
+#homeOut .flag{white-space:normal;display:inline-block;margin-top:4px}
+#homeOut td{overflow-wrap:anywhere;word-break:break-word}
+#homeOut pre{white-space:pre-wrap;word-break:break-word}
+
+/* ===== پوستهٔ تجاری: شب لاجورد + ریگ طلایی + فیروزه ===== */
+:root{--bg:#f2e8d2;--panel:#fbf5e6;--ink:#1d2547;--muted:#5d5a6e;--line:#dccfae;--accent:#1f6f66;--accent-soft:#dcebe3;
+  --sand:#9a6b1e;--sand-ink:#fff8e6;--good:#17795a;--bad:#b3392a;--wait:#8a6410;--dot:#1d2547;--ok:#17795a;--ok-soft:#dcebe3;--warn:#8a6410;--warn-soft:#f1e3bd;--glow:rgba(154,107,30,.18)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b1330;--panel:#121c42;--ink:#f1e8d2;--muted:#a9afc9;--line:#26335f;--accent:#46c2b0;--accent-soft:#16305a;
+  --sand:#e6c27a;--sand-ink:#1a1a2e;--good:#5fd6a4;--bad:#ff8a73;--wait:#f0c765;--dot:#e6c27a;--ok:#5fd6a4;--ok-soft:#133a3a;--warn:#f0c765;--warn-soft:#3b3115;--glow:rgba(230,194,122,.16)}}
+:root[data-theme="dark"]{--bg:#0b1330;--panel:#121c42;--ink:#f1e8d2;--muted:#a9afc9;--line:#26335f;--accent:#46c2b0;--accent-soft:#16305a;
+  --sand:#e6c27a;--sand-ink:#1a1a2e;--good:#5fd6a4;--bad:#ff8a73;--wait:#f0c765;--dot:#e6c27a;--ok:#5fd6a4;--ok-soft:#133a3a;--warn:#f0c765;--warn-soft:#3b3115;--glow:rgba(230,194,122,.16)}
+body{background-color:var(--bg);
+  background-image:radial-gradient(120% 60% at 50% -10%,var(--glow),transparent 70%),radial-gradient(circle,var(--line) 1.2px,transparent 1.6px);
+  background-size:100% 100%,26px 26px;background-attachment:fixed;font-weight:400}
+main{gap:16px}
+.brand{display:flex;align-items:center;gap:14px;padding:6px 2px 2px}
+.brand .mark{width:62px;height:62px;flex:none;filter:drop-shadow(0 0 14px var(--glow))}
+.brand h1{font-size:2.3rem;font-weight:900;line-height:1.1;color:var(--sand);letter-spacing:0}
+.brand .tag{color:var(--muted);font-size:.95rem;margin-top:2px}
+.src{font-size:.8rem;color:var(--muted)}
+.src summary{cursor:pointer;padding:2px 2px}
+.src p{margin-top:4px}
+.tabs{position:sticky;top:8px;z-index:5;flex-wrap:nowrap;overflow-x:auto;gap:4px;padding:4px;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px -12px #0008;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:1 1 0;min-width:0;border:0;background:transparent;color:var(--muted);padding:9px 2px;font-size:13px;border-radius:12px;font-weight:600;white-space:nowrap}
+.tabs button[aria-pressed="true"]{background:var(--sand);color:var(--sand-ink)}
+section{border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),color-mix(in srgb,var(--panel) 88%,var(--bg)));box-shadow:0 18px 40px -26px #000a;padding:18px}
+h2{font-size:1.2rem;font-weight:800;color:var(--sand);display:flex;align-items:center;gap:8px}
+h2::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--sand);box-shadow:0 0 10px var(--glow)}
+.note{border-radius:14px;background:color-mix(in srgb,var(--panel) 70%,var(--bg));border-color:var(--line)}
+.note h3{color:var(--ink);font-weight:800}
+.btn{border-radius:12px;border:1px solid var(--line);background:var(--accent-soft);color:var(--ink);padding:9px 14px;font-weight:600}
+#homeOut #qRoll,#diceBtn{width:100%;display:block;padding:15px 18px;font-size:1.12rem;font-weight:900;border:0;border-radius:16px;background:linear-gradient(180deg,var(--sand),color-mix(in srgb,var(--sand) 78%,#000));color:var(--sand-ink);box-shadow:0 10px 26px -10px var(--sand),inset 0 1px 0 #fff5;cursor:pointer}
+#homeOut #qRoll:active,#diceBtn:active{transform:translateY(1px)}
+#homeOut select{border-radius:12px;padding:11px 12px;border:1px solid var(--line);background:color-mix(in srgb,var(--panel) 60%,var(--bg));font-size:15px!important}
+.kl{font-size:12.5px!important;color:var(--muted);font-weight:600}
+#homeOut>.note:first-child h3{font-size:1.15rem;color:var(--sand)}
+#homeOut .note[style*="border:2px"]{border-radius:20px!important;padding:20px 16px!important;text-align:center;align-items:center;background:radial-gradient(90% 120% at 50% 0,var(--glow),transparent 70%),var(--panel)}
+#homeOut .note[style*="border:2px"] h3{font-size:2.6rem!important;font-weight:900;line-height:1.2;display:block}
+#homeOut .note[style*="border:2px"] p{font-size:.9rem!important;color:var(--muted);margin-top:6px}
+#homeOut details{border-radius:14px}
+#homeOut summary{cursor:pointer;padding:6px 2px;font-weight:600;color:var(--accent)}
+.house,.mom{border-radius:14px;background:color-mix(in srgb,var(--panel) 70%,var(--bg))}
+.house b{color:var(--sand)}
+.d{box-shadow:0 0 8px var(--glow)}
+.flag{border-radius:14px;white-space:normal!important;display:inline-block;max-width:100%;line-height:1.6}
+body{overflow-x:hidden}
+th{color:var(--sand)}
+@media (prefers-reduced-motion:no-preference){.brand .mark{animation:rise 1s ease-out both}@keyframes rise{from{opacity:0;transform:scale(.85) rotate(-12deg)}to{opacity:1;transform:none}}}
+#homeOut>.note:first-child{background:none;border:0;padding:0}
+
+.hero{position:relative;border-radius:16px;overflow:hidden;margin-bottom:14px;background:#000;aspect-ratio:16/9;border:1px solid var(--line)}
+.hero video{width:100%;height:100%;object-fit:cover;display:block}
+.hero .btn{position:absolute;inset-inline-start:10px;bottom:10px;background:#000a;color:#fff;border-color:#fff3;font-size:.8rem;padding:6px 10px}
+.sage{display:flex;gap:12px;align-items:center;margin:0 0 12px;text-align:right}
+.sage .face{position:relative;flex:none;width:84px;height:84px;border-radius:50%;background:var(--panel) center 18%/150% no-repeat;border:2px solid var(--sand);box-shadow:0 0 0 0 var(--glow)}
+.adv{font-weight:900}.adv.neg{color:var(--bad)}.adv.pos{color:var(--good)}
+.sage .bub{position:relative;flex:1;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:10px 12px;font-size:.95rem;line-height:1.9;color:var(--ink)}
+.sage .bub::before{content:"";position:absolute;inset-inline-start:-7px;top:26px;width:12px;height:12px;background:var(--panel);border-bottom:1px solid var(--line);border-inline-start:1px solid var(--line);transform:rotate(45deg)}
+.sage.talk .face{animation:talk .9s ease-in-out infinite}
+@keyframes talk{0%,100%{box-shadow:0 0 0 0 var(--glow);transform:scale(1)}50%{box-shadow:0 0 0 12px transparent;transform:scale(1.04)}}
+.sage .name{display:block;font-size:.75rem;color:var(--sand);font-weight:800}
+
+#intro{position:fixed;inset:0;z-index:100;background:#05070f;display:flex;transition:opacity .8s ease,visibility .8s}
+#intro.out{opacity:0;visibility:hidden}
+#intro video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:46% 50%}
+#intro .shade{position:absolute;inset:0;background:linear-gradient(180deg,#0006 0,transparent 25%,transparent 55%,#000c 100%)}
+#intro .ibtn{position:absolute;top:max(14px,env(safe-area-inset-top));font:inherit;font-size:.82rem;color:#f1e8d2;background:#0007;border:1px solid #f1e8d233;border-radius:99px;padding:6px 14px;cursor:pointer;backdrop-filter:blur(6px)}
+#intro .skip{inset-inline-start:14px}#intro .snd{inset-inline-end:14px}
+#intro .cta{position:absolute;inset-inline:0;bottom:max(34px,env(safe-area-inset-bottom));text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 24px}
+#intro .it{font-size:2.6rem;font-weight:900;color:#e6c27a;margin:0;text-shadow:0 2px 24px #000;opacity:0;animation:fin 1.2s 3.4s forwards}
+#intro .it::before{display:none}
+#intro .is{color:#f1e8d2;font-size:1rem;opacity:0;animation:fin 1.2s 3.8s forwards}
+#intro .go{margin-top:12px;font:inherit;font-size:1.15rem;font-weight:900;color:#1a1a2e;background:linear-gradient(180deg,#e6c27a,#b98f46);border:0;border-radius:16px;padding:14px 46px;box-shadow:0 10px 30px -8px #e6c27a;cursor:pointer;animation:fin .8s both}
+@keyframes fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(sage_face.jpg) center 20%/cover no-repeat;opacity:.1;pointer-events:none;mix-blend-mode:luminosity}
+@media (prefers-reduced-motion:reduce){#intro .it,#intro .is{animation:none;opacity:1}}
+
+.mbtn{position:fixed;inset-inline-end:12px;bottom:max(14px,env(safe-area-inset-bottom));z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--sand);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 8px 20px -8px #000a;display:none}
+.mbtn.on{display:block}
+.mbtn[aria-pressed="false"]{color:var(--muted);text-decoration:line-through}
+.mbtn{width:62px;height:62px;font-size:34px;font-weight:900;border:3px solid var(--sand);background:var(--sand);color:var(--sand-ink);box-shadow:0 8px 22px -6px #000b}
+.mbtn[aria-pressed="false"]{background:var(--panel);color:var(--muted);border-color:var(--muted);text-decoration:none}
+.mbtn[aria-pressed="false"]::after{content:"";position:absolute;left:14%;right:14%;top:50%;height:4px;margin-top:-2px;border-radius:2px;background:var(--bad);transform:rotate(-45deg)}
+
+body.roll #homeOut .note[style*="border:2px"],body.roll #homeOut .sage{animation:land .7s .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes land{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#homeOut .note[style*="border:2px"],#homeOut .sage{animation:none}}
+
+.astro{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;padding:8px 12px;border-radius:18px;background:linear-gradient(180deg,var(--panel),transparent);border:1px solid var(--line)}
+.astro .astxt{display:flex;flex-direction:column;gap:2px}
+.astro .dn{font-size:1.5rem;font-weight:900;color:var(--sand)}
+.astro #astroSub{font-size:.82rem;color:var(--muted);max-width:200px;line-height:1.7}
+.astro svg{flex:none}
+.astro .sec{fill:color-mix(in srgb,var(--panel) 60%,var(--bg));stroke:var(--line);stroke-width:.6}
+.astro .sec.cur{fill:var(--sand);fill-opacity:.55}
+.astro.c-s .sec.cur{fill:var(--good);fill-opacity:.7}.astro.c-m .sec.cur{fill:var(--wait);fill-opacity:.7}.astro.c-n .sec.cur{fill:var(--bad);fill-opacity:.7}
+.astro .dl{font-size:6px;font-weight:800;fill:var(--ink)}.astro .dg{font-size:5px;fill:var(--sand)}
+.astro #astroDial{transition:transform 2.2s cubic-bezier(.2,.8,.2,1)}
+.astro .rim{transform-origin:50px 50px;animation:spin 240s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.daychip{margin:8px 0 0;font-size:.85rem;font-weight:700;border-radius:99px;padding:4px 12px;display:inline-block;background:color-mix(in srgb,var(--panel) 70%,var(--bg))}
+.daychip.c-s{color:var(--good)}.daychip.c-m{color:var(--wait)}.daychip.c-n{color:var(--bad)}
+.hitem{border-top:1px solid var(--line);padding:6px 0;font-size:.85rem}
+.hitem .hd{color:var(--muted);font-size:.75rem}
+.hitem .hb p{margin:4px 0}
+@media (prefers-reduced-motion:reduce){.astro .rim{animation:none}.astro #astroDial{transition:none}}
+
+.stage{display:none;height:150px;margin:6px 0 4px;border-radius:16px;background:radial-gradient(70% 90% at 50% 40%,var(--glow),transparent 75%);overflow:hidden}
+body.roll .stage{display:block}
+.stage .rod{fill:var(--sand);transform-box:fill-box;transform-origin:center;animation:rod 1s ease-in-out both}
+.stage .r2{animation-delay:.08s;fill:color-mix(in srgb,var(--sand) 70%,var(--ink))}
+@keyframes rod{0%{transform:translateY(-70px) rotate(-70deg);opacity:0}25%{opacity:1}60%{transform:translateY(8px) rotate(25deg)}80%{transform:translateY(-4px) rotate(-8deg)}100%{transform:translateY(0) rotate(0);opacity:.0}}
+.stage .sand{fill:var(--sand);opacity:0;animation:fall 1s ease-in both}
+@keyframes fall{0%{opacity:0;transform:translateY(0)}20%{opacity:.9}100%{opacity:0;transform:translateY(120px)}}
+.stage .fd{fill:var(--sand);opacity:0;transform-box:fill-box;transform-origin:center;animation:pop .45s cubic-bezier(.3,1.6,.5,1) both;filter:drop-shadow(0 0 5px var(--sand))}
+@keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+body.roll #homeOut .note[style*="border:2px"],body.roll #homeOut .sage{animation-delay:1.7s!important}
+@media (prefers-reduced-motion:reduce){.stage .rod,.stage .sand,.stage .fd{animation:none;opacity:1}.stage .rod,.stage .sand{opacity:0}}
+.shbtn{margin-top:10px;width:100%}
+#shModal{position:fixed;inset:0;z-index:120;background:#000d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px}
+#shModal[hidden]{display:none}
+#shModal img{max-width:100%;max-height:72vh;border-radius:14px;box-shadow:0 20px 60px #000}
+#shModal .shrow{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+#shModal .shnote{color:#fff;font-size:13px;text-align:center}
+#shModal textarea{width:100%;max-width:420px;font:inherit;font-size:13px;border-radius:10px;padding:8px;background:#fffd;color:#111;border:0;resize:none}
+
+.qp{border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--panel) 60%,var(--bg))}
+.qp summary{list-style:none;cursor:pointer;padding:11px 12px;font-size:15px;color:var(--ink);font-weight:400}
+.qp summary::-webkit-details-marker{display:none}
+.qp summary::after{content:"▾";float:left;color:var(--muted)}
+.qpi{display:block;width:100%;text-align:right;font:inherit;font-size:15px;background:none;border:0;border-top:1px solid var(--line);color:var(--ink);padding:9px 12px;cursor:pointer}
+.qpi.on{background:var(--accent-soft)}
+.qps{font-size:10.5px;color:var(--muted);font-weight:400}
+.qpn{float:left;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--sand);color:var(--sand-ink);font-size:13px;font-weight:800;margin-inline-start:8px}
+
+:root{--c2:#5b3fa8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--c2:#b7a4ff}}
+:root[data-theme="dark"]{--c2:#b7a4ff}
+.stp{--sc:var(--accent);border:2px solid var(--sc);border-radius:16px;padding:12px;margin:12px 0;background:var(--panel)}
+.stp.s2{--sc:var(--c2)}
+.stph{display:flex;align-items:center;gap:10px;margin:0 0 10px}
+.stph.stp3h{--sc:var(--sand);margin-top:16px}
+.stn{width:34px;height:34px;border-radius:50%;background:var(--sc);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;flex:none}
+.stph .kl{font-size:19px!important;font-weight:900!important;color:var(--sc)!important;margin:0!important}
+.stph small{display:block;font-size:12.5px;color:var(--muted);font-weight:400}
+.stp .qp{border:2px solid var(--sc)}
+.stp .qp summary{font-size:17px;font-weight:700;padding:15px 12px}
+.qtw{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qti{font:inherit;border:2px solid var(--sc);border-radius:14px;background:var(--panel);color:var(--ink);padding:15px 8px;font-size:18px;font-weight:800;cursor:pointer;line-height:1.5;text-align:center}
+.qti small{display:block;font-size:12.5px;font-weight:400;color:var(--muted)}
+.qti.on{background:var(--sc);color:var(--bg)}
+.qti.on small{color:var(--bg)}
+.lang{display:flex;gap:6px;justify-content:center;margin-bottom:10px}
+.lang button{font:inherit;font-size:13px;padding:6px 16px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--sand);color:var(--sand-ink);border-color:var(--sand)}
+#v-about .note{margin-bottom:12px}
+#v-about .abbox{border:2px solid var(--sand)}
+#v-about .abbox h2{margin-bottom:6px}
+#v-about p{margin-top:8px}
+.ablist{margin:6px 0 0;padding-inline-start:20px;line-height:2;font-size:.9rem;color:var(--muted)}
+#v-about [dir=rtl],#ab-fa,#ab-fa *{unicode-bidi:isolate}#ab-en,#ab-en *{unicode-bidi:isolate}#v-about .note{overflow-wrap:anywhere}
+.tabs button{overflow:hidden;text-overflow:clip;font-size:12.5px;padding:10px 3px;line-height:1.3;text-align:center}.tabs{gap:3px}
+#adbar{position:fixed;inset-inline:0;bottom:0;z-index:55;display:flex;align-items:center;justify-content:center;gap:8px;padding:5px 34px calc(5px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:1px solid var(--line);font-size:12.5px;line-height:1.5;box-shadow:0 -6px 18px -12px #000a}
+#adbar a{color:var(--sand);font-weight:700;text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#adbar .adl{flex:none;font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:0 6px}
+#adbar .adx{position:absolute;inset-inline-end:6px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--muted);font-size:16px;padding:4px 8px;cursor:pointer}
+#adbar{background:linear-gradient(100deg,#1d2a6b,#0f7c86,#c9892b,#b2336e,#1d2a6b);background-size:300% 100%;animation:adflow 9s linear infinite;border-top:0;box-shadow:0 -8px 22px -10px #000b,inset 0 1px 0 #ffffff55;overflow:hidden}
+#adbar::before{content:"";position:absolute;top:0;bottom:0;width:60px;left:-80px;background:linear-gradient(100deg,transparent,#ffffff59,transparent);animation:adshine 4.5s ease-in-out infinite}
+#adbar a{color:#fff;text-shadow:0 1px 3px #0009;font-size:13.5px;position:relative;transition:opacity .35s,transform .35s}
+#adbar a.adout{opacity:0;transform:translateY(5px)}
+#adbar .adl{color:#2a1a00;background:linear-gradient(135deg,#ffe29a,#f0b64a);border:0;font-weight:800;position:relative;animation:adpulse 2.2s ease-in-out infinite}
+#adbar .adx{color:#fff;text-shadow:0 1px 2px #0008}
+@keyframes adflow{0%{background-position:0 0}100%{background-position:300% 0}}
+@keyframes adshine{0%,55%{left:-80px}100%{left:110%}}
+@keyframes adpulse{0%,100%{box-shadow:0 0 0 0 #ffe29a99}50%{box-shadow:0 0 0 6px #ffe29a00}}
+@media (prefers-reduced-motion:reduce){#adbar,#adbar::before,#adbar .adl{animation:none}}
+body{padding-bottom:64px!important}.mbtn{bottom:calc(50px + env(safe-area-inset-bottom,0px))!important}
+.rt{margin:8px 0 0;font-size:13px}.rt button{background:none;border:0;font-size:24px;line-height:1;color:var(--muted);padding:0 2px;cursor:pointer}.rt button.on{color:var(--sand)}.rt .rtm{font-size:12px;color:var(--muted);margin-inline-start:6px}
+#shModal .shl a{font:inherit;text-decoration:none;display:inline-block;border:1px solid var(--line);background:var(--accent-soft);color:var(--ink);padding:9px 14px;border-radius:12px;font-weight:600}
+
+/* سازگاری با مرورگرهای قدیمی‌تر */
+#errbar{position:fixed;top:0;inset-inline:0;z-index:200;background:#b3392a;color:#fff;padding:8px 12px;font-size:13px;text-align:center}
+body.novoice #sayA,body.novoice #sayB,body.novoice #saySage{display:none!important}
+@supports not (color:color-mix(in srgb,red 50%,blue)){
+  section,.note,.house,.mom,.qp,#homeOut select{background:var(--panel)!important}
+  #homeOut #qRoll,#diceBtn{background:var(--sand)!important}
+  .astro .sec{fill:var(--panel)}
+}
+@supports not (inset:0){
+  #intro,#intro video,#intro .shade,body::before,#shModal{top:0;right:0;bottom:0;left:0}
+  #intro .skip,.hero .btn{right:14px}#intro .snd{left:14px}
+  #intro .cta,#adbar,#errbar{right:0;left:0}
+  .mbtn{left:12px}
+  #adbar .adx{left:6px}
+}
+</style>
+
+<script>
+setTimeout(function(){if(!window.__ok){try{var i=document.getElementById("intro");if(i)i.style.display="none";document.getElementById("errbar").hidden=false}catch(e){}}},8000);
+window.addEventListener("error",function(){setTimeout(function(){try{document.getElementById("errbar").hidden=false}catch(e){}},0)});
+</script>
+<div id="intro" role="dialog" aria-label="ورود"><video id="sageVid" src="sage_intro.mp4" poster="sage_face.jpg" playsinline muted preload="metadata"></video><div class="shade"></div><button id="introSkip" class="ibtn skip" type="button">رد کن</button><button id="introSound" class="ibtn snd" type="button">🔊 صدا</button><div class="cta"><h2 class="it">رمل انوار</h2><p class="is">سنگ بیدار می‌شود</p><button id="introGo" class="go" type="button" hidden>وارد شو</button></div></div>
+<audio id="bgm" src="bgm.mp3" loop preload="none"></audio><button id="musicBtn" class="mbtn" type="button" aria-label="موسیقی" aria-pressed="true">♪</button>
+<main>
+  <header class="brand">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="var(--sand)" stroke-width="1.5"/><circle cx="32" cy="32" r="25" fill="none" stroke="var(--sand)" stroke-width=".6" stroke-dasharray="1 3.4"/><g fill="var(--sand)"><circle cx="32" cy="18" r="3.2"/><circle cx="25" cy="29" r="3.2"/><circle cx="39" cy="29" r="3.2"/><circle cx="25" cy="40" r="3.2"/><circle cx="39" cy="40" r="3.2"/><circle cx="32" cy="51" r="3.2"/></g></svg>
+    <div><h1>رمل انوار</h1><p class="tag">نیت کن، طاس بریز، جواب بگیر</p></div>
+  </header>
+  <details class="src"><summary>منبع و درجهٔ اطمینان</summary><p class="sub">هر عدد و قاعده از کتاب «انوار الرمل» آمده است؛ حاصل خواندن صفحه‌به‌صفحهٔ بیش از پانصد صفحهٔ آن. کنار هر کدام شمارهٔ صفحهٔ چاپی و درجهٔ اطمینان نوشته شده تا با اسکن خودت بسنجی.</p></details>
+
+  <nav class="tabs" aria-label="بخش‌ها">
+    <button id="t-home" aria-pressed="true">پرسش</button>
+    <button id="t-engine" aria-pressed="false">کلید رمال</button>
+    <button id="t-table" aria-pressed="false">۱۶ شکل</button>
+    <button id="t-about" aria-pressed="false">درباره ما</button>
+  </nav>
+
+  <section id="v-home">
+    <div id="astro" class="astro"></div>
+    <div id="homeOut"></div>
+  </section>
+
+  <div id="v-engine" class="notes" hidden>
+    <p class="sub" style="margin:0 0 8px">«کلید رمال» برای رمالی است که علم رمل را می‌داند: ساختن مادرها، شانزده خانه، هشت حکم کامل با متن کتاب، و همهٔ ابزارها.</p>
+    <section>
+      <h2>چهار مادر</h2>
+      <p class="sub">برای هر مادر شکل را از فهرست بردار، یا هر ردیف را لمس کن تا بین یک نقطه (فرد) و دو نقطه (زوج) عوض شود. ردیف‌ها از بالا: آتش، باد، آب، خاک. مادر اول سمت راست است.</p>
+      <div class="mothers" id="mothers" style="margin-top:10px"></div>
+      <div class="tools">
+        <button class="btn" id="ex">نمونهٔ نمودار ص ۱۴</button>
+      </div>
+      <p class="sub" style="margin-top:8px" id="exnote"></p>
+    </section>
+    <section>
+      <h2>قرعه از شانزده سطر</h2>
+      <p class="sub">طبق ص ۹ و ۱۰: شانزده سطر نقطه می‌زنند و از هر سطر «دو دو» برمی‌دارند؛ ماندهٔ یک = فرد (۱ نقطه)، ماندهٔ دو = زوج (۲ نقطه). هر چهار سطر یک شکل است و شانزده سطر چهار مادر می‌شود. تعداد نقطهٔ هر سطر را بنویس. کتاب می‌گوید هر سطر «کم از هفت و زیاده از دوازده» نباشد (ص ۹). [؟] ترتیب: چهار سطرِ اول = مادر اول، سطر اول هر چهارتایی = آتش، دوم = باد، سوم = آب، چهارم = خاک؛ کتاب این را صریح نمی‌نویسد.</p>
+      <div id="cast" style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px"></div>
+      <div class="tools"><button class="btn" id="diceBtn">طاس بریز (دو میله: مادرها و دخترها)</button> <button class="btn" id="castrnd">قرعه بزن (تصادفی)</button> <button class="btn" id="castgo">مادرها را بساز</button></div>
+      <p class="sub" style="margin-top:8px" id="castnote"></p>
+    </section>
+    <section>
+      <h2>قرعه به روش «جامع الاسرار» (ص ۱۰)</h2>
+      <p class="sub">کتاب می‌گوید: نقطه‌ها را شانزده‌شانزده‌تا کم کنند؛ ماندهٔ n (۱ تا ۱۶) را به «تسکین بیوت» بگیرند، یعنی شکلی که ساکنِ خانهٔ n است (ترتیب شانزده شکل ص ۱۹۱–۲۰۹ همان ترتیب سکن ص ۴۶–۴۷ است)؛ بعد «هفتم» آن را، و هفتمِ آن را… تا چهار شکل، و آن‌ها را مادر کنند. یعنی خانه‌های n و n+۶ و n+۱۲ و n+۱۸ (دور ۱۶). مثال کتاب: ماندهٔ ۶ ← عقله، عتبة الخارج، قبض الداخل، [حمره]. <span class="flag warn">[؟] شکل آخر مثال و ترتیب مادرها (اول..چهارم) از متن قطعی نشد؛ زنجیرهٔ «هفتم» با مثال کتاب جور است.</span></p>
+      <div class="tools"><label>ماندهٔ n: <select id="jaN"></select></label> <button class="btn" id="jaGo">مادرها را بساز</button></div>
+      <p class="sub" id="jaNote"></p>
+    </section>
+    <section>
+      <h2>خانه‌ها</h2>
+      <div id="houses"></div>
+    </section>
+    <section>
+      <h2>احکام مثلث‌ها</h2>
+      <p class="sub">هر مثلث دو شکل و حاصل‌ضربشان است: ۱×۲=۹، ۳×۴=۱۰، ۵×۶=۱۱، ۷×۸=۱۲، ۹×۱۰=۱۳، ۱۱×۱۲=۱۴، ۱۳×۱۴=۱۵، ۱۵×۱=۱۶. حکم را کتاب در «احکام مثلثات» (ص ۱۹۱ تا ۲۰۹) زیر بابِ شکلِ حاصل می‌آورد و هر حکم به یک جفت شکل وابسته است. بابِ همهٔ شانزده شکل در برنامه وارد شده است. [؟] کتاب هر جفت را به دو ترتیب آورده با دو متن مختلف؛ این‌که ترتیبِ «شکل اول خانه، شکل دوم خانه» کدام است صریح نیست. من ترتیب راست‌به‌چپ را به خانه‌ها نسبت داده‌ام و هر دو را نشان می‌دهم.</p>
+      <div id="judg" class="notes" style="margin-top:10px"></div>
+    </section>
+  </div>
+
+  <section id="v-table" hidden>
+    <h2>شانزده شکل</h2>
+    <p class="sub">ردیف‌ها از چپ: آتش، باد، آب، خاک. ۱ = یک نقطه (فرد)، ۰ = دو نقطه (زوج). هر ردیف از عنوان باب مربوط در بخش «احکام مثلثات» خوانده شده؛ علامت وسط عنوان خودِ شکل است و با ضرب سنجیده شده.</p>
+    <div class="tablewrap" style="margin-top:8px"><table><thead><tr><th>#</th><th>شکل</th><th>نقطه‌ها</th><th>ردیف‌ها</th><th>صفحه</th><th>وضعیت</th></tr></thead><tbody id="tb"></tbody></table></div>
+  </section>
+
+
+  <section id="v-about" hidden>
+    <div class="lang"><button type="button" id="lg-fa" aria-pressed="true">فارسی</button><button type="button" id="lg-en" aria-pressed="false">English</button></div>
+    <div id="ab-fa">
+      <div class="note abbox">
+        <h2>درباره ما</h2>
+        <p>از هزاران سال پیش، انسان برای پرسیدن از ناشناخته‌ها روش‌هایی حساب‌شده ساخته است و رمل یکی از استوارترین آن‌هاست. ما پیشگو نیستیم؛ پژوهشگریم. تنها آنچه را که کتاب می‌گوید، با شمارهٔ صفحه، بازگو می‌کنیم و هر جا که کتاب خاموش است، ما نیز خاموشیم. این دانش را از نسخهٔ چاپ‌سنگی «انوار الرمل» بیرون کشیده‌ایم؛ کتابی که امروز تنها به‌صورت اسکن باقی مانده است.</p>
+        <p>این برنامه حدس نمی‌زند و سلیقهٔ شخصی به کار نمی‌برد. هر پرسش با چند نقطه آغاز می‌شود و قاعده‌ای ثابت و شمرده، همان نقطه‌ها را به شانزده شکل و هشت حکم می‌رساند. پاسخ نهایی تنها از هشت حکم و قاضی برمی‌آید، همان‌گونه که رمالان می‌کردند. طاس یک‌بار می‌افتد و پرسیدن دوباره، پاسخ را تغییر نمی‌دهد.</p>
+        <p>بیش از پانصد صفحهٔ کتاب را صفحه‌به‌صفحه خوانده و تصحیح کرده‌ایم. هر قاعده شمارهٔ صفحه دارد، هر جای مبهم نشان‌دار شده و چیزی از خود نیفزوده‌ایم. باور نمی‌کنی؟ لازم هم نیست: با اسکن QR به مخزن برنامه و اسکن کتاب می‌رسی و خودت می‌سنجی.</p>
+        <p><b>نویسنده:</b> دکتر علی‌اصغر کرم قشقایی، هنرمند و پژوهشگر، دارای دکتری پژوهش هنر. او به رمزگشایی و بازخوانی دانش‌های باستانی می‌پردازد و این برنامه حاصل حدود سه ماه کار او بر متن اصلی کتاب است.</p>
+        <p><b>آنچه انجام داده‌ایم:</b></p>
+        <ul class="ablist">
+          <li>بیش از پانصد صفحهٔ «انوار الرمل» را از روی اسکن، صفحه‌به‌صفحه خواندیم و تصحیح کردیم.</li>
+          <li>شانزده شکل، شانزده خانه و هشت حکم مثلثی را بر پایهٔ متن کتاب و شمارهٔ صفحهٔ چاپی ساختیم.</li>
+          <li>روش‌های بربر، مغرب و مصر، قاضی و شاهدها، و سعد و نحس را از کتاب بیرون کشیدیم.</li>
+          <li>جدول روزهای هفته را با طالع پرسنده سنجیدیم.</li>
+          <li>طاس دومیله‌ای را با اتصال و انفصال به برنامه آوردیم.</li>
+          <li>هر جای ناخوانا یا مبهم را نشان‌دار کردیم و چیزی از خود نیفزودیم.</li>
+        </ul>
+        <p><b>این رمل است، نه حدس: حسابی دقیق و شمرده، برگرفته از متن اصیل.</b></p>
+      </div>
+      <div class="note">
+        <h3>دربارهٔ کتاب مرجع</h3>
+        <p>مرجع ما «انوار الرمل» است، چاپ سنگی از مطبع منشی نول کشور. نویسنده در دیباچه خود را «فقیر حقیر حاجی عبدالغنی» می‌نامد و می‌گوید پیش‌تر رسالهٔ کوتاهی به نام «خلاصة الرمل» نوشته بود و به خواهش دوستان، این کتاب را گسترده‌تر نگاشت. ساختار کتاب: یک مقدمه، دو مقاله و یک خاتمه؛ مقالهٔ اول در احکام عمومی این فن (بیست‌ویک فصل) و مقالهٔ دوم در احکام عملی، به‌تفکیک خانه‌ها.</p>
+        <p><b>کسانی که در کتاب نامشان آمده:</b></p>
+        <ul class="ablist">
+          <li><b>آدم، ادریس و دانیال (علیهم السلام):</b> در روایت کتاب، رمل معجزهٔ آدم است؛ جبرئیل نقطه‌های رمل را آورد و این علم از آدم به ادریس و از او به دانیال رسید.</li>
+          <li><b>غیاث‌الدین یزدی، فخرالدین عثمان جابک تبریزی و عبدالله کرمانی:</b> از دانشمندانی که کتاب هنگام شمردن روش‌های ساختن شکل‌ها از آنان نام می‌برد.</li>
+          <li><b>ابوحامد حسن بن سفیان مکی و ابوجابر احمد بن یوسف:</b> از مغاربه، یعنی رمالان شمال آفریقا.</li>
+          <li><b>امام زناتی:</b> نام او با روش «تسکین» و «مغرب زناتی» در کتاب آمده است.</li>
+        </ul>
+        <p style="font-size:12px;opacity:.8">در فهرست آغاز کتاب، چند کتاب رمل دیگر همان مطبع هم نام برده شده است: «سراج الرمل» (مولوی روشن علی)، «مصداق الرمل» (محمد عطار رمال لاهوری) و «رسالهٔ محمود الرمل» (محمد ناصر رمال شیرازی). نام‌ها از خوانش اسکن است و هر جا خوانا نبود، نیاورده‌ایم؛ خودت هم می‌توانی صفحه‌های دیباچه را در اسکن بخوانی.</p>
+      </div>
+      <div class="note">
+        <h3>دو راه برای استفاده</h3>
+        <p><b>آماتور:</b> موضوع را برگزین، طاس بینداز و پاسخ روشن (می‌شود، نمی‌شود، دیر، یا نمی‌ماند) را همراه یک خط دلیل بخوان یا بشنو.</p>
+        <p><b>حرفه‌ای:</b> در «کلید رمال» همهٔ ابزارها را خودت به کار ببر و هر نتیجه را وارسی کن. برنامه دستیار توست، نه جانشین تو.</p>
+        <p style="font-size:12px;opacity:.8">این متن با کمک هوش مصنوعی <bdi>Claude</bdi> (ساختهٔ <bdi>Anthropic</bdi>) خوانده، مرتب و برنامه‌نویسی شده است؛ تصمیم دربارهٔ معنا و روش رمل با پژوهشگر بوده است. حکم رمل «دلالت» است، نه قطعیت.</p>
+      </div>
+    </div>
+    <div id="ab-en" dir="ltr" hidden>
+      <div class="note abbox" style="text-align:left">
+        <h2>About us</h2>
+        <p>For thousands of years people have built careful, rule-bound methods for asking the unknown; raml is one of the most refined. We are not fortune-tellers, we are researchers: we report only what the book says, with its page numbers, and where the book is silent, so are we. We brought this knowledge back from under the dust, from an old lithograph copy of <i>Anwar al-Raml</i> that survives today only as a scan.</p>
+        <p>This app does not guess and does not follow taste. Every question begins with a few dots, and a fixed, counted rule carries those dots into sixteen figures and eight judgments. The final answer comes only from the eight judgments and the judge, as the practitioners did. The dice falls once, and asking again does not change the answer.</p>
+        <p>More than five hundred pages of the book were read and corrected page by page. Every rule carries its page number, every doubtful reading is marked, and nothing was invented. Don't want to take our word for it? You need not: scan the QR code to reach the app's repository and the scan of the book, and judge for yourself.</p>
+        <p><b>Author:</b> Dr. Ali-Asghar Karam Qashqai, artist and researcher, holder of a doctorate in art research. His work is the decipherment and re-reading of ancient knowledge, and this app is the product of about three months of his work with the original text.</p>
+        <p><b>What we have done:</b></p>
+        <ul class="ablist" style="padding-left:20px;padding-right:0">
+          <li>Read and corrected more than five hundred pages of <i>Anwar al-Raml</i>, page by page, from the scan.</li>
+          <li>Built the sixteen figures, sixteen houses and eight triangle judgments with the book's text and printed page numbers.</li>
+          <li>Extracted the Barbar, Maghrib and Misr methods, judge and witnesses, and auspicious and inauspicious figures from the book.</li>
+          <li>Matched the table of weekdays to the asker's ascendant.</li>
+          <li>Brought the two-rod dice, with connection and separation, into the app.</li>
+          <li>Marked every unreadable or doubtful reading and invented nothing.</li>
+        </ul>
+        <p><b>This is raml, not guesswork: an exact, counted reckoning, revived from the original text.</b></p>
+      </div>
+      <div class="note" style="text-align:left">
+        <h3>About the reference book</h3>
+        <p>Our reference is <i>Anwar al-Raml</i>, a lithograph from the Munshi Newal Kishore press. In the preface the author calls himself "the humble, lowly faqir Haji Abd al-Ghani" and says he had earlier written a short treatise, <i>Khulasat al-Raml</i>, and wrote this fuller one at the request of friends. The book has one introduction, two treatises and a conclusion: the first treatise on the general rules of the art (twenty-one chapters), the second on practical judgments, house by house.</p>
+        <p><b>People named in the book:</b></p>
+        <ul class="ablist" style="padding-left:20px;padding-right:0">
+          <li><b>Adam, Idris and Daniyal (peace be upon them):</b> in the book's account raml was a miracle of Adam; Gabriel brought the raml points, and the science passed from Adam to Idris and then to Daniyal.</li>
+          <li><b>Ghiyath al-Din Yazdi, Fakhr al-Din Uthman Jabak Tabrizi and Abdullah Kirmani:</b> scholars the book names when it lists the methods of building the figures.</li>
+          <li><b>Abu Hamid Hasan ibn Sufyan Makki and Abu Jabir Ahmad ibn Yusuf:</b> among the Maghribis, the North African practitioners.</li>
+          <li><b>Imam Zanati:</b> his name appears with the "taskin" method and the "Zanati Maghrib".</li>
+        </ul>
+        <p style="font-size:12px;opacity:.8">The catalogue at the front also lists other raml books from the same press: <i>Siraj al-Raml</i> (Maulvi Roshan Ali), <i>Misdaq al-Raml</i> (Muhammad Attar Ramal Lahori) and <i>Risala-yi Mahmud al-Raml</i> (Muhammad Nasir Ramal Shirazi). Names are read from the scan, and where a name was not legible we left it out; you can read the preface pages in the scan yourself.</p>
+      </div>
+      <div class="note" style="text-align:left">
+        <h3>Two ways to use it</h3>
+        <p><b>Amateur:</b> choose a topic, throw the dice, and read or listen to a plain answer ("it will happen", "it will not", "it will, but late", "it will, but not last") with a one-line reason.</p>
+        <p><b>Professional:</b> in "Raml key" work every tool yourself and verify each result. The app is your assistant, not your replacement.</p>
+        <p style="font-size:12px;opacity:.8">The text was read, organized and programmed with the help of the AI assistant Claude (by Anthropic); decisions about the meaning and method of raml remained with the researcher. A raml reading is an indication, not a certainty.</p>
+      </div>
+    </div>
+    <div class="note" style="text-align:center;margin-top:12px"><p><b>به برنامه امتیاز بده</b></p><div class="rt" data-k="app" data-r="0" style="text-align:center"></div></div>
+    <div class="note" style="text-align:center;margin-top:12px">
+      <div id="qrBox" style="display:inline-block;width:140px;height:140px;border:2px dashed var(--line);border-radius:12px;line-height:140px;color:var(--muted);font-size:12px">QR · نشانی سایت</div>
+      <p class="sub" id="siteLine">با این QR به مخزن برنامه و اسکن کتاب می‌رسی.</p>
+    </div>
+  </section>
+</main>
+
+<div id="errbar" hidden>اگر صفحه درست نمایش داده نشد، یک بار صفحه را تازه کن یا مرورگر Chrome را به‌روز کن.</div>
+<div id="adbar" hidden><span class="adl">تبلیغ</span><a id="adLink" target="_blank" rel="noopener" href="#"></a><button class="adx" id="adClose" type="button" aria-label="بستن">×</button></div>
+<script>
+(function(){
+  // bits: fire, air, water, earth. 1 = one dot (fard), 0 = two dots (zawj)
+  var FIG=[
+    ["لحیان","1000","191","book"],["قبض الداخل","0101","192","book"],["قبض الخارج","1010","194","book"],
+    ["جماعت","0000","196 (باب چهارم)","book"],["فرح (کوسج)","1101","198","user"],["عقله","1001","199","book"],
+    ["انکیس","0001","200","book"],["حمره","0100","201","book"],["بیاض","0010","202","book"],
+    ["نصرة الخارج","1100","203","book"],["نصرة الداخل","0011","204","book"],["عتبة الخارج","1110","205","book"],
+    ["نقی الخد","1011","206","book"],["عتبة الداخل","0111","207","book"],["اجتماع","0110","208","book"],["طریق","1111","209","book"]];
+  var NAME={}; FIG.forEach(function(f){NAME[f[1]]=f[0]});
+  var ROWN=["آتش","باد","آب","خاک"];
+  function xor(a,b){var r="";for(var i=0;i<4;i++)r+=(a[i]===b[i])?"0":"1";return r}
+  function fig(b){var h='<span class="fig" aria-hidden="true">';for(var i=0;i<4;i++){h+='<span class="row">'+(b[i]==="1"?'<i class="d"></i>':'<i class="d"></i><i class="d"></i>')+'</span>'}return h+'</span>'}
+  function esc(s){return s.replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
+
+  var M=["1101","0000","1010","1010"]; // example from the tree on p.14
+  var HOUSE_NOTE={1:"نفس [ص ۱۱]",2:"مال و معاش [ص ۱۱]",3:"نقل و حرکت [ص ۱۱]",4:"پدر، منزل و ملک و مسکن، وطن اصلی، گنجینه [ص ۲۵۵]",5:"فرزند، معشوق، لهو [ص ۱۲]",6:"بیماری، بندگی [ص ۱۲]",7:"ضدِ خانهٔ اول [ص ۱۲]",8:"ترس و خطر، مرگ [ص ۱۲]",9:"علم و دین [ص ۱۲]",10:"پادشاهان و جاه [ص ۱۲]",11:"امید و سعادت [ص ۱۲]",12:"دشمنان و چهارپایان [ص ۱۲]",13:"طالب [ص ۱۲]",14:"مطلوب [ص ۱۲]",15:"قضا، رئیس اشکال [ص ۱۲]",16:"عاقبت [ص ۱۲]"};
+  var INTENTS=[
+    {h:1,t:"خودِ من؛ حال و جان خودم",r:"فصل ۱ مقالهٔ دوم"},
+    {h:2,t:"مال و روزی؛ پول، خرید و فروش، قرض",r:"فصل ۲ (ص ۶۲ تا ۶۶)"},
+    {h:3,t:"برادران و خویشان؛ سفر کوتاه و نقل مکان",r:"فصل ۳"},
+    {h:4,t:"پدر، خانه و ملک؛ زمین، گنج، سرانجام کار",r:"فصل ۴"},
+    {h:5,t:"فرزند و دلدار؛ بارداری، هدیه، خبر و نامه",r:"فصل ۵ (ص ۷۹ به بعد)"},
+    {h:6,t:"بیماری؛ بیمار و پزشک",r:"فصل ۶ (ص ۸۷ تا ۱۰۰)",k:["بیمار","بیماری","رنجور","صحت","سلامت","سلامتی","مرض","طبیب","شفا"]},
+    {h:6,t:"غلام و کنیز؛ بندگان و چهارپایان",r:"فصل ۶ (ص ۸۷ تا ۱۰۰)",k:["غلام","کنیز","بنده","بندگان","چارپا","چهارپا","حیوان","زیردستان"]},
+    {h:7,t:"ازدواج؛ زن و شوهر",r:"فصل ۷ (ص ۱۰۱ و ۱۰۳)",k:["نکاح","تزویج","زن","زنان","شوهر","عروسی","همسر","دختر"]},
+    {h:7,t:"شراکت؛ شریک",r:"فصل ۷ (ص ۱۰۰)",k:["شریک","شریکان","شرکت","همدلی"]},
+    {h:7,t:"دعوا و دادخواهی؛ خصم و قاضی",r:"فصل ۷",k:["دعوی","خصومت","خصم","قاضی","داور","جنگ","حکام","حاکم"]},
+    {h:7,t:"دزدی؛ مال دزدیده‌شده",r:"فصل ۷",k:["دزد","دزدی","سارق","دزدیده"]},
+    {h:7,t:"غایب؛ حال و خبر کسی که دور است",r:"فصل ۷؛ کتاب غایب را در چند خانه (۲، ۷، ۹) می‌بیند ص ۶۶ و ۶۷",k:["غائب","غایب","گریخته"]},
+    {h:8,t:"ترس و خطر؛ مرگ، میراث، قرض",r:"فصل ۸ (ص ۱۱۷)"},
+    {h:9,t:"سفر دور؛ علم و دین، خواب",r:"فصل ۹ (ص ۱۲۰)"},
+    {h:10,t:"شغل و کار؛ پادشاه و مقام، جنگ و صلح",r:"فصل ۱۰ (ص ۱۲۴ تا ۱۳۰)"},
+    {h:11,t:"امید و دوستان؛ معشوق",r:"فصل ۱۱ (ص ۱۳۳)"},
+    {h:12,t:"دشمنان؛ چهارپایان بزرگ، زندانی",r:"فصل ۱۲ (ص ۱۳۵)"}];
+
+  var HORD=["","اول","دوم","سوم","چهارم","پنجم","ششم","هفتم","هشتم","نهم","دهم","یازدهم","دوازدهم"],HRT=["","نفس","مال","نقل و حرکت","پدر و منزل","فرزند","بیماری و بندگی","ضدِ طالع","ترس و مرگ","علم و دین","پادشاه و جاه","امید و سعادت","دشمنان"];
+  var D=null,THROWN=false;
+  function build(){
+    var h=[]; for(var i=0;i<4;i++)h[i]=M[i];
+    for(var k=0;k<4;k++){h[4+k]=D?D[k]:(M[0][k]+M[1][k]+M[2][k]+M[3][k])}      // 5-8: ranks of the mothers
+    h[8]=xor(h[0],h[1]); h[9]=xor(h[2],h[3]); h[10]=xor(h[4],h[5]); h[11]=xor(h[6],h[7]); // 9-12
+    h[12]=xor(h[8],h[9]); h[13]=xor(h[10],h[11]); h[14]=xor(h[12],h[13]); h[15]=xor(h[14],h[0]); // 13-16
+    return h;
+  }
+
+  function renderMothers(){
+    var el=document.getElementById("mothers"); el.innerHTML="";
+    for(var m=0;m<4;m++){(function(m){
+      var d=document.createElement("div"); d.className="mom";
+      var lab=document.createElement("label"); lab.textContent="مادر "+["اول","دوم","سوم","چهارم"][m]; lab.htmlFor="sel"+m; d.appendChild(lab);
+      var s=document.createElement("select"); s.id="sel"+m;
+      FIG.forEach(function(f){var o=document.createElement("option");o.value=f[1];o.textContent=f[0];if(f[1]===M[m])o.selected=true;s.appendChild(o)});
+      s.onchange=function(){M[m]=s.value;D=null;renderAll()}; d.appendChild(s);
+      for(var r=0;r<4;r++){(function(r){
+        var b=document.createElement("button"); b.className="rowbtn"; b.type="button";
+        b.setAttribute("aria-label",ROWN[r]+" مادر "+(m+1));
+        b.innerHTML='<small>'+ROWN[r]+'</small>'+'<span class="fig"><span class="row">'+(M[m][r]==="1"?'<i class="d"></i>':'<i class="d"></i><i class="d"></i>')+'</span></span>';
+        b.onclick=function(){var a=M[m].split("");a[r]=a[r]==="1"?"0":"1";M[m]=a.join("");D=null;renderAll()};
+        d.appendChild(b)})(r)}
+      el.appendChild(d)})(m)}
+  }
+
+  function renderHouses(){
+    var h=build(); var out="";
+    var groups=[["امهات (۱ تا ۴)",0],["بنات (۵ تا ۸)",4],["متولدات (۹ تا ۱۲)",8],["۱۳ تا ۱۶",12]];
+    groups.forEach(function(g){
+      out+='<div class="grp">'+g[0]+'</div><div class="grid4">';
+      for(var i=g[1];i<g[1]+4;i++){
+        var n=NAME[h[i]]||"؟"; var note=HOUSE_NOTE[i+1]||"";
+        out+='<div class="house"><b>خانه '+(i+1)+'</b>'+fig(h[i])+'<span class="n">'+esc(n)+'</span><small>'+esc(note)+'</small></div>';
+      }
+      out+='</div>';
+    });
+    document.getElementById("houses").innerHTML=out;
+  }
+
+  var SAD9={"1000":1,"0101":1,"1101":1,"0010":1,"1100":1,"0011":1,"0111":1,"0110":1,"1111":1};
+  function sn(b){return SAD9[b]?"سعد":"نحس"}
+  var HSN={1:"سعد",4:"سعد",7:"سعد",10:"سعد",13:"سعد",16:"سعد",2:"میانه",5:"میانه",8:"میانه",11:"میانه",14:"میانه",3:"نحس",6:"نحس",9:"نحس",12:"نحس",15:"نحس"};
+  function ruleP(a,b,c){var pa=SAD9[a]?1:0,pb=SAD9[b]?1:0,k=SAD9[c]?1:0,n=pa+pb;
+    if(k){return n===0?"فرزند سعد از دو والد نحس: «آن را اثری نباشد در سعادت»":n===1?"فرزند سعد از یک سعد و یک نحس: «متوسط باشد میان سعادت و نحوست»":"فرزند سعد از دو والد سعد: «سعادتش جدا (قوی) بود»"}
+    return n===2?"فرزند نحس از دو والد سعد: «در نحوست اثری نیک باشد»":n===1?"فرزند نحس از یک سعد و یک نحس: «بر توسط باشد» (میانه) [؟ واژهٔ بعد از «توسط» زیر لکه است]":"فرزند نحس از دو والد نحس: «نحوست آن جدا (قوی) بود»"}
+  function renderTable(){
+    var rows="";
+    FIG.forEach(function(f,i){
+      var st=f[3]==="book"?'<span class="flag warn">در انتظار تأیید محقق</span>':f[3]==="user"?'<span class="flag ok">تأیید محقق (نام)</span>':'<span class="flag warn">از متن ص ۶ و ۱۴</span>';
+      rows+='<tr><td>'+(i+1)+'</td><td>'+esc(f[0])+' <span class="flag '+(SAD9[f[1]]?'ok':'warn')+'">'+sn(f[1])+' · ص ۳۵۷</span></td><td>'+fig(f[1])+'</td><td class="bits">'+f[1].split("").join(" ")+'</td><td class="mono">'+f[2]+'</td><td>'+st+'</td></tr>';
+    });
+    document.getElementById("tb").innerHTML=rows;
+  }
+
+  var NOTES=[
+    ["واژه‌نامه (معنی واژه‌های کتاب، به گفتهٔ تو)","ok","از کاربر",
+     "«دعوی زبرای میراث» = مشاجره و دعوا بر سر ارث. «جودله» = فرح، و فرح همان کوسج است (یعنی «جودله» نام دیگر شکل ۱۱۰۱). «زنان ستور مانند» = زنان تحت سلطه."],
+    ["معنی واژه‌های دشوار (به گفتهٔ محقق، نه از کتاب)","warn","معنی از کاربر","«دعوی زبرای میراث» یعنی مشاجره بر سر ارث (ص ۲۰۱). «جودله» همان «فرح» است و فرح همان «کوسج» (ص ۲۰۲). «زنان ستور مانند» یعنی زنان تحت سلطه (ص ۲۰۲). «غائب» در همهٔ کتاب: کسی که پرسنده در فراق او است، عشق یا محبت نسبی، و پرسنده از او دور است. «نیت از غائب»: ذهن فال‌زننده یا پرسنده معطوف به غائب است و می‌خواهد بداند حال و احوال او چطور است. «باز» (ص ۱۹۲): روشن، واژهٔ تأکید بر حکم. «تزویج»: زن را شوی دادن و مرد را زن دادن."],
+    ["ساختن دختران (۵ تا ۸)","ok","با نمودار ص ۱۴ جور درآمد","هر دختر از یک ردیف مادرها ساخته می‌شود: دختر اول از ردیف آتش مادر اول تا چهارم، دختر دوم از ردیف باد، و همین‌طور. متن ص ۱۱ فقط می‌گوید ۵ تا ۸ «از مراتب امهات» می‌آیند. ترتیب را از نمودار ص ۱۴ گرفتم: هر هشت شرط جور درآمد و دختر اول شد «نقی الخد» که متن هم «شکل پنجم» نامیده."],
+    ["خانهٔ ۹ تا ۱۲","ok","با نمودار ص ۱۴ جور درآمد","۹ = ۱×۲، ۱۰ = ۳×۴، ۱۱ = ۵×۶، ۱۲ = ۷×۸ (ضرب یعنی جمع نقطه‌ها به پیمانهٔ ۲). در ردیف دوم نمودار ص ۱۴ هر چهار شکل پیدا بود. ص ۱۱ فقط می‌گوید این چهار «از این هشت متولد می‌شوند»."],
+    ["خانهٔ ۱۳ تا ۱۶","ok","بسته‌شده به تصمیم تو","ص ۱۱ فقط اسم‌ها را می‌گوید (میزان‌ها و «چهار آخر») و فرمولی نمی‌دهد. نمودار درخت ص ۱۴ از هشت شکل بالا به چهار، دو و یک می‌رسد، پس ۱۳ = ۹×۱۰، ۱۴ = ۱۱×۱۲ و ۱۵ = ۱۳×۱۴ با نمودار کتاب جور است (از روی نمودار، نه از متن). برای ۱۶ (فرض من: ۱۵×۱) نه متن و نه نمودار چیزی نشان نمی‌دهد و فقط یک نمونه با آن جور درآمده؛ تصمیم: کاربر پذیرفت ۱۶ = ۱۵×۱ بر پایهٔ همان یک نمونهٔ ص ۱۴ بماند و ابهام بسته شود (بدون نصِ صریحِ کتاب). متن ص ۱۴ هم می‌گوید خانهٔ ۱۴ لحیان، ۱۵ قبض الداخل و ۱۶ لحیان است و با نمودار (۱۴=۱۰۰۰، ۱۵=۰۱۰۱، ۱۶=۱۵×۱=۱۰۰۰) جور می‌آید؛ پس این بخش با متن هم تأیید شد. نام‌های ۱۳ تا ۱۶ (طالب، مطلوب، قضا، عاقبت) از ص ۱۲ است."],
+    ["«رکن، طبع، ضد» و «صاحب رکن» (ص ۱۳ و ۱۴)","ok","پیدا شد: ص ۱۳ خودش تعریف می‌کند","ص ۱۳ (بالای متن، با عددهای ریز روی واژه‌ها خوانده شد): «خانهٔ اول رکن است و دوم طبع و سوم ضد؛ و خانهٔ چهارم رکن است و پنجم طبع و ششم ضد؛ و خانهٔ هفتم رکن است و هشتم طبع و نهم ضد؛ و خانهٔ دهم رکن است و یازدهم طبع و دوازدهم ضد؛ و سیزدهم رکن است و چهاردهم طبع و پانزدهم ضد». یعنی خانه‌های رکن = ۱، ۴، ۷، ۱۰، ۱۳ (همان «سعد»ها در ص ۳۵۷)، طبع = ۲، ۵، ۸، ۱۱، ۱۴ (میانه)، ضد = ۳، ۶، ۹، ۱۲، ۱۵ (نحس). پس سه‌تایی‌های ص ۲۱۲ و ۳۵۷ همان رکن/طبع/ضد است و ۱۶ در این دسته‌بندی نیست. کتاب هم می‌گوید «در رمل انواع پنج است: عرض، سبب، … حاصل، لاحاصل» و از هر کدام (و از رکن و طبع و ضد) پنج‌تا بیرون می‌آید [؟ واژهٔ سوم خوانده نشد]. روش ص ۱۳–۱۴ برای عرض و سبب و ضمیر: «صاحب رکن k را در خانهٔ ۱۲+k ضرب کنند» — در مثال: جماعت (صاحب رکن دوم) × خانهٔ ۱۴ (لحیان) = لحیان؛ انکیس (صاحب رکن سوم) × خانهٔ ۱۵ (قبض الداخل) = حمره؛ نصرة الخارج (صاحب رکن چهارم) × خانهٔ ۱۶ (لحیان) = حمره — هر سه با XOR درست درمی‌آید. ولی شکل‌های رکن‌های ۳ و ۴ مثال (۰۰۰۱ و ۱۱۰۰) در نمودار چاپی خانه‌های ۷ و ۱۰ نیستند؛ احتمالاً مثال متن با نمودار «اتفاقی» یکی نیست یا «صاحب رکن» شکلِ حاصل است، نه ساکن خانه [؟]. این روش در برنامه نیست؛ تصمیم با تو."],
+    ["ترتیب سطرها در قرعه (ص ۹، ۱۰)","warn","کتاب صریح ننوشته","روش خوانده‌شده: شانزده سطر نقطه، دو دو برداشتن، ماندهٔ یک = فرد و دو = زوج، هر چهار سطر یک شکل و شانزده سطر چهار مادر (ص ۹، خوانا). با خواندن دوبارهٔ ص ۱۰ (روش دوم: یک سطر ۳۲ نقطه‌ای): «بار اول دو دو طرح کردیم یکی ماند و آن فرد…؛ بار دوم چهار چهار… زوج؛ بار سوم هشت هشت… فرد؛ بار چهارم شانزده شانزده… فرد؛ پس اول فردی، دوم زوجی، سوم فردی، چهارم نیز فردی؛ بیرون آمد از آن شکل» — یعنی کتاب صریحاً می‌گوید نوبت اول ردیف اول است، دوم ردیف دوم، و همین‌طور. این ترتیب نوبت‌ها با برداشت برنامه (سطر اول ← ردیف اول) جور است. اینکه چهار سطرِ اول مادر اول است و ردیف اول همان «آتش» بالاست هنوز صریح نوشته نشده [؟]. ص ۹: «مولانا حسین فقال و صاحب مصباح و صاحب کشاف» برای استخراج مادرها «چهار سطر نقطه کشیده‌اند و از طرح نقاط هر خطی شکلی استخراج کرده» — یعنی هر خط یک شکل (نه هر چهار خط یک شکل)، و آن را به خط پیامبر («من وافق خطه فذاک») نسبت داده‌اند؛ پس چهار خط = چهار مادر. این همان روش چهار نوبتی ص ۱۰ است (هر خط ← یک شکل)، و روش اول ص ۹ (شانزده سطر) روشِ مشهور است. [؟ جملهٔ پیش از «سلسله» و پایان بند کامل خوانده نشد.] روش «جامع الاسرار» (امام رشیدالدین…) در ص ۱۰ هم خوانده نشد. کتاب از چند استاد (حسین فقال، صاحب مصباح، صاحب کشاف) روش‌های دیگری هم آورده که هنوز خوانده نشده. دامنهٔ «هفت تا دوازده» نقطه در هر سطر ص ۹ است، نظرهای دیگر هم در همان صفحه هست."],
+    ["«کوسج» = «فرح» (به گفتهٔ تو)","ok","اسم دوم فرح","«کوسج» فقط در ص ۱۴ (شکل بعد از آن ۱۱۰۱ خوانده می‌شود و ضرب هم جور است) و در جدول ص ۵۱۷ (خانهٔ پنجم، بدون «فرح») آمده. باب احکام و فصل‌های خانه‌ها فقط «فرح» دارند. در ص ۶ (دایرهٔ تسکین) اسمی نیست. کتاب نه صریح گفته کوسج=فرح و نه گفته کوسج≠فرح. تصمیم: کاربر تأیید کرد که کوسج همان فرح است و در برنامه اسم دومِ فرح ثبت شد؛ پایه‌اش ص ۱۴ و ۵۱۷ و گفتهٔ اوست، نه نصِ صریحِ کتاب. اگر صفحه‌ای از کتاب خلافش را نشان داد همین‌جا عوض می‌شود."],
+    ["شکل اول نمودار ص ۱۴","ok","چهار علامت دارد (حل شد)","با خوانش دوباره روی اسکن بالانش کردم: شکل اول (سمت راست ردیف بالای نمودار) چهار علامت دارد: نقطه، نقطه، خط، نقطه = ۱۱۰۱. خوانش قبلی من (سه علامت) اشتباه بود؛ دو نقطهٔ بالا به هم نزدیک چاپ شده‌اند. ابهامی نماند."],
+    ["خانه‌های ۱ تا ۴ (ص ۱۱)","ok","خانهٔ ۴ در ص ۲۵۵ آمده (حل شد)","خوانده‌شده روی اسکن: خانهٔ ۱ «لحیان» (یک نقطه فقط در آتش، مرتبهٔ اول از عناصر)، خانهٔ ۲ «قبض الداخل» (خانهٔ مال و معاش و اخذ)، خانهٔ ۳ «قبض الخارج» (خانهٔ نقل و حرکت و خروج). خانهٔ ۴: ص ۱۱ فقط می‌گوید «این خانه خاکی است و خاک اثقل عناصر است». معنای خانه را کتاب در ص ۲۵۵ زیر عنوان «و حیز خاک چهارم» آورده: «دلیل پدر و مقام و منزل و ملک و مسکن و وطن اصلی و گنجینه و نهانی خانه و خلوتگاه و جای خراب و پریشان و ظروف و آلات و اعمال … و عاقبت سال و ماه … و خویشان و همسایهٔ او بود» (روی اسکن دیدم؛ بخشی از کلمه‌های میانه ناخوانا). شکل خانهٔ ۴ در ص ۱۱ هنوز با اطمینان خوانده نشده [؟]."],
+    ["ترتیب والدین در مثلث (ص ۲۱۰)","ok","کتاب صریح گفته (حل شد)","کادر «فایده در بیان طریق مثلثات» ته ص ۲۱۰: «مثلثات از اول، دوم یعنی نهم؛ و از سوم و چهارم یعنی دهم؛ و از پنجم و ششم یعنی یازدهم؛ و از هفتم و هشتم یعنی دوازدهم؛ و از نهم و دهم یعنی سیزدهم؛ و از یازدهم و دوازدهم یعنی چهاردهم؛ [و از سیزدهم و چهاردهم] یعنی پانزدهم؛ و این مثلثات قوی است در همه کار». یعنی خانهٔ کوچک‌تر «اول» است. در سه‌تایی‌های بابِ احکام، شکل اول (راست) با اول، و شکل چپ با دوم برابر گرفته شده [؟ برابری راست=اول از ترتیب خواندن راست‌به‌چپ است، کتاب نگفته]. خط کادر کج چاپ شده و چند کلمه‌اش با [؟] خوانده شد."],
+    ["سعد و نحس شانزده شکل (ص ۳۵۷)","ok","خوانده شد","ص ۳۵۷: «از اشکال شانزده‌گانه نه شکل سعد اند و آن این است، باقی نحس». شکل‌ها خوانده شد: لحیان، قبض الداخل، فرح، بیاض، نصرة الخارج، نصرة الداخل، عتبة الداخل، اجتماع، طریق = سعد؛ جماعت، قبض الخارج، عقله، انکیس، حمره، عتبة الخارج، نقی الخد = نحس. [؟ خوانش نقطه‌های ریز ص ۳۵۷ با نمایهٔ ۱۶ شکل تطبیق داده شد؛ تو روی اسکن بسنج]. در ص ۳۵۶ جدول جدا هست («اشکالی که در روزها قوی و ضعیف اند»: سعد قوی/میانه/نحس برای هر روز) که هنوز به‌طور کامل خوانده نشده و در برنامه نیست."],
+    ["سعد و نحس خانه‌ها (ص ۲۱۲ و ۳۵۷)","ok","هر دو صفحه یکی است","ص ۳۵۷: شش خانهٔ سعد: ۱، ۴، ۷، ۱۰ و «۱۳ و ۱۶ را نیز سعد گفته‌اند»؛ پنج خانهٔ میانه: ۲، ۵، ۸، ۱۱، ۱۴؛ پنج خانهٔ نحس: ۳، ۶، ۹، ۱۲، ۱۵. ص ۲۱۲ برای دوازده خانهٔ اول همین را می‌گوید (نحس: ۳، ۶، ۹، ۱۲؛ میانه: ۲، ۵، ۸، ۱۱ [؟ ارقام ریز]). در برنامه همین به‌کار رفته."],
+    ["سعد و نحس خانه‌ها در ص ۴۹۷ فرق دارد","warn","دو فهرست در یک کتاب","ص ۴۹۷ («فایده: در خانهٔ سعد و نحس»): اول و ۵ و ۱۰(؟) و ۱۱ سعد مطلق؛ ۳ و ۷ و ۹ سعد میانه؛ ۸ و ۱۰(؟) هم میانه؛ کمتر از آن ۴(؟) و ۶ و ۸ و ۱۲ نحس مطلق؛ و بعد از آن دو خانهٔ ۶ و ۱۳(؟). با بزرگ‌نمایی (۳ سطر جدا) دوباره خواندم: «۱ و ۵ و ۱۰ و ۱۱ سعد مطلق»، «۳ و ۷ و ۹ سعد میانه»، «۶ و ۸ و ۱۲ نحس مطلق» روشن‌تر شد؛ جملهٔ میان آنها («و ۸ … دو خانهٔ ۶ و ۱۳ کمتر از آن») هنوز مبهم است [؟]. این با ص ۲۱۲ و ۳۵۷ نمی‌خواند؛ احتمالاً درجهٔ دیگری (قوت خانه) است نه همان سعد و نحس. در برنامه به‌کار نرفته؛ تصمیم با تو."]
+  ];
+  function renderNotes(){
+    if(!document.getElementById("nl"))return;
+    document.getElementById("nl").innerHTML=NOTES.map(function(n){return '<div class="note"><h3>'+esc(n[0])+' <span class="flag '+n[1]+'">'+esc(n[2])+'</span></h3><p>'+esc(n[3])+'</p></div>'}).join("");
+  }
+
+  var JUDG={"1000":{"1111|0111":{"t":"این مثلث دلالت کند بر سفر و حرکت و نقل از جایی به جایی و نیکویی عاقبت اندر آن بود و خیر خوبی یافتن و بازگشتن به زودی و سر بردن دعوا و به عزت رسیدن بعد از مدتی","c":"high","p":191},"0111|1111":{"t":"دلالت کند بر کشایش کار و کسب و حصول ضایع شده و گریخته و گم شده و قدوم غایب و تزویج و عروسی اما سفر نباید کرد که زحمت بیند","c":"high","p":191},"0000|1000":{"t":"دلالت می‌کند بر خیر و خوبی و کشایش کار و کسب و سود و مشتری و زن خواستن و جمع شدن کارهای خیر چون عروسی و دعوی شرعی","c":"high","p":191},"1000|0000":{"t":"دلالت کند بر سفر و حرکت که در آن خیر باشد و اگر سؤال از جمعیت یا از غایب بود میسر شود و به هم رسد اما بعد از مدتی و مراد در بر بر آید اما نکاح و خرید و فروخت و شریک را نیکو بود","c":"mid","p":191},"0100|1100":{"t":"دلالت کند بر قبض زر سیم و قیل و قال و دست در کار بزرگان زدن یا تجارت کردن و انتفاع یافتن از آن و ضایع شده به دست آید اگر سؤال سعد بود و اگر نحس باشد دلیل بر خصومت بود","c":"high","p":191},"1100|0100":{"t":"دلالت کند بر کشایش و نیکویی عاقبت خیر بود و راحت دیدن از پادشاه و دل خوشی از دوستان و به آنچه که امید دارد برسد و اگر سؤال از ضایع شده و گریخته بود به دست آید و غایب به سلامت باشد و نکاح را نیک بود و حامله پسر زاید به خیر و خوبی","c":"mid","p":191},"0110|1110":{"t":"دلالت کند بر قبض مال میراث و تحصیل آن و جمعیت با دوستان اما بیمار را بد بود و در سفر خسارت مال باشد","c":"high","p":191},"1110|0110":{"t":"دلیل است بر سفر کردن و حرکت به سبب قبض مال و دعوا و مناظره کردن و چیزی ضایع شده حصول نشود مگر تمام و غایب به سلامت باز آید و خرید و فروخت نیک بود و در آن منفعت کم باشد و نیز دلالت کند بر جمعیت فضلا و کتاب و نیز بر مال دزدیده یا دزد یا کار رسی نکرده","c":"mid","p":191,"n":"«کار رسی نکرده» ناخوانا"},"0010|1010":{"t":"دلالت کند بر خبر و راحت و پیغام که از دوستان باز غایب و دلتنگی از قبیل زنان و مال ایشان و مقصود شود و بیمار را صحت بود","c":"mid","p":191},"1010|0010":{"t":"دلالت کند بر سفر و حرکت که از آن فایده بود و بر خیر و راحت حاصل باشد و از خرید و فروخت از غلام و کنیز فایده حاصل شود از برای بیمار بیم بود","c":"high","p":191},"1001|0001":{"t":"دلالت کند بر غم و اندوه از برای چهارپایان یا غلام و کنیز یا کودک یا گریخته یا برای حامله نیز دلیل زندانی بود و بر جنگ و خصومت نیز دلیل است دعوی از قبیل آن و از برای مال خسارت","c":"mid","p":191},"0001|1001":{"t":"دلیل بود و غم و بستگی کار و کسب و بدی احوال و بر گفتگوی از جانب غایب و دوستان و برادران یا از برای زن فاحشه و اگر سؤال از مریض اندر بیم بود و اگر دیگر باز نیاید و اگر بیاید به دست آید سفر اگر کرده بسیار","c":"mid","p":191,"n":"منفعت از زمین، مانند اجاره — به گفتهٔ محقق"},"0101|1101":{"t":"دلالت کند بر نیکویی عاقبت و کشایش کار و کسب و مراد رسیدن از بزرگان و دوستان و حصول مال و جاه و شرکت و معاملت و تزویج را نیک بود","c":"high","p":192},"1101|0101":{"t":"دلیل بود بر خیر و خوبی و به امید رسیدن از همه انواع و اگر سؤال از قبض مال بود زود به دست آید و حصول جمیع مطالب از قبیل مال از دوستان و معشوقان برخورداری بیند و دلالت کند بر سفر و فایده و راحت از بزرگان و جمع به همدلی با شریکان و این مثلث سعد تمام است","c":"mid","p":192},"1011|0011":{"t":"دلالت کند بر مشغولی دل از قبیل زنان و امردان و غلامان و کنیزان و چهارپایان و حصول ضایع شده و نکاح افتادن با زن بزرگ‌قدر و نکاح شدن با زن بزرگ‌قدر و مرتبه و اگر سؤال از جهت قبض مال و سفر بود قبض مال بسیار نیک و مبارک باشد","c":"mid","p":192},"0011|1011":{"t":"دلالت کند بر سفر و قبض از قبیل بیت المال و گفته‌اند خسارت مال و چهارپایی و غلام و کنیز و دلتنگی از طرف غایب با دوستی عزیزی و اگر سؤال از غایب بود یا از دوستان به هم رسند و جمع شوند یا نه حکم کنند که جمع شوند و اگر بیمار بود بیماری دراز کشد والله اعلم","c":"mid","p":192,"n":"گرفتن پول از صندوق و خزانهٔ دولتی؛ د"}},"0101":{"1010|1111":{"t":"این مثلث دلیل بود بر قبض مال که از دست رفته باشد یا بند چهارپایان و غلام و کنیز و بر کار و کسب و علم و ادب آموختن و اگر سؤال از غایب بود دید حال باشد اما عاقبت او خوب به خیر بود و از دوستان مکروه رسد و گفته‌اند که بیمار و حامله بلا بود و سفر و حرکت بی‌فایده بود و سرگردانی باشد در آن و ضایع شده به سختی حصول یابد","c":"mid","p":192},"1111|1010":{"t":"دلالت کند بر سفر و حرکت و خیال مال و گریختن زیردستان و بندگان و اگر سؤال از بیمار بود صحت یابد و حامله آسان بزاید و دلیل بود بر سلامتی نفس و رسیدن پیغام و نامه از دوستان و غایب","c":"mid","p":192},"0101|0000":{"t":"دلیل کند بر سفر و حرکت و دعوی شرعی و خیر و فایده رسیدن به منفعت و خریدن غلام و کنیز و چهارپایان و زن خواستن و عشرت کردن و نیکویی عاقبت و کشایش کارها و رسیدن به سلامت و قبض کردن مال به جهت سرمایهٔ شغل و عمل و راحت از جانب دوستان و باز","c":"mid","p":192,"n":"شکل ۰۱۰۱؛ روشن؛ واژهٔ تأکید بر همین حکم؛ بند «روز یکشنبه» به خواست محقق از نمایش برداشته شد"},"0000|0101":{"t":"دلیل است بر قبض مال و خیر و فایده رسیدن از خرید و فروخت و تجارت کردن و سلامتی نفس و روزی به زودی رسد از کسب و کار و خریدن چهارپایی و پیوستن به دوستان و زیاده شدن محبت و اگر اجتماع در سوم بود در روز چهارشنبه واقف حال ضمیر شود و عشرت با دوستان و راحت و تزویج و شرکت و حصول ضایع شده","c":"mid","p":192,"n":"زن را شوی دادن و مرد را زن دادن"},"0011|0110":{"t":"دلیل بود بر شرکت و زن خواستن و معاملت کردن و به امید رسیدن از دوستان و عشقبازی کردن و آمدن غایب با خبر خوش و بر کسب و کار و خریدن چهارپایان و غلام و کنیز و خبر خوش و راحت یافتن از پادشاه و اصحاب علم و اگر نیت غایب بود به سلامت برسد و نامه و عروسی بود بعد جمیل باشد زن عاقبت به خیر","c":"mid","p":192,"n":"ذهن پرسنده معطوف به غائب است"},"0110|0011":{"t":"دلالت کند بر قبض مال و کشایش کارها و راحت یافتن و فایده گرفتن از حیوان و ضایع شده به دست آید و بر جمعیت و شادی و رسیدن غایب از سفر مبارک باشد و رسیدن خلعت از بزرگان و جاه و عزت از ایشان و بدن خسته را شفا دهد","c":"mid","p":193},"1100|1001":{"t":"دلالت کند بر نیکویی و عافیت کار و راه شدن حاجات و بر حرکت و خیر و راحت از مردم بزرگ و قبض مال و کشایش کارهای بسته و عشقبازی و زن خواستن و به مقصود رسیدن و حامله و محبوس خلاص شود و بیمار بهتر شود و شفا یابد و اجتماع غایب","c":"mid","p":193},"1001|1100":{"t":"دلیل بود بر خیر و خوبی از قبیل دوستان و یافتن خلعت پادشاهی و دوستی کردن با ایشان و به مقصود رسیدن از هر نوع اگر سؤال از پادشاه بود یا زن خواستن یا شریک شدن یکی و خرید و فروخت ستور کشایش بود و اگر کاسب باشد از کسب فایده بیند و نیز دلیل بود در بیع و شرکت و نکاح و اگر سؤال از زندگانی یا بیمار یا از زن حامله بود زود خلاص یابد و دلیل بود بر خریدن غلام و کنیز و چهارپایان","c":"mid","p":193},"0010|0111":{"t":"دلیل بود بر عزت و شرف یافتن و عنایت از بزرگان و شرف نفس و رسیدن طالب به مطلوب و زیاده شدن محبت و قبض مال و نفع از پادشاه و رسیدن غایب یا نامه و پیغام و اگر سؤال از سفر بود نیکو باشد و مریض تا ده روز بیم دارد و قبض مال و منفعت و به مقصود رسیدن از دوستان و زنان و تزویج و عروسی و نیکویی عاقبت و سفر مبارک بود خاصه به جانب دریا و راحت از اعوان دیدن و غایب به تعجیل بیاید و مال بیابد","c":"mid","p":193},"0111|0010":{"t":"دلالت کند بر قبض مال از ولایت و چهارپایان و غلام و کنیز خریدن و به عزت و جاه و مرتبه بزرگ رسیدن و به دست آمدن ضایع شده و سفر نیک و عیش و طرب با دوستان و ظفر بر دشمنان و کشایش کارها و کشایش کسب و کار و اجتماع با زنان و به خصومتی در پیش قاضی رفتن و قدوم غایب با دوستان غیر مرتب","c":"mid","p":193},"0100|0001":{"t":"دلالت کند بر سفر و خسارت مال و فروبستگی کار و کسب و ضایع شدن چهارپایان نسبت خیانت زیردستان و دراز کشیدن بیماری و نکاح و دختر باکره و حامله نرینه زاید اما به دشواری و خصومت میان دوستان و غایب را نیکو نیست و اگر در هفتم باشد روز سه‌شنبه واقف ضمیر خود می‌شود","c":"mid","p":193,"n":"شکل"},"0001|0100":{"t":"دلالت کند بر غم و اندوه و سهم و سیاست از پادشاه و بیرون آمدن خون از اندام و اگر شواهد سعد باشند دلیل بود بر قبض مال از سرخ و جامه‌های رنگین و بر ثبات کارها در همه احوال و عزت و رفعت و قدر و منزلت و مرتبت از بزرگان و خلاصی زن حامله و دلیل است بر جنگ و خصومت و جدل در میان دوستان و آشنایان و بیمار و محبوس را هم بود و ضایع شده و به دشواری به دست آید","c":"mid","p":193},"1000|1101":{"t":"دلالت کند بر خیر و راحت و سلامتی نفس و کشایش کار و کسب و خلاص یافتن از غم و غیره و دلخوشی از جانب پادشاه و مرتبه یافتن و نیکی از شرکت دیدن و نیکویی و خرمی از جانب بزرگان دیدن و اگر سؤال از غایب بود دلیل باشد بر خیر و سعادت و پیوستن با دوستان و تزویج و معاملت و سفر و حرکت با نفع و خلاصی یافتن بیماری و زندانی نیز خلاص شود و فایده یافتن از معشوق و محبوب","c":"mid","p":193},"1101|1000":{"t":"دلالت کند بر گشایش کار و کسب و راحت در تجارت و فراخی معیشت و نیکویی احوال تجارت و خریدن ملک و دیه و عروسی و دست در کار خیر زدن و ضایع شده دشوار به دست آید و دلخوشی از جانب معشوق و یاران و سفر مبارک کردن بیمار و زندانی و حامله خلاص شود و نرینه زاید","c":"mid","p":194},"1011|1110":{"t":"دلالت کند بر خسارت مال و ضایع شدن چهارپایان و تنگی از جانب زنان و فرزندان و ترس و بیم از جانب پادشاه و نیز دلالت کند بر فرو بستگی کارها و از دوست خیانت دیدن اما عاقبت به خیر انجامد و غایب به سلامت به او برسد و عشقبازی را نیک بود و امید به دوستان دارد به دشواری میسر آید و اگر ضمیر از زنان فاحشه و بطالت باشد به مقصود برسد","c":"mid","p":194},"1110|1011":{"t":"دلالت کند بر استقامت کارها از جانب پادشاهان و اگر شواهد نحس باشند دلیل کند بر جنگ و خصومت و بریدن از دوستان و این شکل نحس مطلق است نیز دلالت کند بر حرکت و سفر و غم و اندوه و طلب مالی و فراق انبازان و فرزندان و ناسازی روزگار و خوف و بیماری و بدی عاقبت والله اعلم بالصواب","c":"mid","p":194}},"1010":{"1010|0000":{"t":"این مثلث دلالت کند بر سفر و حرکت و گریختن بندگان و دلیل کند بر خسارت مال و جنگ و خصومت و جدایی از همدیگر و تفرقه در میان دوستان و گشایش کارهای بسته و مشغول شدن به تنبه کاری در حال خود و ضایع شدن چهارپایان و نکاح و شرکت مذموم و دلیل است بر جنگ و خصومت و سیاست و بر دیوانه شدن و خون ریختن و گفته‌اند که اسیر و محبوس و بیمار را نیک باشد","c":"mid","p":194},"0000|1010":{"t":"دلالت کند بر خسارت و تلف مال چهارپایان و غلام و کنیز اما بعضی به دشواری به دست آید و بعضی نه و دلیل بود بر هلاک شدن املاک و دلتنگی از جانب پدر و از دست روزگار و مال ضایع شده هرگز به دست نیاید و دلیل کند بر عشق و تماشا با معشوق و بازیها و زن حامله و صحت یافتن بیمار و تزویج و نکاح نیکو بود اما سفر بد باشد و نیز عروسی و عیش ناخوش با حرام و حامله و بیمار را خلاص بود","c":"mid","p":194},"1111|0101":{"t":"دلالت کند بر سفر و حرکت و گفتگوی شریکان با همدیگر از جهت مال و قبض مال و تماشا و عیش کردن با دوستان و معشوق و خوشدلی از قبیل پادشاه و فرزندان و گشایش کار و کسب و انعام خواستن از پادشاه به قدر قوت شواهد و دلالت کند بر اخلاص زن با شوهر","c":"mid","p":194},"0101|1111":{"t":"و گریختن بندگان و ضایع شدن ایشان و چهارپایی گم شده به دشواری به دست آید و اگر در چهارم بود روز دوشنبه از حال ضمیر واقف شود و غایب به سلامت برود و برسد و از یاران و دوستان شاد شود و دلیل کند بر نیکویی کار و شرکت و نکاح کردن","c":"mid","p":195,"n":"شکل؛ آغاز جمله در متن نیست (ادامه از صفحهٔ پیش)"},"1101|0111":{"t":"دلالت کند بر خریدن چهارپایان و املاک و تجارت علم و ادب آموختن و به دست آمدن ضایع شده و بر خیر و راحت از دوستان و برادران و منفعت یافتن از پادشاه و دعوی ملاک کردن نیک است و محبوس و زندانی خلاص یابد","c":"mid","p":195},"1100|0110":{"t":"دلالت کند بر خیر و راحت و خریدن حیوان غلام و کنیز و خبرهای مختلف و سفر و حرکت و رفتن به جایی از جایی و ضایع شدن چیزها و جنگ و خصومت با دوستان و اگر در اول باشد امید و خیر و نیکویی بود و کشایش کار و کسب و دلخوشی از دوستان و عشرت و ضایع شده به دست آید و سفر نمودن و تجارت کردن نیکو بود","c":"mid","p":195,"n":"شکل"},"0110|1100":{"t":"دلیل بود بر جمع شدن در عروسی و فتنه و عیش و تماشا کردن و اگر از زنان پرسند بد باشند و دلیل بود بر خسارت مال و گریختن بنده و آزاد اما به دست آید و خرید و فروخت را نیکو بود و بیمار و حامله به سلامت رهند و غایب به دیر آید","c":"mid","p":195},"0010|1000":{"t":"دلالت کند بر سعادت و کشایش کار و کسب و قبضه یافتن بر دشمن و بر صحت بیمار و خلاص زندانی و رسیدن غایب و راحت یافتن از زنان و بنا کردن عمارت و تزویج را نیک بود","c":"mid","p":195},"1000|0010":{"t":"دلالت کند بر خیر و راحت و خلاص یافتن از غم و با دوستان به هم باز رسند و اگر از بیمار پرسند نیک بود؛ دلیل است بر خریدن حیوان و عمل درست آن عروسی کردن و رسیدن پیغام از دوستان و معشوق و سفر را نیکو بود","c":"mid","p":195,"n":"«کار راستی» یعنی «عمل درست» (به گفتهٔ محقق)"},"0100|1110":{"t":"دلالت کند بر فساد حال و خلاف میان دوستان و خسارت از انواع و از مرتبهٔ خود افتادن صاحب و دلیل ترس و تهمت و غم و اندوه و جنگ و جدل و خصومت و ناسازگاری شریکان با همدیگر و رفیقان اما عاقبت به خیر بود و بطلان سفر باشد و بطلان نفس از مردان و زنان فاحشه؛ اگر سؤال از بیمار بود بیم باشد و زندانی را خطر بود و سفر نیز مذموم باشد","c":"mid","p":195},"1110|0100":{"t":"دلالت کند بر سفر و حرکت و خسارت مال و گریختن بنده و آزاد و ضایع شدن چهارپایان خسارت مال و ناسازگاری زنان و خصومت از دوستان و غم و اندوه و افتادن از جاه و منزلت و بستگی کارها و اگر سؤال از کار او برادر بود در محنت و مشقت باشد اما بیمار نیکو شود و نیز دلیل است بر دعوی و جنگ","c":"mid","p":195},"0011|1001":{"t":"دلالت کند بر خیر و راحت از زنان و دوستان چهارپایی ماده و رسیدن به آنچه خیال دارد و دلخوشی و سفر مبارک و کشایش کار و رسیدن غایب یا نامه از دوستان و سفر پسندیده و نیکو باشد","c":"mid","p":196},"1001|0011":{"t":"دلالت کند بر زن حامله و بیماری که بر جامه خواب افتاده بود یا زندانی و عقد و نکاح و بیع و شرکت نیکو باشد و سفر باشد مبارک بود و نیز دلیل است بر قبض مال و خلاف میان دوستان از سبب مال و زنان؛","c":"mid","p":196},"0111|1101":{"t":"دلیل است بر سفر و حرکت و کشایش کار و کسب و صحت بیمار و خلاصی محبوس و حامله و زوال غم و یافتن فتوح و خریدن حیوان و تماشا و دیدن فایده و رسیدن نفع و آمدن غایب و نکویی احوال و ضایع شده به دست باز آید","c":"mid","p":195,"n":"هشدار: نشان چاپی این بند ⁦1000|0010⁩ است و عین بند قبلی؛ چاپ خطا دارد. کلید با حذف منطقی جفت‌ها ⁦0111|1101⁩ گذاشته شد، چون این تنها جفتی است که شکل راست آن ۱۱۰۱ بود."},"0001|1011":{"t":"دلالت کند بر مرتبهٔ خود افتادن و فروبستگی کار و کسب و خسارت مال و خوف بیمار و خیانت بنده و آزاد در کار و گفته‌اند سفر را نشاید که نحس است و اگر سؤال از بیمار بود یا زن حامله احوال این‌ها غم و اندوه و فروبستگی کار و حیلت از زیردستان","c":"mid","p":196,"n":"هشدار: نشان این بند به‌خوبی خوانده نشد؛ کلید با حذف جفت‌ها و جفت بودن با بند بعدی گذاشته شد."},"1011|0001":{"t":"دلیل است بر غم و اندوه و از مرتبه افتادن و رسیدن زحمت و تنگی نیز معیشت از قبیل زنان و غلام و کنیزک و دلیل بود بر جنگ و با مردم فراق افتد؛ و بعضی گویند دلالت کند بر زیان مال از انواع و گریختن بندگان و جنگ و دعوی و بند و زندان و درازی کشیدن بیماری و تزویج و شرکت بد بود و بعضی گفته‌اند که حامله و محبوس را بد بود والله اعلم","c":"mid","p":196,"n":"با مردم؛ حیوان؛ هشدار: شکل راست نشان ⁦1011⁩ دیده شد؛ شکل چپ با حذف جفت‌ها."}},"0000":{"0000|0000":{"t":"در احکام جماعت این مثلث دلالت کند بر جمع دو لشکر و جنگ و خصومت با جمع شدن مردم در عروسی و شواهد و جواهرخانه و پیوستن با دوستان و لهو و لعب و خوشدلی؛ اما در قلم هنری پیدا است و معلوم هم می‌شود از روی رمل مردم دانا را؛ و بعضی گفته‌اند دلیل است بر جماعت و عطیه یا مجلس العزیز بازار یا عمارت و املاک؛ و آن را اگر شواهد گویند بر قبض مال و سفر","c":"mid","p":196,"n":"به معنای مجلس؛ عزیز: دارای محتوای عاطفی"},"1000|1000":{"t":"دلالت کند بر گشایش کار و کسب و خیر و راحت از بزرگان و دعوی پیش حکام و بر عروسی و زن خواستن و به سفر رفتن و علم و ادب آموختن چون از دو شکل لحیان باشند؛ دلیل بود بر گشایش کارها و محکمه و قاضی و خیر و راحت از بزرگان و مجلس و وعظ و مسجد و منبر و مدرسه و خانقاه و اهل صلاح و این شکل به جواهر تعلق دارد و صالح و نیک‌نام در عاقبت کارها، نیک منظر و نیکی بود؛ و اگر این اشکال بسیار بود هم بد بود","c":"mid","p":196,"n":"خوش‌سیما"},"0001|0001":{"t":"دلالت کند بر خسارت مال مثل حیوانات و بستگی کار و کسب و جنگ با مردم بداصل و جمع شدن در کارهای مکروه چون بند زندان و گواهی و بیمار و غایب را حال بد بود","c":"mid","p":196,"n":"گواهی آزادسازی از زندان به‌صورت تقلبی، یعنی جعل اسناد حکومتی و دولتی که کار مکروه است"},"0110|0110":{"t":"دلالت کند بر دو کس در یک خانه خواب و عیش و عشقبازی و نیز دلیل است بر جمعیت احوال خود و دو شخص که در یک جامه خواب باشند و خریدن غلام و کنیز و اگر سؤال از بیمار بود بیم باشد و دلیل بر نامه و پیغام از دوست غایب و نیز طالب به مطلوب","c":"mid","p":197},"1100|1100":{"t":"دلالت کند بر خیر و راحت از بزرگان و امید و سعادت و سفر کردن با بزرگان و اهل فضل و نیز دلیل است بر مرد و پادشاه که در میان ایشان خصومت پیدا شود و با صلاح انجام و ایمنی و نکویی پیدا آید؛ و بعضی گویند که دلیل است بر سفر و جنگ از جانب پادشاه و دعوی از قبیل خسارت مال و بر عمل درست و لشکریانی؛ دلالت جنگ ساختن، اما عاقبت خیر باشد","c":"mid","p":197,"n":"«کار راستی» یعنی «عمل درست» (به گفتهٔ محقق)"},"0011|0011":{"t":"دلالت کند بر جمع شدن با زنان و خریدن حیوانات و راحت رسیدن از بزرگان اما قدری بیم بود و نیز دلیل است بر سفر و حرکت و پیوستن به دوستان عشرت کردن از سر فراغت و استقامت خاطر و اهل فضل و اجتماع بر عشرت و بر سفر با نفع","c":"mid","p":197},"0010|0010":{"t":"دلالت کند بر خیر و خوبی و روزی حلال که برسد و عیش با زنان و عروسی کردن و عنایت از دوستان و مشغول بودن به عمارت و املاک و نیز مشغول بودن به طرب و نیز بر سفر دریا و در آن خیر و راحت و نکویی باشد و نامه پیغام رسیدن و خرمی از آن و دلیل بود بر چهارپایان و باغ و گلزار","c":"mid","p":197},"0100|0100":{"t":"دلالت کند بر سهم و سیاست پادشاه و جمع شدن در تعزیه و جنگ و سفر که در آن خسارت بود و قطع راه زدن اما مراد نفس از زنان فاحشه حاصل شود و بر زن خواستن و بکارت بدن و بر تلف شدن حیوان و سوختن چیزها و فروبستگی کار را نیز دلیل است؛ و اگر این شکل غلبه کند هیچ خیر نبود","c":"mid","p":197},"1101|1101":{"t":"دلالت کند بر نکویی عاقبت و خیر و راحت؛ و اگر در رمل تکرار کند جنگ و فتنه روی دهد از مردمان بداصل و شماتت و بی‌حضوری و اندیشه و غم و وسوسه و تردد به غیر حال بود و نیز دلیل است بر به مراد رسیدن از زنان عیش و طرب با امردان","c":"mid","p":197,"n":"آوازهٔ درگیری با مردمان بی‌اصل و بی‌آبرو و جاهل بالا خواهد گرفت"},"1011|1011":{"t":"دلالت کند بر غم و خسارت مال و ضایع شدن چهارپایان و امردان و رسیدن عیش و طرب با امردان و از ایشان خیر نباشد و جنگ و فتنه در میان ایشان باشد و دزد و جلاد و لعنه و آزار رسیدن از محنت و مشقت بود و دلتنگی حاصل شود از مردم بداصل و اقربا جمع شوند بر سر بیمار و زن آبستن و عشقبازی کردن و زن خواستن و غلام و کنیز خریدن و اگر این شکل غالب کند خیر نباشد","c":"mid","p":197},"1001|1001":{"t":"دلالت کند بر جمع شدن زن آبستن و ضایع شده دشوار به دست آید و بر روزی حلال که برسد در عقد و عروسی و بیع؛ بر همهٔ امور وجه قانونی داشته باش، در تمام مسائلی که با آن روبرو هستی؛ و بی‌شمار دلخوری و غم برای بدی حال بیمار و بر روزی و رزق و نکاح کردن دختر بکر و حاجتی که از پادشاه برآید","c":"mid","p":197},"1111|1111":{"t":"دلیل است بر نقل و حرکت و نکویی کارها و معیشت و به عیش و طرب مشغول بودن و پیوستن با زنان و دوستان و بر سفر از جانب پادشاه و حکام واقع شود و آشکارا با قدردانی ابراز کردن؛ دلالت کند بر گریختن نخستین بنده و آزاد و تلف شدن ملبوسان و ناسازگاری میان زن و شوهر و انبار زنان و مخاصمهٔ کهنه و قدیمی و ترس و بیم از حرامی دزد","c":"mid","p":197,"n":"در کتاب نشان جداگانه ندارد؛ ادامهٔ همین بند:؛ «گریختن نخستین» حدسی است"},"0111|0111":{"t":"دلالت کند بر بیع و شری و قبض مال و کشایش کار و کسب و نکویی عاقبت و عیش و طرب با زنان و نیز دلالت کند بر خیر و بر سفر از جانب پادشاه و با لشکر رفتن","c":"mid","p":197,"n":"خرید و فروش"},"1110|1110":{"t":"دلالت کند بر غم و رنج و جنگ و خصومت و سفر بی‌فایده و لشکری شکست خورد و اگر سؤال از زنان بود هیچ خیر نباشد","c":"mid","p":198},"0101|0101":{"t":"دلیل بود بر خیر و خوبی و کشایش کارها و کسب و قبض مال و نکویی عاقبت و رسیدن به مراد و نیز دلیل بود بر عشقبازی و زن خواستن و نکاح کردن؛ غایب به سلامت بود برسد","c":"mid","p":198},"1010|1010":{"t":"دلیل بود بر غم و اندوه و خسارت مال و ضایع شدن چهارپایان و گریختن بنده و آزاد و بیم رنجور و بیمار و جنگ و بکارت بردن به حرام و در آن خیر نیست والله اعلم بالصواب","c":"mid","p":198}},"1101":{"0000|1101":{"t":"این مثلث دلالت کند بر جمع شدن در تنگدستی و سی و عیش کردن اگر شواهد رمل نحس باشد دلیل بود بر شمشیر یا تفنگ و قتل در راه زنان و زیان مال و بر زنا و غیره و پریشان شدن در کارها","c":"mid","p":198,"n":"«سی» یعنی همان عدد سی (به گفتهٔ محقق)"},"1101|0000":{"t":"دلالت کند بر سفر و ناسازگاری شریک و عشقبازی نیک بود و عشرت اما خسارت مال بود","c":"mid","p":198,"n":"هشدار: نشان چاپی این بند (⁦0010|0000⁩) با قانون ضرب نمی‌خواند؛ کلید با حذف منطقی «⁦1101|0000⁩» (وارونِ بند اول) گذاشته شد"},"0001|1100":{"t":"دلالت کند بر سفر و قبض مال و به دست آمدن ضایع شده و بر خریدن غلام و کنیز اگر قبض الداخل شاهد بود","c":"mid","p":198},"1100|0001":{"t":"دلالت کند بر حرکت از قبیل چهارپایان و بیماری دیر کشد و بکارت بردن و عیش کردن و آشکار می‌شود و خانهٔ خودِ رمل که در کجا واقع شود دلیل است بر قبض کردن مال و کنیز و غلام و ضایع شده دیر به دست آید و نکاح نیکو بود اگر قبض الداخل شاهد باشد و اگر شواهد نحس باشد بر خلاف آن؛ و اگر سؤال از غایب بود در انقلاب احوال باشد و زن حامله پسر زاید و دلیل بود بر زنان قماش","c":"mid","p":198},"1001|0100":{"t":"دلالت کند بر بیع و نکاح و خرج مال در این معنی و بر عیش و تماشا و عروسی و فتنه و تفرج و سرور غایب و خبر خوش و قدوم دوستان و سفر و حرکت و نقل به جانب سبزه‌زار و باغ و نشاندن نهال","c":"mid","p":198,"n":"تماشا یا بهره رسیدن"},"0010|1111":{"t":"دلالت کند بر سفر و حرکت و کشایش کار و کسب و نکویی و عیش و طرب با دوستان و بیمار را بد بود و حامله خلاص یابد","c":"mid","p":198},"1111|0010":{"t":"دلیل بود بر حصول مراد از زنان و امردان و قبض مال ضایع شده و خریدن بندگان که در آن فایده باشد","c":"mid","p":198},"1011|0110":{"t":"دلالت کند بر قدوم غایب و دوست عزیز و جمعیت جشن با زنان و امردان و حصول مرادات از ایشان و تلف مال بر ایشان و بطالت و نرد و شطرنج و قمار","c":"mid","p":198},"0110|1011":{"t":"دلالت کند بر خسارت مال از همه زنان و بطالت و عشرت کردن بیمار و زندانی را نیک بود و ضایع شده دشوار به دست آید؛ و نیز دلیل بود بر تلف سلاح و خامه از دست خویش یا از دست اقارب و سفر نباید گرفتن","c":"mid","p":198},"0111|1010":{"t":"دلالت کند بر سفر و حرکت قبض مال ضایع شده و رسیدن غایب و دعوی و خصومت میان اقربا و دوستان و مجوس و حامله خلاص یابد","c":"mid","p":198},"1010|0111":{"t":"دلیل بود بر نکویی عاقبت و کشایش کار و کسب و قبض مال و رسیدن غایب به زودی و نکاح و شرکت را نیک است و بیمار و حامله خلاص یابد","c":"mid","p":198},"1000|0101":{"t":"دلالت کند بر نکویی و عاقبت کار و قبض مال و غایب به سلامت بود و تزویج و عروسی نیک است و دلیل جمعیت بود با دوستان","c":"mid","p":199},"0101|1000":{"t":"دلالت کند بر خیر و راحت و کشایش کار و عیش با دوستان و هر حاجت که باشد میسر شود و سفر و مسافر را نیک بود و ضایع شده به دست آید","c":"mid","p":199},"1110|0011":{"t":"دلالت کند بر سفر و حرکت و قبض مال و خبر راحت از پادشاه و خوشی از طرف بندگان و چهارپایان و غلام و کنیز و ملبوسات و زنان و خلاص بیمار و زندانی و تلف شده دشوار به دست آید","c":"mid","p":199},"0011|1110":{"t":"دلالت کند بر خیر و خوبی و سفر و خوشحالی از زنان","c":"mid","p":199},"0100|1001":{"t":"دلالت کند بر خسارت مال و جامه و چهارپایان و غلام و کنیز و گفتگوی بسیار و گریختن بندگان و زیردستان و خیر و راحت از قبیل دوستان و قدوم غایب ظاهراً بی‌فایده و سلامتی او","c":"mid","p":199,"n":"هشدار: نشان چاپی این بند همان نشان بند ۱۵ (⁦0011|1110⁩) است؛ کلید با حذف منطقی «⁦0100|1001⁩» (جفتِ بند ۵) گذاشته شد"}},"1001":{"0000|1001":{"t":"این مثلث دلالت کند بر سفر و حرکت بر زن آبستن یا بیماری که بر جامه خواب افتاده باشد و چهارپا و بندگان خریدن و راحت از زنان و شریکان و سفر کردن شاید","c":"mid","p":199},"1001|0000":{"t":"دلالت کند بر سفر و حرکت از قبیل معاش و غلام و کنیز و بندگان و چهارپا خریدن و عمارت ساختن و بر نامه و پیغام رسیدن از دوستان و نیز بر رسیدن غایبان و نکاح و شرکت را نیک است و نیز دلیل است بر دو تن در یکجا خواب خفتن و از طاعت اعراض کردن جمعی","c":"mid","p":199,"n":"نشان این بند میان دو سطر شکسته است (شکل اول ته سطر قبل)"},"0110|1111":{"t":"دلیل بود بر مراد یافتن از زنان و انبار زنان و سوداگری از بیع و شری و غایب را المی برسد و رسیده باشد و سفر را نکوهیده بود و بیمار را و حامله را و غلام را بیم بود","c":"mid","p":199,"n":"رنج و درد، یعنی غائب به رنج و درد مبتلا شده"},"0111|1110":{"t":"دلیل کند بر خسارت مال و غم و اندوه و بر خیر و راحت از دوستان و توقعی که از ایشان دارد میسر شود و عشقبازی نیک است و حامله و بیمار و محبوس خلاص یابد","c":"mid","p":199,"n":"هشدار: نشان چاپی این بند (⁦0111|0110⁩) با قانون ضرب نمی‌خواند؛ کلید با حذف منطقی «⁦0111|1110⁩» (جفتِ بند ۶) گذاشته شد"},"1111|0110":{"t":"دلالت کند بر سفر و حرکت و روزی از زنان یا میراث که ناگاه برسد و گفتگو بود با دوستان و با شریکان","c":"mid","p":199},"1110|0111":{"t":"دلیل بود بر سفر و حرکت و قبض مال و کشایش کار و کسب علم و ادب آموختن و رسیدن غایب به سلامت و دعوی و مناظره کردن با حاکم از سبب مال و چهارپا و بنده و اولش سخت بود آخر به مراد رسد","c":"mid","p":199},"0101|1100":{"t":"دلیل بود بر سفر و حرکت با سعادت و بزرگی یافتن و راحت دیدن و دعوی و مناظره کردن با حاکم به جهت مال یا اسب یا بنده و عاقبت به مراد رسد اگرچه در اول سخت بود","c":"mid","p":199},"1100|0101":{"t":"دلالت کند بر سفر و حرکت بر خیر و سعادت و قبض مال و لیکن دلتنگی باشد از قبیل مسافر","c":"mid","p":199},"1010|0011":{"t":"دلالت کند بر سفر و حرکت و قبض مال و چهارپایان و ملبوسات و جنگ و خصومت و فرقت میان انبازان و زن و شوهر و بر بند و زندان و کراهت رسیدن از زنان و دوستان","c":"mid","p":200},"0011|1010":{"t":"دلالت کند بر خسارت مال و گریختن بندگان و صحت بیمار و دلیل بود بر رزق حلال و عیش و طرب و خوشدلی از زنان و سفر با منفعت","c":"mid","p":200},"1000|0001":{"t":"دلالت کند بر حرکت دوست در کار زدن و خریدن غلام و کنیز و بیع و شری را نیک بود و سازگاری میان زنان و شوهران و انبازان و آمدن غایب","c":"mid","p":200},"0001|1000":{"t":"دلالت کند بر غم و اندوه در سفر و دریا یا از قبیل غایب و دلتنگی از مردم بزرگ به نسبت چهارپایان و شرکت یا گفتگو به سبب خیانت","c":"mid","p":200},"1011|0010":{"t":"دلالت کند بر طلب کردن مال حلال و خیر و راحت از زنان و نیز دلیل بود بر عمارت بنا کردن و دلخوشی از جانب معشوق و دوستان و جنگ و خصومت از قبیل خریدن حیوان","c":"mid","p":200},"0010|1011":{"t":"دلالت کند بر جنگ و خصومت و عربده از قبیل چیزهای دزدیده چون زر و نقره و جامه اما به دست آید و بر عیش و طرب و عشقبازی زن خواستن و سفر و حرکت از سبب غایب و نامه و پیغام از دوستان رسیدن","c":"mid","p":200},"1101|0100":{"t":"دلالت کند بر زن خواستن و غم و اندوه و بر بند و زندان و خلاص یافتن زن حامله و اگر سؤال از گم شده و گریخته بود به دست نیاید","c":"mid","p":200},"0100|1101":{"t":"دلالت کند بر سفر و حرکت و قبض مال و کشایش کار و کسب و راحت یافتن از زنان و عشرت کردن با یاران و به مراد رسیدن به سلامت والله اعلم","c":"mid","p":200}},"0001":{"1111|1110":{"t":"این مثلث دلالت کند بر سفر مکروه و حرکت مکاره و مسافر بدحال باشد و نیز دلیل بر غم و خسارت مال و گریختن بندگان و خیانت در کار زیردستان و گفتگوی بداصل","c":"mid","p":200},"1110|1111":{"t":"دلیل بود بر اندوه و خسارت مال و فروبستگی کارها و جنگ و دعوی و بیمار را بیم بود و سفر را بد باشد","c":"mid","p":200},"1000|1001":{"t":"دلیل بود بر سفر و حرکت و سلامتی نفس و کشایش کارها از بزرگان و قبض مال و اگر سؤال از شرکت و نکاح باشد بداصل و بد باشد و خرید و فروخت حیوان نیک است و غایب به سلامت بود اما دیر برسد","c":"mid","p":200},"1001|1000":{"t":"دلیل بود بر کارهای بسته و سفر کردن و زن حامله و دعوی و بیمار را بد بود و بیم بود","c":"mid","p":200},"0101|0100":{"t":"دلالت کند بر قبض مال و زر و سیم و چیزهای سرخ رنگ و اگر در رمل بسیار بود دلیل است بر عربده و خسارت مال و غیره","c":"mid","p":200,"n":"شکل انکیس در متن چاپ شده"},"0100|0101":{"t":"دلالت کند بر سفر و حرکت و قبض مال و زن خواستن و چهارپا خریدن را نیک است و بر خصومت کردن از قبیل مال و اگر سؤال از جمعیت بود دیر برسد","c":"mid","p":200},"1010|1011":{"t":"دلالت کند بر سفر مکروه و غم و اندوه و جنگ و خسارت مال و فروبستگی کار و کسب و گفتگو از قبیل زن فاحشه و غم برای گریخته و بیمار را خوف بود","c":"mid","p":200},"1011|1010":{"t":"دلالت کند بر بدی عاقبت و زیان مال و فرقت میان دوستان و برادران و اگر سؤال از اجتماع بود در این قوم هیچ خیر نبود","c":"mid","p":200},"0000|0001":{"t":"دلیل است بر سفر مکروه و بی‌منفعت و خسارت مال و بر بهت لشکرها و گریختن بندگان و ضایع شدن چهارپا و تزویج بد بود","c":"mid","p":200},"0001|0000":{"t":"دلیل بود بر جنگ و خصومت با مردم بداصل و ناتوانی غایب و بر بیم و غم و بیماری سخت و بر ظلم پادشاه بر رعیت و در این هیچ خیر نبود","c":"mid","p":201},"0111|0110":{"t":"دلیل بود بر دعوی کردن با کسی ناقص از قبیل خسارت مال با زن فاحشه یا کنیزک و بیمار را حال بد بود","c":"mid","p":201,"n":"نشان این بند میان دو سطر شکسته است"},"0110|0111":{"t":"دلیل بود بر حصول مال و جمعیت مال و غایب به سلامت باشد و برسد اما سفر و حرکت بد بود و خریدن حیوان نیک است و فروختن بد باشد","c":"mid","p":201},"0010|0011":{"t":"دلیل بود بر خیر و نامه از غایب یا دوستی برسد و در خرید و فروخت و کار و کسب بود و دلتنگی از جهت زنان و ملبوسات ایشان","c":"mid","p":201},"0011|0010":{"t":"دلیل بود بر نکویی عاقبت و کشایش کار و کسب و خیر و راحت دوستان و زنان و سفر نیکو و رسیدن غایب به سلامت","c":"mid","p":201},"1100|1101":{"t":"دلیل بود بر نکویی عاقبت و کشایش کار و راحت از پادشاه و اصحاب وی و ایمنی از خوف و اگر شواهد نحس باشند بر خلاف این بود و سفر و شغل و عمل را نیک بود و غایب به سلامت برسد","c":"mid","p":201,"n":"شکل چپ این نشان نیمه‌خوانا بود؛ با قانون ضرب تکمیل شد"},"1101|1100":{"t":"دلیل بود بر رسیدن مرادی و مبارکی و دلخوشی از دوستان و سلامتی نفس و نکویی عاقبت و کشایش کارها و دعوی ختم می‌شود اما سائل اندکی مخالف بود","c":"mid","p":201,"n":"کارها و مشاجرات"}},"0100":{"0000|0100":{"t":"این مثلث دلالت کند بر جنگ و خصومت از قبیل مال چون از سرخ و جامهٔ رنگین و بر گریختن بندگان و جمع شدن قومی به شراب خوردن و خریدن حیوان","c":"mid","p":201},"0100|0000":{"t":"دلیل بود بر سفر و حرکت و لشکر و خون ریختن و ترس و بیم از پادشاه و از مردم بسیار نادان و نیز دلیل است بر غم و اندوه و جنگ و خصومت به جهت قبض مال یا چهارپای یا غلام و کنیز و به قول اهل مغرب ضمیر از زیان بود و نیز دلیل است بر بریدن زیان","c":"mid","p":201,"n":"نادان و بسیار نفهم"},"0001|0101":{"t":"دلالت کند بر غم و اندوه از جنگ و خصومت برای قبض مال با چهارپایان یا غلام و کنیز و به قول اهل مغرب ضمیر از مال بود و دلیل باشد بر فروبستن کار از این سبب","c":"mid","p":201},"0101|0001":{"t":"دلالت کند بر خسارت مال و دعوی از برای میراث و خریدن غلام و کنیز و نکاح هیچ خیر نبود و غایب را ایمنی رسیده باشد و سفر بد باشد اما شرکت را نیک است","c":"mid","p":201,"n":"هشدار: شکل راستِ نشان چاپی این بند به‌صورت ⁦0100⁩ دیده شد و با قانون ضرب نمی‌خواند؛ کلید با جفت‌شدن (وارونِ بند قبل) ⁦0101|0001⁩ گذاشته شد"},"1000|1100":{"t":"دلالت کند بر نکویی عاقبت و کشایش کسب و کار و به مرتبه رسیدن و یافتن مراد و سفر مبارک بود بر خیر و راحت از پادشاه و بر سفر و نقل و حرکت از جایی به جای منفعت و عیش و تماشا و عشقبازی و غایب زود برسد و هر کار که کند مبارک بود و چیزهای قیمتی خریدن","c":"mid","p":201},"0011|0111":{"t":"دلالت کند بر سفر و حرکت و خبر راحت از زنان و دوستان زود به هم رسند و کشایش کار و کسب و به مقصود رسیدن","c":"mid","p":201,"n":"هشدار: شکل راستِ نشان چاپی این بند شبیه ⁦1100⁩ است و با شکل چپ نمی‌خواند؛ متن این بند تقریباً همان متن بند بعد است (تکرار چاپی). کلید با جفت‌شدن (وارونِ بند ۸) ⁦0011|0111⁩ گذاشته شد؛ تقریباً همان متن V6؛ در کتاب تکرار شده"},"1100|1000":{"t":"دلالت کند بر سفر و حرکت و خبر راحت از زنان و دوستان زود به هم رسند و کشایش کار و کسب و به مقصود رسیدن","c":"mid","p":201,"n":"تقریباً همان متن V6؛ در کتاب تکرار شده"},"0111|0011":{"t":"دلالت کند بر بیع و شری و نکاح و تلف شده زود به دست آید و غایب زود برسد و نیز دلیل است بر خریدن غلام و کنیز و عشرت کردن با این قوم","c":"mid","p":201,"n":"ادامه در ص۲۰۲ = PDF208؛ باب۸ در ص۲۰۲ ادامه دارد و بعد «باب نهم» بیاض"},"0110|0010":{"t":"دلالت کند بر جمع شدن با زنان و قبض مال ایشان و عیش و طرب کردن و شراب خوردن و بر سفر مختلف به سلامت بود و دلخوشی از جانب پادشاه و کشایش کارهای بسته و شادی از جانب فرزندان","c":"mid","p":202},"0010|0110":{"t":"دلالت کند بر نکویی عاقبت و سفر مبارک و تجارت و بر زن خواستن و ترتیب قماش ایشان و خریدن غلام و کنیز و چهارپا و حصول مراد از معشوق و غایب به سلامت بود و تلف شده و گریخته به دست آید","c":"mid","p":202,"n":"هشدار: در نشان چاپی جای دو شکل عوض شده (راست ⁦0100⁩، وسط ⁦0010⁩، چپ ⁦0110⁩); با اصلاح ترتیب ⁦0010|0110⁩ گذاشته شد"},"1111|1011":{"t":"دلالت کند بر نقل و حرکت و خسارت مال و گریختن بندگان و فروبستگی کار از انواع خوف و بیمار و گفتگو و بر جنگ و خصومت برای میراث و ناسازگاری زن و مرد و انباز","c":"mid","p":202},"1011|1111":{"t":"دلالت کند بر غم و اندوه و خسارت مال و خیانت زیردستان و اگر سؤال از تزویج بود در آن زنان هیچ خیر نبود و دلیل بود بر عشقبازی با زنان فاحشه","c":"mid","p":202},"1010|1110":{"t":"دلیل کند بر قتل و سیاست پادشاه و ترس و بیم و غم و اندوه و ناسازگاری رفیقان و زیان مال و این باب در همه کارها بد است","c":"mid","p":202},"1110|1010":{"t":"دلالت کند بر سفر و حرکت و گریختن بندگان و ضایع شدن چهارپا و بر بیماری و حامله و پشیمانی در همه کارها","c":"mid","p":202},"1001|1101":{"t":"دلالت کند بر بیماری حامله و بر آن که پسر زاید و بیع و شری و عقد و تزویج و ملک و غلام و کنیز و خریدن و رسیدن غایب به سلامت","c":"mid","p":202},"1101|1001":{"t":"دلالت کند بر نکویی عاقبت و قرض مال از زنان و عیش کردن با ایشان و بر سفر و حرکت و کشایش کارها و کار آهنی از فرزندان و فرح چون بیمار شود دلیل جنگ است","c":"mid","p":202,"n":"«جودله» همان فرح است (به گفتهٔ محقق)"}},"0010":{"0000|0010":{"t":"این مثلث دلالت کند بر جمعیت زنان و عیش و تماشا در باغ و مرغزار کردن؛ و اگر شاهد حمره بود همه در حمام باشند؛ و اگر شاهد قبض الداخل بود دلیل باشد بر قبض مال و مراد یافتن","c":"high","p":202},"0010|0000":{"t":"دلالت کند بر سفر دریا که در آن منفعت بود و خریدن غلام و کنیز و چهارپا و نیز نامه و پیغام که از پیش دوستان برسد و از آن شاد شود و بر زن جمع شوند","c":"high","p":202,"n":"«بر زن جمع شوند» ناخوانا"},"0011|0001":{"t":"دلالت کند بر سفر و حرکت و قبض مال و بضاعت و چهارپا خریدن و عیش کردن با زنان فاحشه و خسارت مال و خیانت زیردستان","c":"high","p":202},"0001|0011":{"t":"دلالت کند بر دعوی و جنگ و خصومت با زنان و شریکان و رسیدن غایب و بطالت کردن و غم و اندوه از سبب دوست و ترس از بزرگان و بنیاد کارها","c":"mid","p":202},"1000|1010":{"t":"دلالت کند بر گریختن غلام و کنیز و ضایع شدن چهارپا و اگر سفر کنند زیان مال شود و عشقبازی را نیک است و بیمار صحت یابد و خرید و فروختن از خریدن بهتر بود","c":"high","p":202},"1010|1000":{"t":"دلالت کند بر معاملت و ضایع شدن ملبوسات و غم و اندوه از قبیل فرزندان و بیمار شفا یابد و زنان تحت سلطه","c":"mid","p":202},"0110|0100":{"t":"دلالت کند بر مباشرت با زنان و اگر این عادت با او بود و شاهد بود دلیل خسارت و زیان و جنگ و خصومت بود و غایب را قدری زیان شده باشد","c":"mid","p":202},"0100|0110":{"t":"دلالت کند بر زن خواستن و ازاله بکارت بردن و جمع شدن زنان بر سر رنجور و زن حامله و بر سفر و حرکت در عقب غایب یا گریخته و بر خرید و فروخت حیوانات و قماشه و چهارپایی","c":"high","p":203},"1101|1111":{"t":"دلیل بود بر نکویی و کشایش کارهای بسته و دلخوشی از معشوق و دوستان؛ امید برآید و ضایع شده به دست آید","c":"high","p":203},"1111|1101":{"t":"دلالت کند بر سفر و حرکت و منفعت و عیش و تماشا و عروسی کردن و جمع شدن با زنان جمیله و راحت از زنان و دیدن کشایش کار و کسب و این باب در همه کار نیک است","c":"mid","p":203,"n":"که به راحتی در اختیار قرار می‌گیرند"},"1001|1011":{"t":"دلالت کند بر زنان و بیماری با آبستن و بدی حال زن‌ها و خسارت مال و گریختن بندگان و ضایع شدن چهارپا و عشقبازی و بر عشرت کردن با زنان فاحشه","c":"mid","p":203,"n":"هشدار: در نشان چاپی این بند شکل چپ به‌صورت ⁦0011⁩ دیده شد و با قانون ضرب نمی‌خواند؛ کلید با جفت‌شدن (وارونِ بند بعد) ⁦1001|1011⁩ گذاشته شد"},"1011|1001":{"t":"دلیل بود بر سفر مکروه بی‌اختیار و خریدن غلام و کنیز و غمخواری ملک و نعمخواری و زن خواستن و انبازی کردن","c":"high","p":203,"n":"«نعمخواری» ناخوانا"},"1110|1100":{"t":"دلالت کند بر سفر و حرکت از جانب پادشاه و کشایش کار و کسب و راحت یافتن از حیوان و ضایع شده دشوار به دست آید مگر با عنایت و عافیت ایزدی","c":"high","p":203},"1100|1110":{"t":"دلالت کند بر مرتبه یافتن از پادشاه و عمل گرفتن و به زن خواستن و عشقبازی و به مقصود رسیدن و حامله پسر زاید","c":"high","p":203},"0101|0111":{"t":"دلالت کند بر خیر و سعادت و کشایش کار و کسب و خریدن حیوان قیمتی و زن خواستن و شرکت کردن و دزدیده زود به دست آید","c":"high","p":203},"0111|0101":{"t":"دلالت کند بر قبض مال و نکویی عاقبت و حامله و شرکت و تجارت و نقل و کشایش و کسب و غایب زود برسد و کراهتی که میان دوستان باشد زود برخیزد","c":"high","p":203}},"1100":{"1111|0011":{"t":"این مثلث دلالت کند بر سفر و حرکت و مراد رسیدن از بزرگان و سلامتی نفس و غایب را کار به نظام بود و کشایش کار و کسب","c":"high","p":203},"0011|1111":{"t":"دلالت کند بر سفر از جانب پادشاه و خیر و راحت از بزرگان و فایده از خریدن و فروختن حیوان و غلام و کنیز و مراد رسیدن","c":"high","p":203},"0000|1100":{"t":"دلالت کند بر سعادت و جاه و مرتبه یافتن و صلاح کار و کشایش کارهای بسته و فایده و راحت از خریدن غلام و کنیز و چهارپا و مراد رسیدن","c":"high","p":203},"1100|0000":{"t":"دلالت کند بر سفر و حرکت و عیش و طرب با دوستان و ضایع شده دشوار به دست آید و نزدیک بودن و گشتن و شدن به بزرگان و قبض کردن مال از ایشان و مراد رسیدن اما شرکت را بد بود","c":"high","p":203},"0110|1010":{"t":"دلیل بود بر سفر و سعادت و کشایش کار و کسب و نیکو و راحت از سفر و برآمدن امید و صحت بیمار","c":"high","p":203},"1010|0110":{"t":"دلیل بود بر سفر و حرکت و قبض مال از پادشاه و عیش و طرب و دعوی کردن و دست در کار خیر زدن","c":"mid","p":203},"1001|0101":{"t":"دلیل بود بر طلب منفعت کردن از پادشاه و ملک و چهارپا خریدن و زن خواستن و مراد رسیدن از شریکان و قبض مال کردن","c":"high","p":204},"0101|1001":{"t":"دلیل بود بر نامه و پیغام از دوستان و خبر از بزرگان و سفر و حرکت با فایده و نکاح کردن مبارک بود و خریدن غلام و کنیز و کشایش کار و کسب و صحت بیمار","c":"high","p":204},"1101|0001":{"t":"دلیل بود بر منفعت و خیر و خوشدلی از بزرگان و کشایش بعد از شدت و مراد رسیدن و سلامتی نفس و سفر مبارک","c":"high","p":204},"0001|1101":{"t":"دلیل بود بر ترس و بیم از پادشاه و خصومت میان زنان و دوستان و شریکان و خسارت مال و بیم رنجور و غایب را المی رسیده باشد","c":"high","p":204},"1000|0100":{"t":"دلالت کند بر قبض مال و غلام و کنیز و زن خواستن و مراد رسیدن بعد از شدت و کشایش کار و کسب و سفر و به مرتبهٔ عالی رسیدن و غایب به سلامت آید","c":"high","p":204},"0100|1000":{"t":"دلالت کند بر سفر و حرکت و جنگ و خصومت و دعوی مال و بکارت بردن از حرام و عیش کردن با معشوق و گریخته و ضایع شده به دست آید","c":"high","p":204},"0111|1011":{"t":"دلالت کند بر شادی و عیش و کشایش کار و کسب و قبض مال و رسیدن به مقصود و جنگ و خصومت با مردم بیگانه","c":"high","p":204},"1011|0111":{"t":"دلیل بود بر غم و اندوه از بزرگان و ناسازگاری میان زن و شوهر و دوستان و قبض مال و خرید و فروخت و به مقصود رسیدن از معشوق","c":"high","p":204},"1110|0010":{"t":"دلالت کند بر سفر و حرکت و مرتبه یافتن و کشایش کار و کسب و قبض مال و ظفر یافتن بر دشمن و ضایع شده و گریخته به دست آید و خرید چهارپا و ملبوسات نیکو بود","c":"mid","p":204,"n":"هشدار: در نشان چاپی این بند فقط دو شکل (⁦1110⁩ و ⁦1100⁩) دیده شد و شکل سوم دیده نشد؛ کلید با قانون ضرب و یکتایی ۱۶ جفت ⁦1110|0010⁩ گذاشته شد"},"0010|1110":{"t":"دلیل بود بر میراث یافتن و منزلت بزرگان و قبض مال و خیر و راحت و نیکویی از زنان و ظفر بر دشمنان و غایب به سلامت بود و سفر را نیک باشد و مراد حاصل شود","c":"high","p":204}},"0011":{"1111|1100":{"t":"این مثلث دلالت کند بر سفر و حرکت و نامه و پیغام از غایب یا از دوست و خیر و راحت و مراد و مرتبهٔ بزرگ رسیدن و قبض مال و کشایش کار و کسب و ظفر یافتن بر دشمن و حصول مراد","c":"high","p":204},"1100|1111":{"t":"دلیل بود بر دولت و بزرگی رسیدن و کام یافتن و بر خیانت زیردستان و خلاص یافتن بیمار","c":"high","p":204},"0000|0011":{"t":"دلالت کند بر بشارت و رسیدن از غایب و رسیدن مسافر و جمع شدن دوستان و قبض مال و خریدن حیوانات و نیکویی عاقبت و کشایش کار و کسب","c":"high","p":204},"0011|0000":{"t":"دلالت کند بر خیر و راحت و در آخر نزدیک منفعت از خرید حیوان و نیکی دیدن از زنان و عشرت با دوستان و کشایش کار بعد از شدت","c":"high","p":204},"0010|0001":{"t":"دلیل بود بر نامه و پیغام از غایب یا از محبوس و کشایش کارهای بسته و ضایع شده باز به دست آید","c":"high","p":204},"0001|0010":{"t":"دلالت کند بر رسیدن غایب با فایده و کفیل را بی‌فایده و آسوده از کسب و کار و ثبات کارها و جمع شدن با زنان و غمگینی بابت فرزندان و مسائل زندگی رخ می‌دهد و سفر و حرکت ناپسند بود","c":"mid","p":204,"n":"منفعت ندارد"},"0100|0111":{"t":"دلالت کند بر حصول زر و نقره و خریدن چهارپا و کارسازی زنان و عیش و تماشا و شراب خوردن و حامله پسر زاید","c":"high","p":205},"0111|0100":{"t":"دلالت کند بر تجارت و عمارت و ملک و دوست و در کار خیر سعی کن؛ زنی که فکر می‌کنی از دست داده‌ای و فرار کرده باز می‌گردد و چیز از دست‌رفته به دست آید و سلامتی غایب و از دوستان به مقصود رسیدن","c":"mid","p":205},"1011|1000":{"t":"دلالت کند بر سفر و حرکت و چهارپا خریدن و تلف شده به دست آید و رسیدن غایب به سلامت و مراد رسیدن و عشقبازی با زن‌های فاحشه و فایده از زنان دیدن","c":"high","p":205},"1000|1011":{"t":"دلالت کند بر خسارت مال و گریختن بندگان و ترس از جهت بیمار و غایب به سلامت برسد و نکاح مبارک بود و دلیل بود بر دعوی از میراث","c":"high","p":205},"0101|0110":{"t":"دلالت کند بر جمع شدن با دوستان و مراد یافتن و قبض مال و کشایش کار و کسب و جمع شدن با زنان و نکاح کردن و صحت بیمار و به دست آمدن ضایع شده","c":"high","p":205},"0110|0101":{"t":"دلالت کند بر قبض مال و خریدن غلام و کنیز و جمع شدن با زنان و رسیدن غایب به سلامت و خلاصی حامله و به امید رسیدن و سفر مبارک کردن و یافتن راحت از بزرگان","c":"high","p":205},"1101|1110":{"t":"دلیل بود بر رسیدن غایب و کشایش کارهای بسته و نکویی عاقبت و خلاصی یافتن از غم و عیش و نکاح را نیک بود","c":"mid","p":205},"1110|1101":{"t":"دلالت کند بر سفر و حرکت و غم و اندوه و فروبستگی کارها و خسارت ملبوسات و دلتنگی از زنان و ضایع شدن چهارپا و دست به کاری زده‌ای که در آن تجربه‌ای نداشتی و پشیمان شدن و مشاجره‌ای برای باغ که سرمایه‌ای است و فروش آن زمان بسیار می‌برد","c":"mid","p":205},"1001|1010":{"t":"دلیل بود بر خسارت مال و گریختن بنده و رنجوری حامله و خرید حیوان و زن خواستن و باز پشیمان شدن","c":"high","p":205},"1010|1001":{"t":"دلالت کند بر سفر و حرکت و ضایع شدن ملبوسات و رسیدن غایب و قبض مال و کشایش کار و بر خصومت میان زن و شوهر و انباز","c":"mid","p":205}},"1110":{"0000|1110":{"t":"این مثلث دلالت کند بر خسارت و زیان چهارپا و غلام و کنیز و اندوه و فروبستگی کارها و جمع شدن بر فساد و بر سر مسئله‌ای که زن حامله و ناپاک به وجود آورده و بر خسارت و در سفر","c":"mid","p":205},"1110|0000":{"t":"دلالت کند بر سفر و حرکت و دعوی و ناسازگاری میان دوستان و زن و شوهر و شریک و بیرون رفتن حکام از مسئلهٔ تو؛ کسانی که با تو در مسئله و اختلافی بودند از تو فاصله گرفته‌اند و تو تنها شده‌ای","c":"high","p":205,"n":"«حکام» در متن کتاب است؛ شرح پیشین (داوران = دو طرف دعوا) به گفتهٔ محقق بود و با «حکام = قضاتِ نمودار» باید بازبینی شود"},"0001|1111":{"t":"دلالت کند بر غم و اندوه و خسارت مال و گریختن بندگان و چهارپا و ترس و بیم؛ در شرایط روحی بدی قرار دارد و دودل است و از ترس شکست نمی‌تواند تصمیمی بگیرد و خوف بیمار و از اینکه غایب را درد و رنجی رسیده باشد","c":"high","p":205,"n":"المی"},"1111|0001":{"t":"دلالت کند بر سفر و حرکت و نقل از جایی به جایی و خسارت مال و ملبوسات و زنان و فروبستگی کارها و کسب بی‌موجب و دلتنگی از جانب فرزندان یا دوستان","c":"mid","p":205,"n":"هشدار: در نشان چاپی این بند شکل چپ به‌صورت ⁦0000⁩ دیده شد و با قانون ضرب نمی‌خواند؛ کلید با جفت‌شدن (وارونِ بند قبل) ⁦1111|0001⁩ گذاشته شد؛ در سفر کردن مسیر ناهموار است"},"1000|0110":{"t":"دلالت کند بر جمع شدن با بزرگان و خیر و راحت از ایشان و تحصیل مال و علم و خریدن غلام و کنیز و راحت و حرکت","c":"high","p":205},"0110|1000":{"t":"دلالت کند بر اجتماع با دوستان و طلب حاجت و به برادر رسیدن و زن خواستن و عشقبازی و منفعت از غلام و کنیز خریدن و راحت یافتن از پادشاه وقت","c":"mid","p":205},"1010|0100":{"t":"دلالت کند بر غم و اندوه و فروبستگی کارها از انواع و فرقت میان زن و شوهر و انباز و جنگ و خصومت و زیان مال و خیانت بندگان","c":"high","p":206},"0100|1010":{"t":"دلالت کند بر سفر و حرکت و ضایع شدن چهارپا و گریختن بندگان و دعوی به سبب میراث و بر بکارت بردن حرام و ترس و بیم از بزرگان","c":"mid","p":206},"1100|0010":{"t":"دلالت کند بر سفر و حرکت از جانب پادشاه و راحت رسیدن از کارها و کسب و کشایش و عزت و مرتبه یافتن و نکویی عاقبت و قبض مال و رسیدن به امید","c":"high","p":206},"0010|1100":{"t":"دلالت کند بر کشایش کار و کسب و راحت از پادشاه و زنان بزرگ و به مقصود رسیدن و عیش و طرب و صحت بیمار","c":"high","p":206},"1101|0011":{"t":"دلالت کند بر خریدن چهارپا و راحت رسیدن از زنان یا از مردان و ترتیب یافتن و حامله و بیمار و محبوس و زندانی زود خلاص یابد","c":"high","p":206},"0011|1101":{"t":"دلالت کند بر جمعیت و عیش و بر خریدن چهارپا و سعادت و کشایش کار و کسب و نکویی عاقبت و خوشی از غایبی که به سلامت برسد و مراد حاصل شود","c":"mid","p":206},"1011|0101":{"t":"دلالت کند بر غم و اندوه به سبب قبض مال و گفتگو کردن و دلخوشی از زنان و ناسازگاری با ایشان و سفر را بد بود","c":"high","p":206},"0101|1011":{"t":"دلالت کند بر سلامتی نفس و دلخوشی از زنان و دوستان و خسارت مال ایشان و بیماری دراز کشد و از زیردستان خیانت بیند","c":"mid","p":206},"1001|0111":{"t":"دلالت کند بر سفر و حرکت و کارهای بسته و زن خواستن و حامله زود خلاص یابد و بیماری دراز کشد","c":"mid","p":206},"0111|1001":{"t":"دلالت کند بر سعادت و نکویی عاقبت و کشایش کارهای بسته و خرید و فروخت و زن خواستن و سفر را نیک بود و بر گفتگوی پیش بزرگان زود و ترس و بیم اما عاقبت خیر بود","c":"high","p":206}},"1011":{"0000|1011":{"t":"این مثلث دلالت کند بر خسارت مال و غم و اندوه و از مردم بداصل و جنگ و خصومت و غارتگری لشکریان و بر زنان و بطالت و دست در کارهای مکروه زدن و عشقبازی و عیش و طرب","c":"mid","p":206},"1011|0000":{"t":"دلیل بود بر سفر و حرکت و گریختن زیردستان و غم از قبیل زنان یا کنیز یا غلام یا کسی غایب که دیرتر برسد و عشقبازی زود میسر شود و در آن زن هیچ خیر نبود","c":"high","p":206},"0001|1010":{"t":"دلالت کند بر تلف شدن مال و غم و اندوه و فروبستگی کار و کسب و بر زنان و بطالت و در همه کارها البته بسیار بد است","c":"high","p":206},"1010|0001":{"t":"دلالت کند بر گریختن بندگان و زنان قلاش و غم از قبیل زندان و سفر نامبارک و بدی حال غایب و آزار از زنان برسد و هیچ خیر نبود و زنان و بیمار را بد باشد","c":"high","p":206},"1110|0101":{"t":"دلیل بود بر سفر و برای قبض مال یا طلب غایب و گریخته زود به دست آید پیشی گرفتن و اسیر کردن و گفتگو از قبیل سود و زیان و خرید و فروخت ملبوسات","c":"mid","p":206,"n":"پیشی گرفتن؛ اسیر کردن"},"0101|1110":{"t":"دلالت کند بر سلامتی نفس و زیان مال و تلف حیوان و بیمار صحت یابد و اگر سفر نزدیک کند زیانمند شود و گفتگو بود از قبیل زنان و امردان","c":"high","p":207},"1111|0100":{"t":"دلیل بود بر مشغولی از سفر و زیان مال و قبض مال و اگر شاهد بود دلیل بود بر گریختن بندگان و زیردستان و خیانت ایشان","c":"mid","p":207,"n":"هشدار: در نشان چاپی این بند شکل چپ به‌صورت ⁦1000⁩ دیده شد و با قانون ضرب نمی‌خواند (باید ⁦0100⁩ باشد)؛ کلید با جفت‌شدن (وارونِ بند بعد) ⁦1111|0100⁩ گذاشته شد"},"0100|1111":{"t":"دلالت کند بر خسارت مال و جنگ و خصومت و بیمار را بیم بود و حال غایب نیز بد بود و گریخته دشوار به دست آید و بکارت بردن نیک است و باقی بد است","c":"mid","p":207},"1000|0011":{"t":"دلالت کند بر نکویی عاقبت و سفر را میانه بود و به امید رسد به خیر و مبارک بادی","c":"high","p":207},"0011|1000":{"t":"دلالت کند بر کشایش کار و کسب و خریدن غلام و کنیز و به دست آمدن حیوان و رسیدن به امید و عشقبازی با زن جمیله و خرج در آن کردن","c":"high","p":207},"0010|1001":{"t":"دلالت کند بر عروسی و عشقبازی با زنان و کنیزان و تلف شدن عمر در نعمتی و کشایش کارهای بسته و برآمدن مقصود به انواع","c":"mid","p":207},"1001|0010":{"t":"دلالت کند بر زن حامله و بیماری که بترسد و سفر و زیان مال و زن خواستن و عشقبازی و قبض مال به غایت نیک است از انواع","c":"mid","p":207},"1100|0111":{"t":"دلیل بود بر سفر و خبر و راحت از پادشاه و بزرگان و قبض مال و دست و عمل زن و ضایع و گم شده به دست آید","c":"mid","p":207},"0111|1100":{"t":"دلالت کند بر خیر و راحت از زنان و بزرگان و بر عیش و عشرت با این قوم و حامله نرینه زاید","c":"mid","p":207},"0110|1101":{"t":"دلیل بود بر جمعیت زنان و عشقبازی و رفتن نزد پادشاه و غایب زود برسد و در این باب خیر است","c":"high","p":207},"1101|0110":{"t":"دلالت کند بر نکویی عاقبت و کشایش کارها و قبض مال و سفرهای مختلف و یار به سلامت سفر می‌کند و اگر حمره شاهد بود دلیل است بر جنگ و خصومت و خون کردن و اگر شاهد بیاض بود دلیل کند بر جملهٔ سعادت و خیر و عیش و طرب والله اعلم","c":"mid","p":207,"n":"«بی‌خطر یار» یعنی «به سلامت، محبوب سفر می‌کند» (به گفتهٔ محقق)"}},"0111":{"0000|0111":{"t":"این مثلث دلالت کند بر سعادت و کشایش کار و کسب و قبض مال و عیش و تماشا با دوستان و جمع شدن در عرصه و شادی به انواع","c":"mid","p":207},"0111|0000":{"t":"دلالت کند بر سفر و حرکت و تجارت حیوانات و غلام و کنیز و جمع شدن از برای قسمت مال میراث یا مال زنان و گفتگوی به این سبب؛ و اگر شاهد حمره بود جنگ واقع شود","c":"high","p":207},"0001|0110":{"t":"دلالت کند بر گفتگو از قبیل مال بضاعت اما بعضی به دست آید و اندوه و فروبستگی کار و ناسازگاری میان زن و شوهر و انباز و دوستان","c":"mid","p":207},"0110|0001":{"t":"دلالت کند بر خسارت مال و خیانت بندگان و غیره و بیماری دراز کشیدن و گفتگو به سبب زنان فاحشه والله اعلم","c":"high","p":207},"1000|1111":{"t":"دلالت کند بر خیر و سعادت و کشایش کار و کسب و صحت بیمار و زن خواستن و غلام و چهارپایان خریدن و دعوی برای مال بضاعت و غایب را کار نظم بود اما قدری زیان رسیده باشد","c":"high","p":208},"1111|1000":{"t":"دلالت کند بر سفر و حرکت و خسارت حیوان و خرید و فروخت را نیک","c":"mid","p":208},"0100|0011":{"t":"دلالت کند بر سفر و حرکت و جنگ و خصومت از سبب ملبوسات و نکاح را نیک نبود","c":"high","p":208},"0011|0100":{"t":"دلیل بود بر سلامتی نفس و خوشی از جانب زنان و معشوق و رسیدن مراد و شرکت را نیک بود و اگر نقی الخد شاهد بود جنگ و خصومت و زیان مال بود","c":"mid","p":208},"0010|0101":{"t":"دلالت کند بر قبض مال از سفر و بر خرید حیوان و بر خیر و راحت دیدن از بزرگان و مراد رسیدن از زنان و دوستان","c":"high","p":208},"0101|0010":{"t":"دلالت کند بر قبض مال و روزی که به سائل رسد و کشایش کار و کسب و سفر مبارک و بیع و شری به غایت نیک بود و شرکت و نکاح خوب باشد","c":"mid","p":208,"n":"رستگار"},"1011|1100":{"t":"دلیل بود بر غم و اندوه و خسارت مال و گریختن بندگان و خیانت کاری زیردستان و زنان و فروبستگی کار و کسب و ترس از پادشاه","c":"high","p":208},"1100|1011":{"t":"دلیل بود بر سفر و حرکت از جانب پادشاه و بیمار را بیم بود و خرید حیوان و قماش را نیکو بود و زنان را","c":"mid","p":208,"n":"اگر فال برای زن بود بد است؛ پایان جمله افتاده است"},"1001|1110":{"t":"دلالت کند بر بدی حال غایب و بیمار و فروبستگی کارها و غم و اندوه از انواع و خسارت مال و گریختن بندگان و ضایع شدن چهارپایان؛ اگر زن خواهد بداصل بود و تمام ستود","c":"mid","p":208,"n":"به طور کامل توصیف شد"},"1110|1001":{"t":"دلیل بود بر سفر و حرکت برای قبض مال و دعوی از قبیل ملبوسات زنان و ناسازگاری از انواع اما عمارت و ملک را نیکو بود","c":"mid","p":208,"n":"هشدار: در نشان چاپی این بند شکل چپ با قانون ضرب نمی‌خواند؛ کلید با جفت‌شدن (وارونِ بند قبل) ⁦1110|1001⁩ گذاشته شد"},"1101|1010":{"t":"دلالت کند بر زیان مال و بدی حال غایب در سفر و خسارت حیوان بود و عشقبازی و عیش کردن را نیکو بود و زن خواستن نامحمود بود","c":"mid","p":208},"1010|1101":{"t":"دلیل بود بر غم و اندوه از قبیل بیماری و پشیمانی از کار مکروه و ناسازگاری از انواع واقع شود و خصومت پیش حکام و تلف شده اما بعضی به دست آید و بعضی نه","c":"mid","p":208}},"0110":{"1101|1011":{"t":"این مثلث دلالت کند بر سروری و خلافت میان دوستان و بدی حال بیمار و خریدن زر و نقره و غلام و کنیز و تماشا به قدر شواهد و ضایع شده به دست آید و سفر را بد بود","c":"mid","p":208},"1011|1101":{"t":"دلالت کند بر صلح کردن دوستان و کسانی که صاحب تمشیر باشند و عیش و طرب با زنان و امردان و نکویی شرکت و خلاصی بیمار و کشایش کار و کسب درخشان و روشن","c":"mid","p":208,"n":"شادمانی بر جماع و نزدیکی؛ «درخشان و روشن» افزودهٔ نوین است"},"0111|0001":{"t":"دلالت کند بر شرکت و تزویج و خریدن غلام و کنیز و ضایع شده به دست باز آید و نیز نامه و پیغام از غایب یا عزیزی آید یا از سفر آید","c":"high","p":208},"0001|0111":{"t":"دلالت کند بر غم و اندوه و گفتگو و ناسازگاری از انواع و خیر از پادشاه و بزرگان و رسیدن غایب و دل مشغولی از برای فرزندان و نکاح نامحمود و مذموم بود","c":"mid","p":209,"n":"سرزنش‌شده"},"1000|1110":{"t":"دلالت کند بر سفر و حرکت و کشایش کار و کسب و مرتبه یافتن و دعوی به سبب قبض مال و بیمار صحت یابد و غایب به سلامت برسد و نکاح پسندیده بود","c":"high","p":209},"1110|1000":{"t":"دلیل بود بر سفر و حرکت به سبب قبض مال و حیوان و کشایش کار و کسب و سعادت رسیدن به کام و دل گرفته به دست آید","c":"mid","p":209,"n":"دل غمگین"},"0100|0010":{"t":"دلالت کند بر سفر و حرکت و رسیدن غایب و خرید و فروخت از انواع و کشایش کار و کسب و نکویی عاقبت و مبارکی نکاح و عیش و طرب و عشقبازی و باز","c":"high","p":209,"n":"روشن؛ واژهٔ تأکید بر همین حکم"},"0010|0100":{"t":"دلیل بود بر زیان مال و بیرون آمدن خون از عضو و خریدن زر و نقره و جامه زنان و رسیدن نامه به سلامت و پیغام از دوستان","c":"high","p":209},"0000|0110":{"t":"دلیل بود بر خریدن چهارپا و جمعیت ساختن و قبض مال و رسیدن غلام و کنیزک و غایب به سلامت بود","c":"high","p":209},"0110|0000":{"t":"دلالت کند بر جمع شدن زنان و مردان و عمل درست و عروسی و دعوی مال و میراث و عمارت کردن املاک و سازگاری میان دوستان","c":"high","p":209,"n":"«کار راستی» یعنی «عمل درست» (به گفتهٔ محقق)"},"1111|1001":{"t":"دلیل بود بر سفر و حرکت و خیر و راحت و کشایش کار و کسب و عشقبازی و جمع شدن با دوستان و عشرت کردن و ظفر یا غلبه بر دشمن","c":"mid","p":209,"n":"پیروزی"},"1001|1111":{"t":"دلیل بود بر سفر کردن با زنان و عقد و تزویج و بیع و شری و خیر و راحت و ظفر یافتن بر دشمن و بیمار صحت یابد","c":"mid","p":209},"1010|1100":{"t":"دلالت کند بر سفر کردن به سبب مال و گرفتاری و اسارت از پادشاه و بر دلتنگی فرزندان و ضایع شدن چهارپا و ملبوسات","c":"mid","p":209},"1100|1010":{"t":"دلالت کند بر خریدن چهارپا و خیر و راحت از پادشاه و خسارت از استعانت دیگران و بر عیش و طرب و عشقبازی و به کام دل رسیدن و صحت بیمار","c":"mid","p":209,"n":"احتمالاً: با نرمی و خوبی رفتار کردن؛ استعانت: یاری گرفتن (به گفتهٔ محقق)"},"0011|0101":{"t":"دلالت کند بر سلامتی نفس و قبض مال و کشایش کار و کسب و از خریدن حیوان و رسیدن غایب یا کسی عزیز و اسیر کردن و عشرت کردن با این قوم و نکویی دیدن از زنان","c":"mid","p":209,"n":"اقدام کردن"},"0101|0011":{"t":"دلیل بود بر حرکت و سفر و خیر و راحت و کشایش کار و کسب فروبسته و نکاح و شرکت و معاملت پسندیده است","c":"high","p":209}},"1111":{"1000|0111":{"t":"این مثلث دلالت کند بر عزت و مرتبه و اقبال و سعادت و نکویی عاقبت سفر و به برادر رسیدن و سلامتی نفس و نظام کار غایب و قبض مال","c":"mid","p":209},"0111|1000":{"t":"دلالت کند بر سلامتی مسافر و غایب و تحصیل مال زنان و عمل درست ایشان و بیع و شری و بیرون رفتن مال از دست بی‌اختیار","c":"mid","p":209,"n":"بدست آوردن؛ پول؛ «کار راستی» یعنی «عمل درست» (به گفتهٔ محقق)"},"0001|1110":{"t":"دلالت کند بر غم و اندوه و فروبستگی کار و کسب و باز افتادن مقصود و ناسازگاری با دوستان و دلتنگی از قبیل زنان و فرزندان و گریختن بنده و آزاد","c":"mid","p":210,"n":"روشن شدن"},"1110|0001":{"t":"دلالت کند بر جنگ و خسارت مال و ضایع شدن چهارپا و سفر را بد بود و غایب را نیز بد بود و بیمار و زندانی را نیز بد باشد و بر عشقبازی با زنان فاحشه و غم خوردن و نسبت دارد با مرد بدهکار","c":"mid","p":210},"1010|0101":{"t":"دلیل بود بر سفر و حرکت و قبض مال و کشایش کارها و دست در کار زدن با بزرگان و زنان به قدر شواهد و بیماری دراز کشد اما عاقبت به خیر بود","c":"high","p":210},"0101|1010":{"t":"دلالت کند بر سعادت و اقبال و کشایش کار و کسب و نوشدلی از انواع و خسارت مال به سبب رسیدن غایب و حامله نرینه زاید","c":"high","p":210},"1100|0011":{"t":"دلالت کند بر سفر و حرکت از جانب پادشاه و قبض مال از ایشان و کشایش کار و به دست آمدن ضایع شده و منفعت از خریدن حیوان و غلام و کنیز و سلامتی غایب و خلاصی رنجور","c":"high","p":210},"0011|1100":{"t":"دلالت کند بر خیر و خوبی عاقبت و سلامتی غایب و خیر از بزرگان و رسیدن به مراد و عشقبازی با زنان و جمع شدن با ایشان","c":"mid","p":210,"n":"به اتفاق رسیدن"},"0100|1011":{"t":"دلالت کند بر بکارت بردن و زن خواستن و خون آوردن از اعضا و جنگ و خصومت و خسارت مال و ضایع شدن چهارپا و گریختن بنده و اراده سفر بد بود","c":"high","p":210},"1011|0100":{"t":"دلالت کند بر ولد الزنا و حرامی و دزد و زیان مال و کارهای گره کردن و شراب خوردن و غایب را المی رسیده باشد","c":"high","p":210},"0000|1111":{"t":"دلالت کند بر قافله و جمع شدن زنان و جنگ و خصومت و تعزیت به قدر شواهد","c":"mid","p":210,"n":"سوگواری و ماتم‌سرایی"},"1111|0000":{"t":"دلالت کند بر سفرهای مختلف و خرید و فروخت حیوان و عشقبازی و رسیدن از غایب و کشایش کار و کسب","c":"high","p":210},"1101|0010":{"t":"دلیل بود بر خیر و خوبی و راحت و امن در سفر و به مقصود رسیدن و خوشدلی از معشوق و زنان و گم شده به دست آید و بیمار را بد بود","c":"high","p":210},"0010|1101":{"t":"دلیل کند بر خیر و خوبی از زنان و معشوق و سازگاری میان زن و دوستان و شریکان از انواع و قبض مال و رسیدن غایب به سلامت و گم شده به دست آید و بیماری را بد بود","c":"high","p":210},"1001|0110":{"t":"و دلالت کند بر جمع شدن بر سر زن حامله یا بیمار که بر وی ترسند و خریدن غلام و کنیز و برگشتن به بند و زندان و فروبستگی کارها","c":"mid","p":211},"0110|1001":{"t":"دلیل بود بر جمع شدن با زنان و عیش و طرب و تحصیل مال و شرکت و نکاح نیز نیکو بود و از دست رفته بیاید و سفر کرده بود و دعوی بر سر ارث که از حیوان زنده مثل گلهٔ گوسفند یا گاو و امثال آن است کنند و الله اعلم","c":"mid","p":211,"n":"مشاجره؛ جملهٔ پایانی ناقص است"}}};
+  var DAYN=["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"];
+  var DAYT={0:{s:["0010","0101","1100","0111","0110","1101","0000"],m:["1111","1011","1000","0011"],n:["1001","0001","1010","1110","0100"],q:"یکشنبه [؟]: فهرست «سعد قوی» (۷ شکل) روشن خوانده شد. «میانه» و «نحس» در چاپ مبهم است و با قاعدهٔ «هر روز ۱۶ شکل یک بار» کامل شد (۱۰۰۰ و ۰۰۱۱ از همین قاعده آمده‌اند، نه از خواندن مستقیم). هنوز با بزرگ‌نمایی دوباره خوانده نشده."},
+  1:{s:["1111","0000","1101","0010","0110","1100","0111"],m:["0101","1000","0011","1011"],n:["1010","1110","1001","0001","0100"],q:"دوشنبه [؟]: در چاپ ۰۱۱۱ دو بار دیده می‌شود و ۰۰۱۱ نیست؛ با قاعدهٔ «هر روز ۱۶ شکل یک بار» دومی را ۰۰۱۱ گرفتم."},
+  2:{s:["1011","1000","0101","1101","1100","0100"],m:["1111","0111","0010","1001","0110"],n:["1110","0000","1010","0001","0011"],q:"سه‌شنبه: با بزرگ‌نمایی خوانده شد؛ شمار ۶ و ۵ و ۵ است و هر ۱۶ شکل دقیقاً یک بار آمده (خوانش مطمئن)."},
+  3:{s:["0110","0000","1101","0010","0101","1111","1100","0111"],m:["1001","1000","1011"],n:["0011","0001","0100","1010","1110"],q:"چهارشنبه [؟ اصلاح با شاهد]: در چاپ ص ۳۵۶ شکل سوم میانه ۰۱۰۱ خوانده می‌شود که با سعد قوی تکرار است و ۱۰۱۱ جا افتاده. جدول ص ۳۸۷–۳۸۸ برای چهارشنبه حکم نقی الخد (۱۰۱۱) را «میانه» (پراکندگی… آخر روز نیکو) می‌دهد؛ پس این‌جا ۱۰۱۱ گذاشته شد، به‌جای ۰۱۰۱ چاپی."},
+  4:{s:["1000","0101","0000","1101","0010","0011","0111","0110","1111"],m:["1100","1011"],n:["1010","1001","0001","0100","1110"],q:"پنجشنبه: فهرست نحس همان است که در ص ۳۵۶ چاپ شده (۱۰۱۰، ۱۰۰۱، ۰۰۰۱، ۰۱۰۰، ۱۱۱۰). بقیهٔ شکل‌ها از جدول ص ۳۸۷ و ۳۸۸ تقسیم شد، چون فهرست سعد و میانهٔ ص ۳۵۶ برای این روز تکرار و افتادگی دارد. قبض الخارج (۱۰۱۰) را ص ۳۵۶ نحس می‌داند و جدول ص ۳۸۷ خوب؛ به فرمان محقق ملاک ص ۳۵۶ است. نیاز به بررسی: ۱۰۰۰ و ۱۱۰۰ و ۰۱۱۰ در فهرست چاپی هیچ‌جا نیامده‌اند و جایشان از جدول ص ۳۸۷ است."},
+  5:{s:["1000","0111","0101","1101","0010","1011"],m:["1100","0011","0110","1111","0000"],n:["1010","1001","0001","0100","1110"],q:"جمعه [؟ اصلاح با شاهد]: در چاپ ۰۰۱۰ دو بار پشت‌سر هم آمده و ۱۰۱۱ جا افتاده. جدول ص ۳۸۷–۳۸۸ برای جمعه حکم نقی الخد (۱۰۱۱) را خوب می‌دهد («شادی رسد از اهل طرب، فتوح باشد»)؛ پس ۰۰۱۰ دومی ۱۰۱۱ حساب شد. نحس‌ها از انتهای یک سطر و ابتدای سطر بعد خوانده شد."},
+  6:{s:["1101","1001","0001","1011","0101","1110"],m:["1010","0011","1111","0010"],n:["1000","1100","0000","0110","0100","0111"],q:"شنبه: در چاپ ص ۳۵۶ این ردیف ۱۵ شکل دارد و دو شکل در دو فهرست تکرار شده (۱۰۰۰ هم سعد هم نحس، ۰۱۱۰ هم میانه هم نحس). حکم ص ۳۸۷–۳۸۸ داور شد: ۱۰۰۰ و ۰۱۱۰ بد‌اند پس از سعد و میانه برداشته شدند. ۰۱۰۱ و ۱۱۱۰ در جدول خوب‌اند و به سعد قوی رفتند، ۰۰۱۰ در جدول میانه است و به میانه رفت. نیاز به بررسی: این سه جابه‌جایی از جدول ص ۳۸۷ آمده، نه از خواندن مستقیم ص ۳۵۶."}};
+  var DAYMODE="356";try{if(localStorage.getItem("dayMode")==="387")DAYMODE="387"}catch(e){}
+  var D356={},D387={};(function(){function cl(o){return {s:o.s.slice(),m:o.m.slice(),n:o.n.slice(),q:o.q}}
+    for(var k in DAYT){D356[k]=cl(DAYT[k]);D387[k]=cl(DAYT[k])}
+    D356[6]={s:["1101","1001","0001","1011"],m:["1010","0011","1111"],n:["1000","1100","0000","0110","0100","0111"],q:"شنبه (ملاک ص ۳۵۶ چاپی): فهرست چاپی ۱۵ شکل دارد و ۱۰۰۰ و ۰۱۱۰ در دو فهرست آمده‌اند؛ هر دو را نحس گرفتم. ۰۰۱۰ و ۰۱۰۱ و ۱۱۱۰ در چاپ نیامده‌اند و بدون رده می‌مانند. نیاز به بررسی: غلط چاپی خود کتاب."};
+    D387[4].n=D387[4].n.filter(function(x){return x!=="1010"});D387[4].s.push("1010");D387[4].q="پنجشنبه (ملاک ص ۳۸۷): قبض الخارج (۱۰۱۰) را ص ۳۵۶ نحس می‌داند و جدول ص ۳۸۷ خوب؛ این‌جا خوب گرفته شد. نیاز به بررسی: اختلاف خود کتاب.";
+    D387[6].q="شنبه (ملاک ص ۳۸۷): ۱۰۰۰ و ۰۱۱۰ در جدول ص ۳۸۷ بدند و از سعد و میانه برداشته شدند؛ ۰۱۰۱ و ۱۱۱۰ سعد و ۰۰۱۰ میانه شد. نیاز به بررسی: این سه جابه‌جایی از جدول ص ۳۸۷ است."})();
+  function DT(k){return (DAYMODE==="387"?D387:D356)[k]}
+  document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".dmb");if(!b)return;DAYMODE=b.getAttribute("data-m");try{localStorage.setItem("dayMode",DAYMODE)}catch(x){}renderAll();astroUpdate(dayCls(build()))});
+  function dayBox(h){
+    var d=new Date(),k=d.getDay(),nm=DAYN[k],o='<div class="note"><h3>امروز: '+nm+' <span class="flag warn">ص ۳۵۶ — جدول «اشکالی که در روزها قوی و ضعیف اند»</span></h3>';
+    var T=DT(k);
+    o+='<p style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn dmb" data-m="356" style="'+(DAYMODE==="356"?'background:var(--sand);color:var(--sand-ink)':'')+'">ملاک ص ۳۵۶ (چاپی)</button><button class="btn dmb" data-m="387" style="'+(DAYMODE==="387"?'background:var(--sand);color:var(--sand-ink)':'')+'">ملاک ص ۳۸۷ (حکم‌ها)</button></p>';
+    if(!T){return o+'<p>جدول این روز در برنامه نیست.</p></div>'}
+    var tal=h[0],cs=[];if(T.s.indexOf(tal)>=0)cs.push("سعد قوی");if(T.m.indexOf(tal)>=0)cs.push("میانه");if(T.n.indexOf(tal)>=0)cs.push("نحس");
+    var cat=cs.length?cs.join(" / "):"در فهرست نیامد",both=cs.length>1?" [؟ در چند فهرست آمده]":(cs.length?"":" [؟]");
+    o+='<p style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;direction:rtl"><span>طالع (خانهٔ ۱): '+fig(tal)+' '+esc(NAME[tal]||"؟")+'</span><b>← '+cat+both+'</b></p>';
+    var line=function(t,a){return '<p><b>'+t+':</b> '+a.map(function(x){return esc(NAME[x]||x)}).join("، ")+'</p>'};
+    o+=line("سعد قوی",T.s)+line("میانه",T.m)+line("نحس",T.n)+'<p style="font-size:12px">'+esc(T.q)+'</p>'+thu(k)+'</div>';return o}
+  function moonLon(dt){var d=dt.getTime()/86400000+2440587.5-2451545,r=Math.PI/180,
+    L=218.316+13.176396*d,Mp=134.963+13.064993*d,D=297.850+12.190749*d,Ms=357.529+0.98560028*d,F=93.272+13.22935*d,
+    l=L+6.289*Math.sin(Mp*r)+1.274*Math.sin((2*D-Mp)*r)+0.658*Math.sin(2*D*r)+0.214*Math.sin(2*Mp*r)-0.186*Math.sin(Ms*r)-0.114*Math.sin(2*F*r);
+    return ((l%360)+360)%360}
+  function thu(k){if(k!==4)return "";var lon=moonLon(new Date()),sg=Math.floor(lon/30),sn=["حمل","ثور","جوزا","سرطان","اسد","سنبله","میزان","عقرب","قوس","جدی","دلو","حوت"],
+    sc=(sg===7),near=(lon%30<1||lon%30>29);
+    return '<p><b>قاعدهٔ شما برای پنجشنبه (نه از کتاب):</b> قمر در برج '+sn[sg]+' است (حدود '+(lon%30).toFixed(1)+'° از آن، فلکی استوایی [؟] با خطای حدود نیم درجه) ← پنجشنبهٔ امروز <b>'+(sc?'نحس':'سعد')+'</b>'+(near?' [؟ نزدیک مرز برج]':'')+'</p><p style="font-size:12px">این قاعده را کتاب (ص ۳۵۶) ندارد؛ فقط ایدهٔ شماست و جدول کتاب بالا بدون تغییر مانده.</p>'}
+  function khaneRoz(h){
+    var HD=[[1,"یکشنبه",1],[2,"جمعه",0],[3,"چهارشنبه",1],[4,"دوشنبه",1],[5,"شنبه",0],[6,"پنجشنبه",1],[7,"سه‌شنبه",1]],
+      o='<div class="note"><h3>خانه و روز <span class="flag warn">ص ۱۹۲–۱۹۶ — پنج جمله «اگر در خانهٔ N باشد روز X واقف ضمیر شود»</span></h3>';
+    HD.forEach(function(r){var f=h[r[0]-1];
+      o+='<p style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;direction:rtl"><span>خانهٔ '+r[0]+': '+fig(f)+' '+esc(NAME[f]||"؟")+'</span><b>← '+r[1]+'</b><span class="flag '+(r[2]?'ok':'warn')+'">'+(r[2]?'از کتاب':'پیش‌بینی، نه از کتاب')+'</span></p>'});
+    var sa=0,i;for(i=0;i<16;i++){if(SAD9[h[i]])sa++}
+    o+='<p style="font-size:12px">ترتیب روزها همان ترتیب سیاره‌هاست (آفتاب، زهره، عطارد، ماه، زحل، مشتری، مریخ) و با هر پنج جملهٔ کتاب جور است. خانه‌های ۲ و ۵ در کتاب نیامده [؟].</p>';
+    o+='<p><b>اجماع:</b> از ۱۶ خانه '+sa+' شکل سعد و '+(16-sa)+' شکل نحس/ممتزج است ('+(sa>8?'سعد غالب':sa<8?'نحس غالب':'برابر')+'). <span class="flag warn">شمارش ساده؛ قاعدهٔ اجماع هنوز از کتاب پیدا نشده [؟]</span></p>';
+    return o+'</div>'}
+  var KIND={"0111":"d","0001":"d","0110":"d","0101":"d","1000":"x","1110":"x","1100":"x","1111":"x","1101":"m","1011":"m","1001":"m","0011":"m","0010":"s","0100":"s","0000":"s","1010":"s"};
+  var KUN={"0000":1,"1010":1,"0011":1,"1111":1};
+  var KN={d:"داخل",x:"خارج",s:"ثابت",m:"منقلب"};
+  var QI=-1,QH=2,QT=null;
+  function dots(f,r){return f[r]==="1"?1:2}
+  function misr(h){
+    var S=h[QH-1],P=FIG[QH-1][1],N=xor(S,P),ks=[S,P,N].map(function(f){return KIND[f]}),want=(QT==="a")?"d":"x",k=null,t;
+    var desc=[["خانهٔ سؤال",S],["صاحب سکن",P],["نتیجه",N]].map(function(a){return a[0]+": "+(NAME[a[1]]||"؟")+" ("+KN[KIND[a[1]]]+")"}).join(" · ");
+    if(ks.every(function(x){return x===ks[0]})){k=ks[0];t="هر سه "+KN[k]}
+    else{var fa=0,wa=0;[S,P,N].forEach(function(f){fa+=dots(f,0)+dots(f,1);wa+=dots(f,2)+dots(f,3)});
+      if(fa!==wa){k=fa>wa?"x":"d";t="مختلف؛ نقطه‌ها: آتش و باد "+fa+"، آب و خاک "+wa+" ← حکم "+(k==="x"?"رفتن":"آمدن")}else t="مختلف و نقطه‌ها برابر؛ کتاب حکمی نگفته [؟]"}
+    var e1=SAD9[S]?1:0,e2=SAD9[P]?1:0,ex=(e1&&e2)?"استخراج: از دو سعد ← سعادت":(!e1&&!e2)?"استخراج: از دو نحس/ممتزج ← نحوست [؟]":"استخراج: یکی سعد و یکی نحس ← شکلِ نتیجه نحس شمرده می‌شود اگرچه به صورت سعد باشد [؟ ص ۵۶]";
+    return {k:k,desc:desc,t:t,same:(S===P),ex:ex}}
+  function barbar(h){
+    var o='<div class="note"><h3>اجماع — روش بربر، مغرب و مصر <span class="flag warn">ص ۵۲–۵۳ — خوانده شد؛ پیاده‌سازی همراه با موردهای «نیاز به بررسی» است که پایین آمده</span></h3>';
+    o+='<p style="font-size:12px">نوع هر شکل (داخل/خارج/ثابت/منقلب) از ص ۴۶–۴۷ خوانده شد؛ برای چهار شکل (جماعت، قبض الخارج، نصرة الداخل، طریق) خوانش مبهم بود [؟] و نوعشان را از شمار «چهار تا از هر نوع» گرفتم: جماعت و قبض الخارج ثابت؛ نصرة الداخل منقلب؛ طریق خارج.</p>';
+    HNM=["","خودِ من (طالع)","مال و روزی","برادران و سفر کوتاه","پدر، خانه و ملک","فرزند و دلدار","بیماری","ازدواج و شراکت","ترس و مرگ","سفر دور و دین","شغل و مقام","امید و دوستان","دشمنان"];
+    o+='<p><label>خانهٔ مقصود: <select id="qhSel">';for(var i=1;i<=12;i++)o+='<option value="'+i+'"'+(i===QH?' selected':'')+'>'+i+' · '+HNM[i]+'</option>';o+='</select></label> &nbsp; <label>نوع سؤال: <select id="qtSel"><option value="a"'+(QT==="a"?' selected':'')+'>اتصال (رسیدن، حصول)</option><option value="e"'+(QT==="e"?' selected':'')+'>انفصال (سفر، خلاصی)</option></select></label></p>';
+    var c={d:0,x:0,s:0,m:0},i;for(i=0;i<16;i++)c[KIND[h[i]]]++;
+    o+='<p><b>شمار ۱۶ خانه:</b> داخل '+c.d+' · خارج '+c.x+' · ثابت '+c.s+' · منقلب '+c.m+'</p>';
+    var q=h[QH-1],na1=xor(h[0],q),na2=xor(h[13],q),na3=h[15];
+    o+='<p>نشان الامر اول (خانهٔ ۱ × خانهٔ مقصود، به نقل «مجموعه»): '+fig(na1)+' '+esc(NAME[na1]||"؟")+' ← '+KN[KIND[na1]]+'</p>';
+    o+='<p>نشان الامر به قول دیگر (خانهٔ ۱۴ × خانهٔ مقصود): '+fig(na2)+' '+esc(NAME[na2]||"؟")+' ← '+KN[KIND[na2]]+'</p>';
+    o+='<p>نشان الامر ثانی (شکل ۱۶، برای عاقبت): '+fig(na3)+' '+esc(NAME[na3]||"؟")+' ← '+KN[KIND[na3]]+'</p>';
+    var mx=Math.max(c.d,c.x,c.s,c.m),top=[];["d","x","s","m"].forEach(function(k){if(c[k]===mx)top.push(k)});
+    var v;
+    if(top.length>1)v="برابر ("+top.map(function(k){return KN[k]}).join(" و ")+")؛ کتاب برای برابری در این روش حکمی نگفته [؟]";
+    else{var t=top[0],na=KIND[na1];
+      if(t==="s")v="ثابت بیشتر ← در توقف افتد (سعد: حصول با تأخیر؛ نحس: لاحصول)";
+      else if(t==="m")v="منقلب بیشتر ← برآید و باز از دست برود (سعد با اختیار، نحس بی‌اختیار)";
+      else{var want=(QT==="a")?"d":"x";
+        if(t===want)v=(na===want)?"اکثریت و نشان الامر هر دو هم‌جهت ← مراد برآید (سعد آسان، نحس دشوار)":"اکثریت "+KN[t]+" است ولی نشان الامر "+KN[na]+": «گفته‌اند» همین حکم حصول [؟]";
+        else v="اکثریت خلاف جهت سؤال ← مراد برنیاید (آن کار تمام نشود)"}}
+    o+='<p><b>روش بربر (ص ۵۲):</b> '+v+'</p>';
+    var w=[12,13,14,15].map(function(k){return h[k]}),kw=w.map(function(f){return KIND[f]}),want2=(QT==="a")?"d":"x",v2;
+    var allw=kw.every(function(k){return k===want2});
+    if(kw.every(function(k){return k===kw[0]&&(k==="d"||k==="x")})){v2=(kw[0]===want2)?"هر چهار خانهٔ ۱۳ تا ۱۶ هم‌جهت ← حاصل (سعد آسان، نحس دشوار)":"هر چهار خانهٔ ۱۳ تا ۱۶ خلاف جهت ← حاصل نشود [؟ از جملهٔ ص ۵۳ برداشت شد]"}
+    else if(kw.every(function(k){return k==="s"}))v2="هر چهار ثابت ← توقف";
+    else if(kw.every(function(k){return k==="m"}))v2="هر چهار منقلب ← برآید و برود";
+    else{var k14=KIND[h[13]],k15=KIND[h[14]];
+      if(k14===k15&&(k14==="d"||k14==="x"))v2="۱۳ تا ۱۶ قاطی؛ ولی ۱۴ و ۱۵ هر دو "+KN[k14]+" ← مراد برآید از "+(k14==="d"?"دخول":"خروج");
+      else{var fa=0,wa=0;w.forEach(function(f){fa+=dots(f,0)+dots(f,1);wa+=dots(f,2)+dots(f,3)});
+        v2="۱۴ و ۱۵ هم‌نوع نیستند؛ نقطه‌ها: آتش و باد "+fa+"، آب و خاک "+wa+" ← "+(fa>wa?"حکم خروج":wa>fa?"حکم دخول":"برابر؛ کتاب حکمی نگفته [؟]")}}
+    o+='<p><b>حکمای مغرب (ص ۵۲–۵۳):</b> '+v2+'</p>';
+    var K13=KIND[h[12]],K14=KIND[h[13]],K15=KIND[h[14]],K16=KIND[h[15]],z;
+    if(QT==="a"){
+      if(K14==="d"&&K15==="d"&&K16==="d")z="۱۴ و ۱۵ و ۱۶ داخل ← دلیل تمام شدن مراد (ص ۵۴–۵۵)";
+      else if(K16==="d"&&K14==="d")z="۱۶ و ۱۴ داخل ← مراد برآید (ص ۵۵)";
+      else if(K16==="d"&&K15==="m"&&((K14==="d")!==(K15==="d")))z="یکی داخل و یکی خارج، میزان منقلب، ۱۶ داخل ← مراد حاصل شود [؟]";
+      else if([K13,K14,K15,K16].every(function(k){return k==="x"}))z="همه خارج ← مراد ناتمام (ص ۵۵)";
+      else z="با هیچ‌یک از حالت‌های نوشتهٔ ص ۵۴–۵۵ نمی‌خواند؛ کتاب حکمی برایش ننوشته [؟]";
+    }else{
+      if([K13,K14,K15,K16].every(function(k){return k==="x"}))z="خانه‌های ۱۳ تا ۱۶ همه خارج ← تمام مراد (ص ۵۵)";
+      else if(K16==="x"&&K14==="x")z="۱۶ و ۱۴ خارج ← پرسنده خود مراد را ترک کند (ص ۵۵)";
+      else if(K16==="x")z="۱۶ خارج ← چیزی حاصل شود، سعد با آسانی و نحس با دشواری (ص ۵۵)";
+      else if(K16==="s")z="۱۶ ثابت ← در توقف افتد (ص ۵۵)";
+      else if(K16==="m")z="۱۶ منقلب ← پرسنده سرگردان (ص ۵۵)";
+      else z="۱۶ داخل ← در انفصال حکمی نیافتم [؟]";
+    }
+    if(K14===K15&&h[13]===h[14])z+=" · ۱۴ و ۱۵ مساوی ← دلیل حصول (ص ۵۴)";
+    o+='<p><b>زناتی، لسان الامر و شاهدان (ص ۵۴–۵۵):</b> '+z+'</p>';
+    var mj;
+    if(h[14]==="0000"){
+      var kk=KIND[h[12]];
+      if(QT==="a")mj={d:"از دو داخل ← ثبوت و حصول و وقوع",x:"از دو خارج ← عدم حصول",m:"از دو منقلب ← حصول و ثبوت، و باز برطرف شدن آن",s:"از دو ثابت ← توقف با امید حصول"}[kk];
+      else mj={x:"از دو خارج ← برآید",d:"از دو داخل ← برنیاید",s:"از دو ثابت ← در توقف افتد",m:"از دو منقلب ← برآید و پشیمان و متألم شود"}[kk];
+      mj="<b>میزان جماعت است</b> («حکم قطعی»، ص ۵۷ و ۴۳۳): "+mj+" <span class=\"flag warn\">[؟ «از دو» را شکل خانهٔ ۱۳ (= ۱۴) گرفتم؛ متن صریح نیست]</span>";
+    }else mj="میزان ("+esc(NAME[h[14]]||"؟")+") جماعت نیست؛ طبق ص ۴۳۳ هر شکل را با شاهد سعادت و نحوست خودش می‌سنجند: سعد با سعد ← سعد کامل، نحس با نحس ← نحس اندک، ممتزج ← مایل به یکی [؟ خوانش خلاصه]";
+    o+='<p><b>میزان (خانهٔ ۱۵):</b> '+mj+'</p>';
+    var ms=misr(h);o+='<p><b>اهل مصر (ص ۵۳ و ۵۵):</b> '+ms.desc+' ← '+ms.t+(ms.k?' ← '+(ms.k===((QT==="a")?"d":"x")?"حصول مراد":"لاحصول"):'')+' · '+ms.ex+' <span class="flag warn">[؟ «شریک» را صاحب سکن خانهٔ سؤال گرفتم؛ ص ۵۵]</span></p>';
+    return o+'</div>'}
+  function diceNote(){
+    if(!D)return "";
+    return '<div class="note"><h3>طاس <span class="flag warn">روش محقق؛ در کتاب نیست</span></h3><p style="font-size:12px">این زائچه با طاس ساخته شده: میلهٔ اول چهار مادر (خانه‌های ۱ تا ۴) و میلهٔ دوم چهار دختر (خانه‌های ۵ تا ۸) را مستقل داده است (۳۲ بیت). دخترها در این روش <b>از روی مادرها ساخته نشده‌اند</b>، برخلاف کتاب (ص ۱۰) که دختر را از خواندن ردیف مادرها می‌گیرد. خانه‌های ۹ تا ۱۶ مثل همیشه از ضرب می‌آیند و هشت حکم مثلثی از همین هشت شکل است.</p></div>'}
+  function arkan(h){
+    var R=["1000","0000","0001","1100"],ttl=["عرض","سبب","ضمیر","حاصل"],o='<div class="note"><h3>عرض، سبب، ضمیر، حاصل <span class="flag warn">ص ۱۳–۱۴ — روش از مثال ص ۱۴ بازسازی شد [؟]</span></h3>';
+    o+='<p style="font-size:12px">صاحب رکن‌ها = ساکنِ خانه‌های ۱، ۴، ۷، ۱۰ طبق جدول سکن ص ۴۶–۴۷: لحیان، جماعت، انکیس، نصرة الخارج <span class="flag ok">خوانده شد</span>. هر کدام × خانهٔ ۱۳..۱۶ (Q)؛ سپس × (خانهٔ رکن × خانهٔ پنجم از آن) (P)؛ خروجی O = Q × P.</p>';
+    for(var k=0;k<4;k++){
+      var hr=h[12+k],q=xor(R[k],hr),a=h[3*k],b=h[3*k+4],p=xor(a,b),r=xor(q,p);
+      o+='<p><b>'+ttl[k]+':</b> '+fig(R[k])+' × خانهٔ '+(13+k)+' ('+esc(NAME[hr]||"؟")+') = '+esc(NAME[q]||q)+' ؛ P = خانهٔ '+(3*k+1)+' × خانهٔ '+(3*k+5)+' = '+esc(NAME[p]||p)+' ← <b>'+fig(r)+' '+esc(NAME[r]||r)+'</b></p>';
+    }
+    return o+'<p style="font-size:12px">[؟] معنای هر خروجی (خانهٔ سعادت، خدمت، میراث…) فقط برای مثال ص ۱۴ در کتاب آمده؛ نسبت نام‌های عرض/سبب/ضمیر/حاصل به ترتیب خروجی‌ها از ترتیب نام‌ها در متن گرفته شد. «شکل دوم با نجم خود» در متن = خانهٔ ۱۰ خوانده شد [؟].</p></div>'}
+  var KLAB={d:"داخل، یعنی آمدن",x:"خارج، یعنی رفتن",s:"ثابت، یعنی توقف",m:"منقلب، یعنی برگشت"};
+  function qpN(h){return '<b class="qpn">'+String(h).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})+'</b>'}
+  function qpSub(h){return ' <small class="qps">خانهٔ '+HORD[h]+' ('+HRT[h]+') · '+FIG[h-1][0]+'</small>'}
+  document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e.target.closest(".qpi"):null;if(!b)return;var qt=document.getElementById("qTopic");if(!qt)return;qt.value=b.getAttribute("data-qi");qt.onchange&&qt.onchange()});
+  document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e.target.closest(".qti"):null;if(!b)return;var qy=document.getElementById("qType");if(!qy)return;qy.value=b.getAttribute("data-v");qy.onchange&&qy.onchange()});
+  document.addEventListener("click",function(e){var t=e.target&&e.target.id;if(t!=="lg-fa"&&t!=="lg-en")return;var en=t==="lg-en";document.getElementById("ab-fa").hidden=en;document.getElementById("ab-en").hidden=!en;document.getElementById("lg-fa").setAttribute("aria-pressed",en?"false":"true");document.getElementById("lg-en").setAttribute("aria-pressed",en?"true":"false")});
+  function askBox(){
+    var cur=INTENTS[QI];
+    var o='<div class="note"><h3>نیت و طاس</h3><p class="sub" style="margin:0 0 4px">سه قدم: ۱) موضوع، ۲) اتصال یا انفصال، ۳) طاس.</p><div class="stp s1"><div class="stph"><span class="stn">۱</span><div><b class="kl">کلید نیت</b><small>پرسش دربارهٔ چیست؟</small></div></div><label><select id="qTopic" style="display:none"><option value="-1"'+(QI<0?' selected':'')+' disabled>اینجا را انتخاب کن</option>';
+    for(var i=0;i<INTENTS.length;i++)o+='<option value="'+i+'"'+(i===QI?' selected':'')+'>'+INTENTS[i].t.replace(/\s*\[[^\]]*\]/,'').split('؛')[0]+'</option>';
+    o+='</select>';
+    var pk='<details class="qp"><summary>'+(QI<0?'اینجا را انتخاب کن':qpN(INTENTS[QI].h)+INTENTS[QI].t.replace(/\s*\[[^\]]*\]/,'').split('؛')[0]+qpSub(INTENTS[QI].h))+'</summary>';
+    for(var i2=0;i2<INTENTS.length;i2++)pk+='<button type="button" class="qpi'+(i2===QI?' on':'')+'" data-qi="'+i2+'">'+qpN(INTENTS[i2].h)+INTENTS[i2].t.replace(/\s*\[[^\]]*\]/,'').split('؛')[0]+qpSub(INTENTS[i2].h)+'</button>';
+    o+=pk+'</details></label></div>';
+    return o+'<div class="stp s2"><div class="stph"><span class="stn">۲</span><div><b class="kl">کلید اتصال</b><small>می‌خواهی چیزی برسد، یا برود؟</small></div></div><div class="qtw"><button type="button" class="qti'+(QT==="a"?' on':'')+'" data-v="a">اتصال<small>بیاید، برسد</small></button><button type="button" class="qti'+(QT==="e"?' on':'')+'" data-v="e">انفصال<small>برود، دور شود</small></button></div><select id="qType" style="display:none"><option value=""'+(!QT?' selected':'')+' disabled>نوع اتصال را انتخاب کنید</option><option value="a"'+(QT==="a"?' selected':'')+'>اتصال: بیاید / برسد</option><option value="e"'+(QT==="e"?' selected':'')+'>انفصال: برود / دور شود</option></select></div><div class="stph stp3h"><span class="stn">۳</span><b class="kl">طاس</b></div><p><button class="btn" id="qRoll">طاس بریز و حکم بده</button></p><p class="sub" id="qWarn" style="color:var(--warn);margin:4px 0 0"></p></div>'}
+  var TOPK={1:["نفس","سائل","عاقبت","راحت","اندوه","غم","عزت","سلامت","مراد","نکویی","خیر","نیک","عیش"],2:["مال","کسب","قبض","معاش","روزی","سود","منفعت","تجارت","فروخت","خرید","مشتری","میراث","بیع","خسارت","زیان"],3:["سفر","حرکت","نقل","برادر","همسایه","پیغام","نامه","خبر","غائب","غایب"],4:["پدر","منزل","ملک","مسکن","وطن","گنجینه","خانه","زمین","اقربا"],5:["فرزند","فرزندان","معشوق","عشرت","عیش","عشقبازی","تماشا","طرب","حامله","لهو"],6:["بیمار","بیماری","رنجور","بنده","بندگان","غلام","کنیز","چارپا","چهارپا","حیوان","صحت","سلامتی"],7:["زن","زنان","شوهر","شریک","شریکان","شرکت","عروسی","نکاح","تزویج","دعوی","خصومت","جنگ"],8:["ترس","بیم","خطر","مرگ","هلاک","قتل"],9:["علم","دین","مذهب","خواب","عالم"],10:["بادشاه","حاکم","بزرگان","جاه","منصب","عزت","خلعت","کار","کارها","زیردستان"],11:["امید","سعادت","دوست","دوستان","مبارک","خیر"],12:["دشمن","دشمنان","زندانی","محبوس","بند","گریختن"]};
+  var POSW=["خیر","خوبی","کشایش","راحت","نیک","نیکو","نکویی","نکوئی","بسلامت","سلامتی","سلامت","صحت","سعادت","مبارک","سود","منفعت","فائده","رسیدن","حصول","یافتن","بدست","عزت","عشرت","عیش","طرب","خلاص","دلخوشی","خوشدلی","جمعیت","مراد","مطلوب","بمقصود","بمراد"];
+  var NEGW=["خسارت","زیان","غم","اندوه","جنگ","خصومت","بد","بدی","ناسازگاری","ترس","بیم","دلتنگی","فروبستگی","خیانت","تلف","مکروه","زحمت","گریختن","محنت","مشقت","فساد","تهمت","مرگ","هلاک","بدشواری","ناپسند","زیانمند","غمگین","ناخوش","سخت","رنج","درد"];
+  var NEGT=["نباید","نه","نشود","نیاید","نمی"];
+  function OLDF(t){return t.replace(/به (دست|سلامت|مراد|مقصود|دشواری|زودی)/g,"ب$1").replace(/غایب/g,"غائب").replace(/فایده/g,"فائده").replace(/نیکویی/g,"نکویی").replace(/پادشاه/g,"بادشاه").replace(/ضایع/g,"ضائع")}
+  function NEWF(t){return t.replace(/\bب(دست|سلامت|مراد|مقصود|دشواری|زودی)/g,"به $1").replace(/غائب/g,"غایب").replace(/فائده/g,"فایده").replace(/نکوئی/g,"نیکویی").replace(/بادشاه/g,"پادشاه").replace(/ضائع/g,"ضایع")}
+  function judgTopic(h){
+    var T=[[1,2,9],[3,4,10],[5,6,11],[7,8,12],[9,10,13],[11,12,14],[13,14,15],[15,1,16]],kw=INTENTS[QI].k||TOPK[QH]||[],KWP=["بیماری","دعوا و دادخواهی","دزدی","ترس و خطر","دشمنان"].indexOf(INTENTS[QI].t.replace(/\s*\[[^\]]*\]/,"").split("؛")[0])<0,NEGP=["نبود","نیست","نباشد"],rows=[],tot={g:0,b:0,m:0,n:0,u:0};
+    var has=function(list,t){return list.indexOf(t)>=0},hasK=function(list,t){return list.some(function(k){return t===k||(k.length>=4&&t.indexOf(k)===0)})};
+    T.forEach(function(t){
+      var a=h[t[0]-1],b=h[t[1]-1],c=h[t[2]-1],ch=JUDG[c],e=ch&&ch[a+"|"+b],txt=e?OLDF(e.t.replace(/\[[^\]]*\]/g,"")):"";
+      var w=txt.split(/\s+/).filter(Boolean),hits=[],pos=0,neg=0,rg=[];
+      w.forEach(function(x,i){if(hasK(kw,x)){var lo=i,hi=i;while(lo>0&&i-lo<6&&["اما","لیکن"].indexOf(w[lo-1])<0)lo--;while(hi<w.length-1&&hi-i<6&&["اما","لیکن"].indexOf(w[hi+1])<0)hi++;rg.push([lo,hi,i])}});
+      var mg=[];rg.forEach(function(r){var L=mg[mg.length-1];if(L&&r[0]<=L[1]+1){L[1]=Math.max(L[1],r[1]);L[3].push(r[2])}else mg.push([r[0],r[1],0,[r[2]]])});
+      mg.forEach(function(m){var sn=w.slice(m[0],m[1]+1);hits.push(NEWF(sn.join(" ")));sn.forEach(function(y,j){if(m[3].indexOf(m[0]+j)>=0&&!(KWP&&(has(POSW,y)||has(NEGW,y))))return;var flip=NEGT.indexOf(sn[j-1])>=0||sn[j-1]==="هیچ"||NEGP.indexOf(sn[j+1])>=0;if(has(POSW,y)){flip?neg++:pos++}else if(has(NEGW,y)){flip?pos++:neg++}})});
+      var v=!hits.length?"n":(pos===0&&neg===0)?"u":pos>neg?"g":neg>pos?"b":"m";tot[v]++;rows.push({t:t,name:NAME[c]||"—",hits:hits,pos:pos,neg:neg,v:v,all:NEWF(txt)})});
+    return {rows:rows,tot:tot}}
+  var SAY={a:"",b:""};
+  var VOICE={};
+  function clipGet(id){var P=(id.indexOf("v_")===0?"":"voice/")+id,ck=function(r){if(!r.ok||!/audio|octet/.test(r.headers.get("content-type")||""))throw 0;return r.blob()};
+    return fetch(P+".mp3").then(ck).catch(function(){return fetch(P+".m4a").then(ck)})}
+  function playSeg(seg,fb){var bx=document.getElementById("sageBox"),ctl={stop:false};
+    Promise.all(seg.map(function(id){if(VOICE[id])return VOICE[id];return VOICE[id]=clipGet(id).then(function(b){return URL.createObjectURL(b)}).catch(function(){return null})}))
+    .then(function(us){if(us.some(function(u){return !u})){speakTTS(fb);return}
+      try{speechSynthesis.cancel()}catch(e){}
+      var k=0;function nx(){if(k>=us.length){BG.duck(false);if(bx)bx.classList.remove("talk");return}
+        var a=new Audio(us[k++]);a.onplay=function(){BG.duck(true);if(bx)bx.classList.add("talk")};a.onended=nx;a.onerror=function(){BG.duck(false);if(bx)bx.classList.remove("talk")};a.play().catch(function(){BG.duck(false);if(bx)bx.classList.remove("talk")})}
+      nx()})}
+  function speakFa(txt){if(txt===SAY.s&&SAY.seg&&SAY.seg.length){playSeg(SAY.seg,txt)}else speakTTS(txt)}
+  var HASREC=false,HASTTS=false;
+  function voiceCheck(){var ok=HASREC;try{if(window.speechSynthesis){var vs=speechSynthesis.getVoices()||[];if(vs.some(function(v){return /^fa/i.test(v.lang)}))ok=true}}catch(e){}HASTTS=ok&&!HASREC;document.body.classList.toggle("novoice",!ok)}
+  try{fetch("v_y.mp3",{method:"HEAD"}).then(function(r){if(!r.ok)throw 0;HASREC=true;voiceCheck()}).catch(function(){fetch("v_y.m4a",{method:"HEAD"}).then(function(r){if(r.ok){HASREC=true;voiceCheck()}}).catch(function(){})})}catch(e){}
+  try{if(window.speechSynthesis){speechSynthesis.onvoiceschanged=voiceCheck}}catch(e){}
+  setTimeout(voiceCheck,1200);setTimeout(voiceCheck,3500);
+  function speakTTS(txt){
+    var note=document.getElementById("sayNote");
+    if(!window.speechSynthesis){if(note)note.textContent="این مرورگر خواندن با صدا را پشتیبانی نمی‌کند.";return}
+    try{speechSynthesis.cancel();
+      var vs=speechSynthesis.getVoices()||[],fas=vs.filter(function(v){return /^fa/i.test(v.lang)}),
+        fa=fas.filter(function(v){return /male|dariush|farid|مرد/i.test(v.name)&&!/female/i.test(v.name)})[0]||fas[0];
+      if(!fa&&note)note.textContent="صدای فارسی روی این دستگاه پیدا نشد؛ اگر صدا نیامد در تنظیمات گوشی «تبدیل متن به گفتار» را فارسی کن.";
+      var parts=(String(txt).match(/[^.؛!]+[.؛!]?/g)||[]).filter(function(x){return x.trim()}),bx=document.getElementById("sageBox"),k=0;
+      function next(){if(k>=parts.length){BG.duck(false);if(bx)bx.classList.remove("talk");return}
+        var u=new SpeechSynthesisUtterance(parts[k++]);u.lang="fa-IR";u.rate=0.85;u.pitch=0.75;if(fa)u.voice=fa;
+        u.onstart=function(){BG.duck(true);if(bx)bx.classList.add("talk")};u.onend=next;u.onerror=function(){BG.duck(false);if(bx)bx.classList.remove("talk");if(!HASREC){document.body.classList.add("novoice");if(note)note.textContent="صدا روی این دستگاه کار نکرد؛ جواب را بخوان."}};speechSynthesis.speak(u)}
+      next()}catch(e){if(note)note.textContent="خواندن با صدا ممکن نشد."}}
+  function verdict(h){
+    var want=(QT==="a")?"d":"x",opp=(QT==="a")?"x":"d";
+    var V=[],cnt={y:0,n:0,w:0,b:0},dc=dayCls(h);
+    var vote=function(k){return k===want?"y":k===opp?"n":k==="s"?"w":"b"};
+    var VL={y:"می‌شود",n:"نمی‌شود",w:"می‌شود، ولی دیر",b:"می‌شود، ولی نمی‌ماند"};
+    var add=function(name,k,note,pg){var v=vote(k);cnt[v]++;V.push([name,KLAB[k],VL[v],note||"",pg])};
+    // ۱) بربر: غلبهٔ شکل‌ها در ۱۶ خانه
+    var c={d:0,x:0,s:0,m:0},i;for(i=0;i<16;i++)c[KIND[h[i]]]++;
+    var mx=Math.max(c.d,c.x,c.s,c.m),top=["d","x","s","m"].filter(function(k){return c[k]===mx});
+    var q=h[QH-1],na1=xor(h[0],q);
+    var bn="داخل "+c.d+"، خارج "+c.x+"، ثابت "+c.s+"، منقلب "+c.m+"؛ نشان الامر: "+(NAME[na1]||"؟")+" ("+KN[KIND[na1]]+")";
+    if(top.length===1)add("بربر: غلبهٔ شکل‌ها",top[0],bn,"ص ۵۲");
+    else V.push(["بربر: غلبهٔ شکل‌ها","برابر","بدون رأی",bn+" — کتاب برای برابری حکمی نگفته [؟]","ص ۵۲"]);
+    // ۲) مغرب/زناتی: ۱۳ تا ۱۶
+    var w=[12,13,14,15].map(function(k){return KIND[h[k]]}),zk;
+    if(w.every(function(k){return k===w[0]}))zk=w[0];
+    else if(w[1]===w[2]&&(w[1]==="d"||w[1]==="x"))zk=w[1];
+    else{var fa=0,wa=0;[12,13,14,15].forEach(function(k){fa+=dots(h[k],0)+dots(h[k],1);wa+=dots(h[k],2)+dots(h[k],3)});zk=fa>wa?"x":wa>fa?"d":null}
+    if(zk)add("مغرب (زناتی): خانه‌های ۱۳ تا ۱۶",zk,"۱۳: "+KN[w[0]]+"، ۱۴: "+KN[w[1]]+"، ۱۵: "+KN[w[2]]+"، ۱۶: "+KN[w[3]],"ص ۵۲–۵۵");
+    else V.push(["مغرب (زناتی)","برابر","بدون رأی","نقطه‌ها برابر؛ حکمی نیست [؟]","ص ۵۳"]);
+    var ms=misr(h);
+    if(ms.k)add("مصر: شکل خانهٔ سؤال + شریک + نتیجه",ms.k,ms.desc,"ص ۵۳ و ۵۵");
+    else V.push(["مصر","برابر","بدون رأی",ms.desc,"ص ۵۳"]);
+    // ۳) قاضی / میزان
+    var jam=(h[14]==="0000");
+    add(jam?"میزان (۱۵): جماعت، حکم قطعی":"قاضی (۱۵): "+(NAME[h[14]]||"؟"),jam?KIND[h[12]]:KIND[h[14]],jam?"جماعت است؛ طبق کتاب حکم قطعی؛ رأی از شکل ۱۳ گرفته شد [؟]":"","ص ۵۷ و ۴۳۳");
+    // ۴) عرض، سبب، ضمیر، حاصل
+    var R=["1000","0000","0001","1100"],tt=["عرض","سبب","ضمیر","حاصل"];
+    for(var k=0;k<4;k++){var qq=xor(R[k],h[12+k]),pp=xor(h[3*k],h[3*k+4]),rr=xor(qq,pp);add(tt[k]+": "+(NAME[rr]||rr),KIND[rr],"","ص ۱۳–۱۴ [؟]")}
+    // ۵) شکل خانهٔ موضوع
+    add("خانهٔ نیت ("+QH+"): "+(NAME[h[QH-1]]||"؟"),KIND[h[QH-1]],"","ص ۲۱۰ و ۳۵۷");
+    // ۶) هشت مثلث
+    var T=[[1,2,9],[3,4,10],[5,6,11],[7,8,12],[9,10,13],[11,12,14],[13,14,15],[15,1,16]],tc={d:0,x:0,s:0,m:0};
+    T.forEach(function(t){tc[KIND[h[t[2]-1]]]++});
+    var tm=Math.max(tc.d,tc.x,tc.s,tc.m),tp=["d","x","s","m"].filter(function(k){return tc[k]===tm});
+    var tn="داخل "+tc.d+"، خارج "+tc.x+"، ثابت "+tc.s+"، منقلب "+tc.m;
+    if(tp.length===1)add("هشت مثلث (حکم‌ها)",tp[0],tn,"ص ۲۱۰");
+    else V.push(["هشت مثلث (حکم‌ها)","برابر","بدون رأی",tn,"ص ۲۱۰"]);
+    if(dc.l)V.push(["روز "+dc.nm+" و شکل طالع: "+dc.f,dc.l,"بدون رأی","فقط بر میزان اطمینان اثر دارد؛ جدول روزها","ص ۳۵۶"]);
+    var jt=judgTopic(h),jv=jt.tot.g>jt.tot.b?"g":jt.tot.b>jt.tot.g?"b":(jt.tot.g+jt.tot.b?"m":"n");
+    var jdir=jv==="g"?"y":jv==="b"?"n":jv==="m"?"w":null;
+    // جمع
+    var order=["y","n","w","b"],mxv=Math.max(cnt.y,cnt.n,cnt.w,cnt.b),win=order.filter(function(k){return cnt[k]===mxv});
+    var o='<div class="note"><h3>هشت حکم و قاضی؛ حکم‌های مربوط به نیت</h3>';
+    o+='<p><b>نیت:</b> '+INTENTS[QI].t+' (خانهٔ '+QH+')'+' · نوع سؤال: '+(QT==="a"?"اتصال (رسیدن، حصول): داخل = شدن":"انفصال (سفر، خلاصی): خارج = شدن")+'</p>';
+    var JL={g:"متن خوب",b:"متن بد",m:"متن مختلط",u:"متن بی‌نظر",n:"ذکر نشده"},JC={g:"var(--good)",b:"var(--bad)",m:"var(--muted)",u:"var(--muted)",n:"var(--muted)"};
+    o+='<h3 style="margin-top:12px">۱) هشت حکم؛ فقط بخش‌های مربوط به نیت</h3><p style="font-size:11px">از متن هر حکم، تکه‌هایی که به نیت (خانهٔ '+QH+') مربوط است جدا شد؛ خوب یا بد بودن هر تکه از واژه‌های خودِ متن (مانند خیر، کشایش، سلامت / خسارت، غم، ترس) شمرده شد. اگر خودِ واژهٔ نیت خوب یا بد بود (مثل «غم» یا «خیر») شمرده شد، مگر در نیت‌های ناخوشایند (ترس، دزدی، دشمنان، دعوا، بیماری)؛ «هیچ … نبود» معنا را وارونه می‌کند. شمارش خودکار است؛ خودت هم بخوان.</p>';
+    jt.rows.forEach(function(r){o+='<div style="border-top:1px solid #8884;padding:4px 0;font-size:12px"><b>'+r.t[0]+'+'+r.t[1]+'←'+r.t[2]+' '+esc(r.name)+'</b> <span style="color:'+JC[r.v]+'"><b>'+JL[r.v]+'</b></span>'+(r.hits.length?'<br><span style="opacity:.85">«'+r.hits.map(esc).join('» … «')+'»</span>':'')+'</div>'});
+    o+='<p><b>رأی هشت حکم:</b> خوب '+jt.tot.g+' · بد '+jt.tot.b+' · مختلط '+jt.tot.m+' · بی‌نظر '+jt.tot.u+' · ذکر نشده '+jt.tot.n+' ← <b>'+(jdir?VL[jdir]:"هیچ حکمی دربارهٔ این نیت نیامده")+'</b></p>';
+    o+='<h3 style="margin-top:12px">۲) قاضی و ابزارها (برای وارسی؛ جمع نمی‌شوند و در حکم نهایی رأی ندارند)</h3><p style="font-size:11px">قاضی و ابزارها را از نوع شکل می‌سنجند (آمدن، رفتن، توقف، برگشت)، نه از خوبی یا بدیِ متن. برای همین یک شکل می‌تواند در بخش ۱ «متن خوب» باشد و در بخش ۲ «برگشت». حکم نهایی از بخش ۱ می‌آید؛ قاضی برای وارسی است و اگر بخش ۱ چیزی نگفته باشد، جواب از قاضی گرفته می‌شود.</p>';
+    V.forEach(function(r){o+='<div style="border-top:1px solid #8884;padding:6px 0;font-size:12px;width:100%"><b>'+esc(r[0])+'</b> <span style="float:left;font-weight:700">'+r[2]+'</span><br><span style="opacity:.75">'+esc(r[1])+(r[3]?" · "+esc(r[3]):"")+' ('+r[4]+')</span></div>'});
+    var tw=vote(jam?KIND[h[12]]:KIND[h[14]]),twT=VL[tw]+" (قاضی: "+(NAME[h[14]]||"؟")+")";
+    var f;
+    if(jdir){f=(jdir===tw)?"حکم محکم: "+VL[jdir]+" — هشت حکم و قاضی هم‌نظرند":"حکم هشت‌گانه: "+VL[jdir]+" · قاضی: "+twT+" ← ناهم‌نظر؛ با احتیاط بخوان"}
+    else f="هشت حکم دربارهٔ این نیت چیزی نگفته؛ حکم قاضی: "+twT;
+    var sa=SAD9[na1]?"سعد ← با آسانی و اختیار":"نحس ← با دشواری و بی‌اختیار";
+    o+='<p style="font-size:16px"><b>'+f+'</b></p><p style="font-size:12px">سعد و نحسی نشان الامر ('+(NAME[na1]||"؟")+'): '+sa+' (ص ۵۲ و ۳۵۷). '+(jam?'میزان جماعت است؛ طبق کتاب این حکم قطعی است.':'')+'</p>';
+    o+='</div>';
+    var fk=jdir||tw,agreeF=jdir?(jdir===tw):null;
+    var SIMP={y:"می‌شود",n:"نمی‌شود",w:"می‌شود، ولی دیر",b:"می‌شود، ولی نمی‌ماند"},SC={y:"var(--good)",n:"var(--bad)",w:"var(--wait)",b:"var(--wait)"};
+    var why=jdir?(jt.tot.g+" حکم خوب و "+jt.tot.b+" حکم بد از هشت حکم"+(jt.tot.m?"، "+jt.tot.m+" مختلط":"")+"؛ قاضی ("+(NAME[h[14]]||"؟")+"، شکل "+KLAB[KIND[h[14]]]+") "+(agreeF?"هم‌نظر است":"نظر دیگری دارد: "+VL[tw])):"هشت حکم دربارهٔ این نیت ساکت است؛ جواب از قاضی ("+(NAME[h[14]]||"؟")+") گرفته شد";
+    var conf=jam?"قطعی (میزان جماعت)":agreeF===true?"محکم":agreeF===false?"با احتیاط":"متوسط";
+    if(!jam&&dc.c==="n"&&conf==="محکم"&&(fk==="y"||fk==="b"))conf="با احتیاط (روز نحس)";
+    var ease=(fk==="y"||fk==="b")?(SAD9[na1]?" · با آسانی":" · با دشواری"):"";
+    var head='<div class="note" style="border:2px solid '+SC[fk]+'"><h3 style="margin:0;font-size:22px;color:'+SC[fk]+'">'+SIMP[fk]+'</h3><p style="margin:6px 0 0;font-size:13px">'+conf+ease+' — '+why+'</p>'+(dc.l?'<p class="daychip c-'+dc.c+'">روز '+dc.nm+' · طالع '+esc(dc.f)+' ← '+dc.l+'</p>':'')+'</div>';
+    SAY.a="نیت: "+INTENTS[QI].t+". جواب: "+SIMP[fk]+(dc.l?". روز "+dc.nm+": "+dc.l:"")+". "+conf+ease.replace(" · ","، ")+". "+why+".";
+    SAY.b=SAY.a+" "+jt.rows.filter(function(r){return r.hits.length}).map(function(r){return "حکم "+r.name+": "+r.hits.join("؛ ")}).join(". ");
+    head=head.replace("</div>",'<p style="margin:8px 0 0"><button class="btn" id="sayA">🔊 جواب</button> <button class="btn" id="sayB">🔊 با حکم‌ها</button> <button class="btn" id="shareBtn" type="button">🖼 کارت اشتراک</button></p><p class="sub" id="sayNote" style="margin:4px 0 0"></p>'+rateHtml("a")+'</div>');
+    var SLV={y:["راه گشوده است؛ پیش برو و دل‌نگران نباش.","این کار به سامان می‌رسد؛ گام بردار.","نشانه‌ها آری می‌گویند: خواسته‌ات به تو می‌رسد."],
+      n:["در بسته است؛ این بار نه. به جای دیگر نظر کن.","نشانه‌ها آری نمی‌گویند؛ اصرار مکن.","این در به روی تو باز نمی‌شود؛ دل بکن و راه دیگر بجوی."],
+      w:["می‌شود، اما دیر؛ شکیبا باش.","کار به تأخیر می‌افتد، ولی بسته نیست؛ صبر کن.","گره باز می‌شود، به‌وقت خودش."],
+      b:["به دست می‌آید، اما نمی‌ماند؛ نگهدارش و دل مبند.","می‌رسی، ولی ماندگار نیست؛ هشیار باش.","خواسته را می‌گیری، اما دست‌به‌دست می‌شود."]};
+    var OPS={y:["ای جوینده، شن‌ها روان شدند.","بنشین جوینده؛ شن‌ها آسان و روان شدند.","شن‌ها روان شدند و نقش‌ها گویا شدند، جوینده."],n:["ای جوینده، آواز سنگ‌ها را شنیدم.","آرام باش جوینده؛ سنگ‌ها آواز سر دادند.","بنشین و بشنو، جوینده؛ آواز سنگ‌ها برخاست."],m:["ای جوینده، صدای ریگ‌ها را شنیدم.","آرام باش جوینده؛ صدای ریگ‌ها گویا شد.","بنشین و بشنو، جوینده؛ ریگ‌ها سخن گفتند."]},OPK=fk==="y"?"y":fk==="n"?"n":"m",OP=OPS[OPK];
+    var sd=h.join("").split("").reduce(function(a,c){return a+c.charCodeAt(0)},0);
+    var nt=INTENTS[QI].t.replace(/\s*\[[^\]]*\]/,"").split("؛")[0];
+    var cf=jam?"این حکم قطعی است.":agreeF===true?"حکم‌ها و قاضی هم‌نظرند.":agreeF===false?"اما قاضی با حکم‌ها یک‌دل نیست؛ با احتیاط بخوان.":"";
+    var es=(fk==="y"||fk==="b")?(SAD9[na1]?" کار با آسانی پیش می‌رود.":" کار با دشواری پیش می‌رود."):"";
+    var dl=dc.c==="s"?" امروز برای طالع تو سعد قوی است و یاور توست.":dc.c==="n"?" امروز برای طالع تو نحس است.":dc.c==="m"?" امروز برای طالع تو میانه است؛ نه یاری و نه مانع.":"";
+    var mixTop=jt.tot.m>0&&jt.tot.m>=jt.tot.g&&jt.tot.m>=jt.tot.b,strongNeg=fk==="n"&&(jam||agreeF===true)&&(dc.c==="n"||jt.tot.b>=3),isEasy=!!SAD9[na1];
+    var ADV=strongNeg?["احتیاط دوچندان","ad"]:(fk==="n"&&jt.tot.m>0)?["آرامش خود را حفظ کن","ar"]:mixTop?["خیلی آهسته و با احتیاط","as"]:fk==="n"?["با احتیاط عمل کن","ah"]:fk==="w"?["تعجیل مکن","at"]:!isEasy?["تعجیل مکن","at"]:(fk==="y"&&dc.c!=="n")?["شتاب کن","ab"]:["با احتیاط عمل کن","ah"];
+    SAY.s=(REUSE?"این همان طاسِ پیشین است که از سوی دیگر خوانده شد؛ طاس یک بار می‌افتد و هر دو سوی پرسش را پاسخ می‌دهد. ":"")+OP[sd%3]+" دربارهٔ "+nt+" پرسیدی. "+SLV[fk][(sd>>1)%3]+es+" "+cf+dl+" "+ADV[0]+".";
+    var advNeg=!(fk==="y"&&(ADV[1]==="ab"||ADV[1]==="ah"));SAY.vk=fk;SAY.vt={y:"آری، می‌شود",n:"خیر، نمی‌شود",w:"می‌شود، اما دیر",b:"می‌شود، ولی نمی‌ماند"}[fk];
+    SAY.seg=(REUSE?["r0"]:[]).concat(["o"+OPK+(sd%3+1),"i"+(QI+1<10?"0":"")+(QI+1),fk+((sd>>1)%3+1)],(fk==="y"||fk==="b")?[SAD9[na1]?"e1":"e2"]:[],jam?["c1"]:agreeF===true?["c2"]:agreeF===false?["c3"]:[],dc.c?["d"+({s:1,m:2,n:3}[dc.c])]:[],[ADV[1]]);
+    var sage='<div class="sage" id="sageBox"><div class="face" id="sageFace" style="background-image:url(sage_face.jpg)"></div><div class="bub"><span class="name">مرد ماهی</span>'+SAY.s.slice(0,SAY.s.length-ADV[0].length-1)+'<b class="adv '+(advNeg?'neg':'pos')+'">'+ADV[0]+'.</b><br><button class="btn" id="saySage" type="button" style="margin-top:6px">🔊 بشنو</button></div></div>';
+    return sage+head+'<details><summary>جزئیات از کتاب (هشت حکم و قاضی)</summary>'+o+'</details>'}
+  var SFX=(function(){var ctx=null,mg=null;
+    function on(){try{return localStorage.getItem("bgmOff")!=="1"}catch(e){return true}}
+    function init(){if(ctx)return ctx;try{var C=window.AudioContext||window.webkitAudioContext;ctx=new C();mg=ctx.createGain();mg.gain.value=.55;mg.connect(ctx.destination)}catch(e){ctx=null}if(ctx&&ctx.state==="suspended")ctx.resume();return ctx}
+    function noise(dur){var n=ctx.sampleRate*dur,b=ctx.createBuffer(1,n,ctx.sampleRate),d=b.getChannelData(0);for(var i=0;i<n;i++)d[i]=Math.random()*2-1;var s=ctx.createBufferSource();s.buffer=b;return s}
+    function tone(f,t,d,v,type){var o=ctx.createOscillator(),g=ctx.createGain();o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(mg);o.start(t);o.stop(t+d+.05)}
+    function bell(f,t,v){tone(f,t,2.2,v);tone(f*2.01,t,1.4,v*.35);tone(f*3.02,t,.8,v*.15)}
+    return {
+      tap:function(){if(!on()||!init())return;var t=ctx.currentTime;tone(620,t,.07,.12)},
+      roll:function(){if(!on()||!init())return;var t=ctx.currentTime,s=noise(.9),f=ctx.createBiquadFilter(),g=ctx.createGain();f.type="bandpass";f.frequency.setValueAtTime(2600,t);f.frequency.linearRampToValueAtTime(900,t+.9);f.Q.value=.9;
+        g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.35,t+.08);g.gain.linearRampToValueAtTime(.18,t+.6);g.gain.linearRampToValueAtTime(0,t+.9);s.connect(f);f.connect(g);g.connect(mg);s.start(t);
+        for(var i=0;i<9;i++){tone(150+Math.random()*60,t+.15+i*.085,.12,.16-i*.01,"triangle")}},
+      verdict:function(txt){if(!on()||!init())return;var t=ctx.currentTime+1.6;
+        if(/^نمی/.test(txt)){bell(146.8,t,.3)}
+        else if(/دیر|نمی‌ماند/.test(txt)){bell(329.6,t,.2);bell(440,t+.28,.2)}
+        else{bell(392,t,.22);bell(587.3,t+.22,.22);bell(784,t+.44,.18)}}}})();
+  var BG=(function(){var a=document.getElementById("bgm"),b=document.getElementById("musicBtn"),want=true,vol=0.35,tm=null;
+    try{if(localStorage.getItem("bgmOff")==="1")want=false}catch(e){}
+    function fade(to,ms){clearInterval(tm);var st=a.volume,t0=Date.now();tm=setInterval(function(){var k=Math.min(1,(Date.now()-t0)/ms);a.volume=Math.max(0,Math.min(1,st+(to-st)*k));if(k>=1){clearInterval(tm);if(to===0&&!want)a.pause()}},60)}
+    function ui(){if(b){b.classList.add("on");b.setAttribute("aria-pressed",want?"true":"false")}}
+    var o={start:function(){ui();if(!want)return;try{a.volume=0;var p=a.play();if(p&&p.catch)p.catch(function(){});fade(vol,2000)}catch(e){}},
+      duck:function(on){if(!want)return;fade(on?0.1:vol,400)},
+      toggle:function(){want=!want;try{localStorage.setItem("bgmOff",want?"0":"1")}catch(e){}ui();if(want){o.start()}else{fade(0,500)}}};
+    if(b)b.onclick=o.toggle;
+    document.addEventListener("visibilitychange",function(){if(document.hidden)a.pause();else if(want&&!document.getElementById("intro").classList.contains("out")==false)a.play().catch(function(){})});
+    return o})();
+  document.addEventListener("pointerdown",function(e){var t=e.target;if(t.closest&&t.closest(".tabs button,.btn,#introGo,#introSkip"))SFX.tap()},true);
+  (function(){var it=document.getElementById("intro");if(!it)return;var v=document.getElementById("sageVid"),go=document.getElementById("introGo");
+    function seen(){try{return sessionStorage.getItem("introSeen")==="1"}catch(e){return false}}
+    function close(){BG.start();it.classList.add("out");try{sessionStorage.setItem("introSeen","1")}catch(e){}try{v.pause()}catch(e){}setTimeout(function(){it.style.display="none"},900)}
+    function show(){it.style.display="flex";it.classList.remove("out");go.hidden=true;try{v.currentTime=0;v.play()}catch(e){}}
+    if(seen()){it.style.display="none";document.addEventListener("pointerdown",function f(){document.removeEventListener("pointerdown",f);BG.start()})}else{try{var pr=v.play();if(pr&&pr.catch)pr.catch(function(){go.hidden=false})}catch(e){go.hidden=false}}
+    v.addEventListener("ended",function(){go.hidden=false});setTimeout(function(){go.hidden=false},5600);
+    document.getElementById("introSkip").onclick=close;go.onclick=close;
+    document.getElementById("introSound").onclick=function(){try{v.muted=!v.muted;this.textContent=v.muted?"🔊 صدا":"🔇 بی‌صدا"}catch(e){}};
+    var mk=document.querySelector(".brand .mark");if(mk){mk.style.cursor="pointer";mk.onclick=show}})();
+  var GUARD=null,REUSE=null,HNM=[];
+  var DWS=["ش","ی","د","س","چ","پ","ج"],DGL=["♄","☉","☽","♂","☿","♃","♀"];
+  function dayCls(h){var k=new Date().getDay(),T=DT(k),nm=DAYN[k];if(!T||!h)return {k:k,nm:nm,c:"",l:"",f:""};
+    var tal=h[0],c=T.s.indexOf(tal)>=0?"s":T.n.indexOf(tal)>=0?"n":T.m.indexOf(tal)>=0?"m":"";
+    return {k:k,nm:nm,c:c,l:c==="s"?"سعد قوی":c==="n"?"نحس":c==="m"?"میانه":"",f:NAME[tal]||""}}
+  function jdate(t,full){try{var d=new Date(t);return d.toLocaleDateString("fa-IR",{weekday:"long",year:"numeric",month:"long",day:"numeric"})+(full?"، ساعت "+d.toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"}):"")}catch(e){return ""}}
+  function astroBuild(){var el=document.getElementById("astro");if(!el)return;var k=new Date().getDay(),idx=(k+1)%7,a=360/7,P=function(r,deg){var t=(deg-90)*Math.PI/180;return [50+r*Math.cos(t),50+r*Math.sin(t)]};
+    var sv='<svg viewBox="0 0 100 100" width="104" height="104" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="none" stroke="var(--sand)" stroke-width="1.2"/>';
+    var tk="";for(var i=0;i<84;i++){var p1=P(48,i*360/84),p2=P(i%12===0?43:45.5,i*360/84);tk+='<line x1="'+p1[0].toFixed(2)+'" y1="'+p1[1].toFixed(2)+'" x2="'+p2[0].toFixed(2)+'" y2="'+p2[1].toFixed(2)+'" stroke="var(--sand)" stroke-width=".5"/>'}
+    sv+='<g class="rim">'+tk+'</g><g id="astroDial" style="transform-origin:50px 50px;transform:rotate(0deg)">';
+    for(var j=0;j<7;j++){var a0=j*a-a/2,a1=j*a+a/2,p=P(40,a0),q=P(40,a1),p0=P(20,a0),q0=P(20,a1),m=P(31,j*a),g=P(25.5,j*a),d=(6-j+7)%7;
+      // sector j shows day index (k order): شنبه..جمعه
+      sv+='<path class="sec'+(j===idx?" cur":"")+'" d="M'+p0[0].toFixed(2)+' '+p0[1].toFixed(2)+'L'+p[0].toFixed(2)+' '+p[1].toFixed(2)+'A40 40 0 0 1 '+q[0].toFixed(2)+' '+q[1].toFixed(2)+'L'+q0[0].toFixed(2)+' '+q0[1].toFixed(2)+'A20 20 0 0 0 '+p0[0].toFixed(2)+' '+p0[1].toFixed(2)+'Z"/>'
+        +'<text x="'+m[0].toFixed(2)+'" y="'+(m[1]+2.2).toFixed(2)+'" text-anchor="middle" class="dl" transform="rotate('+(j*a)+' '+m[0].toFixed(2)+' '+m[1].toFixed(2)+')">'+DWS[j]+'</text>'
+        +'<text x="'+g[0].toFixed(2)+'" y="'+(g[1]+1.6).toFixed(2)+'" text-anchor="middle" class="dg" transform="rotate('+(j*a)+' '+g[0].toFixed(2)+' '+g[1].toFixed(2)+')">'+DGL[j]+'</text>'}
+    sv+='</g><circle cx="50" cy="50" r="17" fill="var(--panel)" stroke="var(--sand)" stroke-width=".8"/><circle cx="50" cy="50" r="2" fill="var(--sand)"/><path d="M50 2 L46.5 9 L53.5 9Z" fill="var(--sand)"/></svg>';
+    el.innerHTML='<div class="astxt"><b class="dn">'+DAYN[k]+'</b><span id="astroSub">امروز؛ بعد از طاس، روز با طالع تو سنجیده می‌شود</span></div>'+sv;
+    requestAnimationFrame(function(){requestAnimationFrame(function(){var d=document.getElementById("astroDial");if(d)d.style.transform="rotate("+(-idx*a)+"deg)"})})}
+  function astroUpdate(dc){var el=document.getElementById("astro"),sb=document.getElementById("astroSub");if(!el||!sb)return;
+    el.className="astro "+(dc&&dc.c?"c-"+dc.c:"");sb.textContent=dc&&dc.l?("طالع تو "+dc.f+" است؛ در روز "+dc.nm+" "+dc.l):"امروز؛ بعد از طاس، روز با طالع تو سنجیده می‌شود"}
+  var HK="ramalHist";
+  function histGet(){try{var a=JSON.parse(localStorage.getItem(HK)||"[]");return Array.isArray(a)?a:[]}catch(e){return []}}
+  function histSet(a){try{localStorage.setItem(HK,JSON.stringify(a))}catch(e){}}
+  function histSave(){
+    if(QI<0||!QT)return;var b=document.querySelector('#homeOut .note[style*="border:2px"]');if(!b)return;
+    var h3=b.querySelector("h3"),p=b.querySelector("p");if(!h3)return;var h=build(),dc=dayCls(h);
+    var a=histGet();a.unshift({t:Date.now(),qi:QI,m:M.slice(),dd:D?D.slice():null,re:REUSE?1:0,q:INTENTS[QI].t.replace(/\s*\[[^\]]*\]/,"").split("؛")[0],k:QT==="a"?"اتصال":"انفصال",r:h3.textContent,c:(p?p.textContent.split("—")[0].trim():""),
+      w:(p?p.textContent.split("—").slice(1).join("—").trim():""),d:dc.nm+(dc.l?" · طالع "+dc.f+" ← "+dc.l:""),
+      f:h.slice(0,8).map(function(x){return NAME[x]||x}).join("، "),s:SAY.s||"",b:(SAY.b||"").slice(0,1600)});
+    histSet(a.slice(0,30))}
+  function histBox(){
+    var a=histGet();if(!a.length)return "";
+    var o='<details class="note" style="margin-top:10px"><summary><b>تاریخچه</b> ('+a.length+')</summary>';
+    a.forEach(function(x){
+      o+='<details class="hitem"><summary><b>'+esc(x.q)+'</b> · '+esc(x.k)+' ← <b>'+esc(x.r)+'</b><br><span class="hd">'+esc(jdate(x.t))+'</span></summary><div class="hb">'
+        +'<p><b>زمان:</b> '+esc(jdate(x.t,true))+'</p>'
+        +'<p><b>جواب:</b> '+esc(x.r)+' · '+esc(x.c||"")+(x.w?' — '+esc(x.w):'')+'</p>'
+        +(x.d?'<p><b>روز:</b> '+esc(x.d)+'</p>':'')
+        +(x.f?'<p><b>هشت شکل:</b> '+esc(x.f)+'</p>':'')
+        +(x.s?'<p><b>سخن مرد ماهی:</b> '+esc(x.s)+'</p>':'')
+        +(x.b?'<p class="sub"><b>حکم‌های مربوط:</b> '+esc(x.b.replace(/^.*?جواب: [^.]*\.\s*/,""))+'</p>':'')+'</div></details>'});
+    return o+'<p style="margin:8px 0 0"><button class="btn" id="histClr">پاک‌کردن تاریخچه</button></p></details>'}
+  function guardCard(){var g=GUARD,asked={},now=Date.now();histGet().forEach(function(x){if(now-x.t<43200000)asked[x.qi]=1});
+    var sg=[];for(var i=0;i<INTENTS.length&&sg.length<4;i++){if(!asked[i])sg.push(i)}
+    SAY.seg=null;SAY.vk=null;SAY.s=g.opp?"ای جوینده، جواب یک بار می‌آید. این نیت را پیش‌تر از سوی «"+g.k+"» پرسیده‌ای و پاسخ داده شد: "+g.r+". پرسیدن از سوی دیگر، پاسخ را دگرگون نمی‌کند؛ به همین پاسخ اعتماد کن و اگر کار دیگری در دل داری، از آن بپرس.":g.two?"ای جوینده، بس است. این کار را دو بار پرسیدی و هر دو سو پاسخ داده شد: "+g.r+". طاس بیش از این نمی‌گوید؛ این پرسش را به روزی دیگر واگذار. اگر کار دیگری در دل داری، از آن بپرس.":"ای جوینده، این را پیش‌تر پرسیده‌ای و پاسخ داده شد: "+g.r+". پرسیدنِ دوباره، پاسخ را دگرگون نمی‌کند و روا نیست. به پاسخ گذشته اعتماد کن و اگر کار دیگری در دل داری، از آن بپرس.";
+    var o='<div class="sage" id="sageBox"><div class="face" id="sageFace" style="background-image:url(sage_face.jpg)"></div><div class="bub"><span class="name">مرد ماهی</span>'+SAY.s+'<br><button class="btn" id="saySage" type="button" style="margin-top:6px">🔊 بشنو</button></div></div>';
+    o+='<div class="note"><h3 style="margin:0 0 4px">پاسخ گذشتهٔ «'+esc(g.q)+'»</h3><p style="margin:0"><b>'+esc(g.r)+'</b> · '+esc(g.c||"")+'<br><span class="sub">'+esc(jdate(g.t,true))+'</span></p></div>';
+    if(sg.length){o+='<div class="note"><h3 style="margin:0 0 6px">بپرس از کاری دیگر</h3><p style="margin:0;display:flex;flex-wrap:wrap;gap:6px">';
+      sg.forEach(function(i){o+='<button class="btn" type="button" data-sg="'+i+'">'+INTENTS[i].t.replace(/\s*\[[^\]]*\]/,"").split("؛")[0]+'</button>'});o+='</p></div>'}
+    return o}
+  function stageHtml(){var h=build(),f=h[0],i,o='<div class="stage" aria-hidden="true"><svg viewBox="0 0 200 150" width="100%" height="150">';
+    o+='<g class="rods"><rect class="rod r1" x="40" y="62" width="120" height="9" rx="4.5"/><rect class="rod r2" x="40" y="80" width="120" height="9" rx="4.5"/></g>';
+    for(i=0;i<26;i++){var x=22+Math.random()*156,d=(Math.random()*.7).toFixed(2),r=(1+Math.random()*1.4).toFixed(1);o+='<circle class="sand" cx="'+x.toFixed(1)+'" cy="6" r="'+r+'" style="animation-delay:'+d+'s"/>'}
+    for(i=0;i<4;i++){var y=34+i*26,dl=(1.0+i*.14).toFixed(2);
+      if(f.charAt(i)==="1")o+='<circle class="fd" cx="100" cy="'+y+'" r="6.5" style="animation-delay:'+dl+'s"/>';
+      else o+='<circle class="fd" cx="86" cy="'+y+'" r="6.5" style="animation-delay:'+dl+'s"/><circle class="fd" cx="114" cy="'+y+'" r="6.5" style="animation-delay:'+dl+'s"/>'}
+    return o+'</svg></div>'}
+  var PUB="https://ghashghai.github.io/Anvar-al-Raml/";
+  var FORM={url:"",q:"",v:"",i:""}; // فرم گوگل برای جمع‌آوری امتیازها؛ خالی = فقط روی همین دستگاه
+  var ADS=[{t:"سکه‌های قدرت: مجموعهٔ NFT از آثار محقق",u:"https://ghashghai.github.io/Coins-nft/"},{t:"آثار محقق در OpenSea: سکه‌های قدرت و اسطورهٔ بازآفریده",u:"https://opensea.io/Yacob5"}];
+  function rateSend(kind,val,intent){
+    try{var a=JSON.parse(localStorage.getItem("ramalRates")||"[]");a.unshift({t:Date.now(),k:kind,v:val,i:intent||""});localStorage.setItem("ramalRates",JSON.stringify(a.slice(0,60)))}catch(e){}
+    if(FORM.url){try{var bd=new URLSearchParams();bd.append(FORM.q,kind);bd.append(FORM.v,String(val));bd.append(FORM.i,intent||"");fetch(FORM.url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:bd.toString()}).catch(function(){})}catch(e){}}}
+  function rateHtml(kind){var o='<div class="rt" data-k="'+kind+'" data-r="0">'+(kind==="a"?'امتیاز به این جواب: ':'');for(var n=1;n<=5;n++)o+='<button type="button" data-s="'+n+'" aria-label="'+n+' ستاره">★</button>';return o+'<span class="rtm"></span></div>'}
+  function rateShow(box,v){Array.prototype.forEach.call(box.querySelectorAll("button"),function(b){b.className=(+b.getAttribute("data-s")<=v)?"on":""});var m=box.querySelector(".rtm");if(m)m.textContent=v?"ممنون از امتیازت":""}
+  document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".rt button");if(!b)return;var box=b.parentNode,v=+b.getAttribute("data-s"),kind=box.getAttribute("data-k");rateShow(box,v);
+    var intent=(kind==="a"&&QI>=0)?INTENTS[QI].t.replace(/\s*\[[^\]]*\]/,"").split("؛")[0]:"";
+    if(kind==="a"){try{var hh=histGet();if(hh[0]){hh[0].rt=v;histSet(hh)}}catch(x){}}
+    rateSend(kind,v,intent)});
+  (function(){var box=document.querySelector('.rt[data-k="app"]');if(!box)return;box.innerHTML=rateHtml("app").replace(/^<div[^>]*>/,"").replace(/<\/div>$/,"");var v=0;try{var a=JSON.parse(localStorage.getItem("ramalRates")||"[]");for(var q=0;q<a.length;q++)if(a[q].k==="app"){v=a[q].v;break}}catch(x){}if(v)rateShow(box,v)})();
+
+  (function(){function nest(t){var d=0,o=[],i,c,st=[],ch=t.split(""),ch2=ch.slice(),ch3,ok=false;for(i=0;i<ch.length;i++){c=ch[i];if(c==="("){st.push(i)}else if(c===")"&&st.length){var a=st.pop();if(st.length>=0&&d<st.length+1){}if(st.length>0){ch2[a]="«";ch2[i]="»";ok=true}}}return ok?ch2.join(""):t}
+    var busy=false;function run(root){if(busy)return;busy=true;try{var w=document.createTreeWalker(root||document.body,NodeFilter.SHOW_TEXT,null),n,L=[];while(n=w.nextNode()){var p=n.parentNode&&n.parentNode.nodeName;if(p==="SCRIPT"||p==="STYLE")continue;if(n.nodeValue.indexOf("(")>-1)L.push(n)}L.forEach(function(x){var v=nest(x.nodeValue);if(v!==x.nodeValue)x.nodeValue=v})}catch(e){}busy=false}
+    var tm=0;function later(){clearTimeout(tm);tm=setTimeout(function(){run(document.body)},60)}
+    try{new MutationObserver(later).observe(document.body,{childList:true,subtree:true,characterData:true})}catch(e){}
+    window.addEventListener("load",later);later()})();
+  try{if("serviceWorker" in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register("sw.js")}catch(e){}
+  (function(){var bar=document.getElementById("adbar"),lk=document.getElementById("adLink");if(!bar||!lk||!ADS.length)return;try{if(sessionStorage.getItem("adOff")==="1")return}catch(e){}
+    var i=0;try{var xr=new XMLHttpRequest();xr.open("GET","ads.json?v="+Date.now(),true);xr.timeout=4000;xr.onload=function(){try{if(xr.status!==200)return;var j=JSON.parse(xr.responseText),ok=[];for(var q=0;q<j.length;q++){var a=j[q];if(a&&typeof a.t==="string"&&typeof a.u==="string"&&/^https?:\/\//.test(a.u)&&a.t.length<120)ok.push({t:a.t,u:a.u})}if(ok.length){ADS=ok;i=0;show()}}catch(e){}};xr.send()}catch(e){}function show(){var a=ADS[i%ADS.length];lk.textContent="✦ "+a.t+" ←";lk.href=a.u;i++}function swap(){lk.classList.add("adout");setTimeout(function(){show();lk.classList.remove("adout")},350)}show();bar.hidden=false;if(ADS.length>1)setInterval(swap,7000);
+    document.getElementById("adClose").onclick=function(){bar.hidden=true;document.body.style.paddingBottom="";try{sessionStorage.setItem("adOff","1")}catch(e){}}})();
+  var SHTXT="",FACE="sage_face.jpg";
+  function wrapFa(c,t,mw){var w=t.split(" "),l=[],cur="";w.forEach(function(x){var tt=cur?cur+" "+x:x;if(c.measureText(tt).width>mw&&cur){l.push(cur);cur=x}else cur=tt});if(cur)l.push(cur);return l}
+  function shareCard(){var b=document.querySelector('#homeOut .note[style*="border:2px"]');if(!b||QI<0)return;
+    var h3=b.querySelector("h3").textContent,p=b.querySelector("p"),conf=p?p.textContent.split("—")[0].trim():"",dc=dayCls(build()),nt=INTENTS[QI].t.replace(/\s*\[[^\]]*\]/,"").split("؛")[0];
+    SHTXT="رمل انوار — "+nt+": "+h3+"\n"+(SAY.s||"").replace(/^این همان طاس[^.]*\.\s*/,"")+"\n"+PUB;
+    function paint(img){var W=1080,H=1350,cv=document.createElement("canvas");cv.width=W;cv.height=H;var c=cv.getContext("2d");c.direction="rtl";c.textAlign="center";
+    var cs=getComputedStyle(document.documentElement),dark=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches;
+    var sand=dark?"#e6c27a":"#9a6b1e",ink=dark?"#f1e8d2":"#1d2547",bg1=dark?"#0b1330":"#f2e8d2",bg2=dark?"#162455":"#e6d7b3";
+    var g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,bg2);g.addColorStop(1,bg1);c.fillStyle=g;c.fillRect(0,0,W,H);
+    c.fillStyle=sand;c.globalAlpha=.16;for(var y=40;y<H;y+=44)for(var x=40;x<W;x+=44){c.beginPath();c.arc(x,y,1.8,0,7);c.fill()}c.globalAlpha=1;
+    c.strokeStyle=sand;c.lineWidth=3;c.strokeRect(36,36,W-72,H-72);c.lineWidth=1;c.strokeRect(52,52,W-104,H-104);
+    var FF='"Vazirmatn",system-ui,sans-serif';
+    function T(t,x,y,sz,col,wt){c.font=(wt||400)+" "+sz+"px "+FF;while(c.measureText(t).width>W-200&&sz>14){sz-=2;c.font=(wt||400)+" "+sz+"px "+FF}c.fillStyle=col;c.fillText(t,x,y)}
+    function body(){
+      if(img){c.save();c.beginPath();c.arc(W/2,340,170,0,7);c.clip();var r=img.width/img.height,dw=420,dh=dw/r;c.drawImage(img,W/2-dw/2,340-170-30,dw,dh);c.restore();c.strokeStyle=sand;c.lineWidth=5;c.beginPath();c.arc(W/2,340,170,0,7);c.stroke()}
+      T("رمل انوار",W/2,125,64,sand,800);
+      T(nt,W/2,560,44,ink,600);
+      T(h3,W/2,700,104,sand,900);
+      T(conf,W/2,770,38,ink,400);
+      c.font="400 38px "+FF;var ln=wrapFa(c,(SAY.s||"").replace(/^این همان طاس[^.]*\.\s*/,""),760);
+      ln.slice(0,6).forEach(function(t,i){T(t,W/2,880+i*58,38,ink,400)});
+      var dl=dc.nm+(dc.l?" · طالع "+dc.f+" · "+dc.l:"");T(dl,W/2,1218,32,sand,600);
+      T(jdate(Date.now()),W/2,1264,28,ink,400);
+      c.globalAlpha=.7;T("انوار الرمل · کار محقق",W/2,1310,24,ink,400);c.globalAlpha=1;
+    }
+    body();return cv}
+    function out(img){try{var cv=paint(img);cv.toBlob(function(bl){showShare(bl||null)},"image/png")}catch(e){if(img)out(null);else showShare(null)}}
+    var im=new Image();im.onload=function(){out(im)};im.onerror=function(){out(null)};im.src=FACE}
+  function showShare(bl){var m=document.getElementById("shModal");if(!m){m=document.createElement("div");m.id="shModal";document.body.appendChild(m)}
+    var url=bl?URL.createObjectURL(bl):"";m.hidden=false;
+    m.innerHTML=(bl?'<img alt="کارت اشتراک" src="'+url+'"><div class="shnote">برای ذخیره، انگشت را روی تصویر نگه دار</div>':'<div class="shnote">ساخت تصویر در این دستگاه ممکن نشد؛ متن جواب را کپی کن.</div>')+'<textarea id="shTxt" readonly rows="3"></textarea><div class="shrow">'+(bl?'<button class="btn" id="shSave" type="button">ذخیره تصویر</button><button class="btn" id="shSend" type="button">اشتراک</button>':'')+'<button class="btn" id="shCopy" type="button">کپی متن</button><button class="btn" id="shClose" type="button">بستن</button></div><div class="shrow shl"><a target="_blank" rel="noopener" href="https://t.me/share/url?url='+encodeURIComponent(PUB)+'&text='+encodeURIComponent(SHTXT.replace("\n"+PUB,""))+'">تلگرام</a><a target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(SHTXT)+'">واتساپ</a><a href="sms:?&body='+encodeURIComponent(SHTXT)+'">پیامک</a></div><div class="shnote" id="shMsg"></div>';
+    var ta=document.getElementById("shTxt");ta.value=SHTXT;
+    function msg(t){var e=document.getElementById("shMsg");if(e)e.textContent=t}
+    document.getElementById("shClose").onclick=function(){m.hidden=true;if(url)URL.revokeObjectURL(url)};
+    document.getElementById("shCopy").onclick=function(){var ok=false;try{ta.focus();ta.select();ta.setSelectionRange(0,99999);ok=document.execCommand("copy")}catch(e){}
+      if(ok){msg("متن کپی شد.");return}
+      try{navigator.clipboard.writeText(SHTXT).then(function(){msg("متن کپی شد.")},function(){msg("متن را با انگشت انتخاب و کپی کن.")})}catch(e){msg("متن را با انگشت انتخاب و کپی کن.")}};
+    if(!bl)return;
+    function saveImg(){var plain=function(){var a=document.createElement("a");a.href=url;a.download="ramal-anvar.png";document.body.appendChild(a);a.click();a.remove();msg("اگر ذخیره نشد، انگشت را روی تصویر نگه دار.")};
+      try{if(window.claude&&claude.use){claude.use("downloads").then(function(d){if(!d){plain();return}d.save({filename:"ramal-anvar.png",data:bl}).then(function(){msg("ذخیره شد.")},function(e){if(!e||e.code!=="declined")plain()})},plain)}else plain()}catch(e){plain()}}
+    document.getElementById("shSave").onclick=saveImg;
+    document.getElementById("shSend").onclick=function(){try{var f=new File([bl],"ramal-anvar.png",{type:"image/png"});if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:"رمل انوار",text:SHTXT}).catch(function(e){if(e&&e.name!=="AbortError")saveImg()})}else if(navigator.share){navigator.share({title:"رمل انوار",text:SHTXT}).catch(function(e){if(e&&e.name!=="AbortError")saveImg()})}else saveImg()}catch(e){saveImg()}}}
+  document.addEventListener("click",function(e){if(e.target&&e.target.id==="shareBtn")shareCard()});
+  function renderJudg(){
+    var h=build(),el=document.getElementById("judg"),out=dayBox(h)+khaneRoz(h)+barbar(h)+diceNote()+arkan(h);
+    var T=[[1,2,9],[3,4,10],[5,6,11],[7,8,12],[9,10,13],[11,12,14],[13,14,15],[15,1,16]];
+    T.forEach(function(t){
+      var a=h[t[0]-1],b=h[t[1]-1],c=h[t[2]-1];
+      out+='<div class="note"><h3>مثلث خانه‌های '+t[0]+' و '+t[1]+' ← '+t[2]+(t[2]===16?' <span class="flag warn">خانهٔ ۱۶ به تصمیم تو</span>':'')+'</h3>';
+      out+='<p class="mono" style="font-size:12px">خانهٔ '+t[0]+': '+(HSN[t[0]]||'')+' · خانهٔ '+t[1]+': '+(HSN[t[1]]||'')+' · خانهٔ '+t[2]+': '+(HSN[t[2]]||'')+' <span class="flag ok">ص ۲۱۲ و ۳۵۷</span></p>';out+='<p style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;direction:rtl"><span>'+fig(a)+' '+esc(NAME[a]||"؟")+'</span><span>×</span><span>'+fig(b)+' '+esc(NAME[b]||"؟")+'</span><span>=</span><span>'+fig(c)+' '+esc(NAME[c]||"؟")+'</span></p>';
+      out+='<p><b>قاعدهٔ ص ۲۱۰:</b> '+ruleP(a,b,c)+' <span class="flag ok">سعد/نحس شکل‌ها ص ۳۵۷</span></p>';var ch=JUDG[c];
+      if(!ch){out+='<p>حکم بابِ «'+esc(NAME[c]||"؟")+'» هنوز وارد نشده.</p>'}
+      else{
+        [[a,b],[b,a]].forEach(function(pr,i){
+          var e=ch[pr[0]+"|"+pr[1]];
+          if(i===1)out+='<details><summary>ترتیب وارونه (حکم همین دو شکل با جای عوض‌شده؛ فقط برای مقایسه، در این زائچه به کار نمی‌آید)</summary>';out+='<p><b>'+(i===0?'حکم این زائچه — خانهٔ '+t[0]+' اول (راست)، خانهٔ '+t[1]+' دوم (چپ) — طبق ص ۲۱۰: «مثلثات از اول، دوم یعنی نهم…»':'جای دو شکل عوض')+'</b>'+(e?' <span class="flag '+(e.c==="high"?'ok':'warn')+'">'+(e.c==="high"?'خوانا':'تقریباً مطمئن')+' · ص '+e.p+'</span><br>'+esc(e.t)+(e.n?'<br><small style="opacity:.75">یادداشت پژوهشی: '+esc(e.n)+'</small>':''):' <span class="flag warn">در این باب نیامده</span>')+'</p>';if(i===1)out+='</details>';
+        });
+      }
+      out+='</div>';
+    });
+    el.innerHTML=out;
+    var ho=document.getElementById("homeOut");
+    ho.innerHTML=askBox()+(THROWN&&!GUARD&&!REUSE&&QI>=0&&QT?stageHtml():"")+(GUARD?guardCard():THROWN&&QI>=0&&QT?verdict(h):'<div class="note"><p style="margin:0">هنوز طاسی نریخته‌ای. نیت و نوع اتصال را انتخاب کن و «طاس بریز و حکم بده» را بزن.</p></div>')+histBox();
+    var hc=document.getElementById("histClr");if(hc)hc.onclick=function(){histSet([]);renderJudg()};
+    Array.prototype.forEach.call(document.querySelectorAll("[data-sg]"),function(bn){bn.onclick=function(){GUARD=null;REUSE=null;THROWN=false;QI=parseInt(bn.getAttribute("data-sg"),10);QH=INTENTS[QI].h;renderJudg()}});
+    var ss_=document.getElementById("saySage");if(ss_)ss_.onclick=function(){speakFa(SAY.s)};var sa_=document.getElementById("sayA"),sb_=document.getElementById("sayB");if(sa_)sa_.onclick=function(){if(SAY.vk)playSeg(["v_"+SAY.vk],SAY.vt);else speakFa(SAY.a)};if(sb_)sb_.onclick=function(){speakFa(SAY.b)};
+    var qt=document.getElementById("qTopic");if(qt)qt.onchange=function(){GUARD=null;REUSE=null;THROWN=false;QI=parseInt(qt.value,10);QH=INTENTS[QI].h;renderJudg()};
+    var qy=document.getElementById("qType");if(qy)qy.onchange=function(){GUARD=null;REUSE=null;THROWN=false;QT=qy.value;renderJudg()};var qr=document.getElementById("qRoll");if(qr)qr.onclick=function(){if(QI<0||!QT){var w=document.getElementById("qWarn");if(w)w.textContent=(QI<0?"اول «کلید نیت» را انتخاب کن. ":"")+(!QT?"«نوع اتصال» را هم انتخاب کن.":"");return}var nw=Date.now(),pl=histGet().filter(function(x){return x.qi===QI&&nw-x.t<43200000}),pv=pl[0];var qk=QT==="a"?"اتصال":"انفصال";if(pl.length>=2&&pv)pv=Object.assign({},pv,{two:1});if(pv&&!pv.two&&pv.k!==qk)pv=Object.assign({},pv,{opp:1});if(false){M=pv.m.slice();D=pv.dd?pv.dd.slice():null;THROWN=true;GUARD=null;REUSE=pv;document.body.classList.add("roll");setTimeout(function(){document.body.classList.remove("roll")},3000);renderAll();histSave();renderJudg();astroUpdate(dayCls(build()));var vr=document.querySelector('#homeOut .note[style*="border:2px"] h3');if(vr){SFX.verdict(vr.textContent);setTimeout(function(){try{if(localStorage.getItem("bgmOff")!=="1"&&SAY.s)speakFa(SAY.s)}catch(e){}},2500)}return}if(pv){GUARD=pv;THROWN=false;renderJudg();setTimeout(function(){try{if(localStorage.getItem("bgmOff")!=="1")speakFa(SAY.s)}catch(e){}},500);return}GUARD=null;document.getElementById("diceBtn").click()};
+    var a=document.getElementById("qhSel"),b=document.getElementById("qtSel");
+    if(a)a.onchange=function(){QH=parseInt(a.value,10);for(var z=0;z<INTENTS.length;z++){if(INTENTS[z].h===QH){QI=z;break}}renderJudg()};
+    if(b)b.onchange=function(){QT=b.value;renderJudg()};
+    cleanQ();
+  }
+  function cleanQ(){
+    function walk(root,strip){
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null),n,L=[];
+      while((n=w.nextNode()))if(n.nodeValue.indexOf("؟")>-1)L.push(n);
+      L.forEach(function(t){var v=t.nodeValue;
+        if(strip)v=v.replace(/\s*\[؟[^\]]*\]/g,"").replace(/\s*\(؟\)/g,"");
+        else v=v.replace(/\[؟\s*([^\]]+)\]/g,"(نیاز به بررسی: $1)").replace(/\[؟\]/g,"(نیاز به بررسی)");
+        v=v.replace(/\(نیاز به بررسی\)\s*\(نیاز به بررسی/g,"(نیاز به بررسی");t.nodeValue=v});
+      if(strip)Array.prototype.forEach.call(root.querySelectorAll(".flag"),function(f){if(!f.textContent.trim())f.parentNode.removeChild(f)})}
+    ["homeOut","v-about"].forEach(function(id){var e=document.getElementById(id);if(e)walk(e,true)});
+    ["homeOut","v-engine","v-table"].forEach(function(id){var ho=document.getElementById(id);if(!ho)return;var w2=document.createTreeWalker(ho,NodeFilter.SHOW_TEXT,null),n2;while((n2=w2.nextNode())){var v2=n2.nodeValue.replace(/[0-9]+/g,function(d){return /^[01]{4}$/.test(d)?d:d.replace(/[0-9]/g,function(x){return "۰۱۲۳۴۵۶۷۸۹".charAt(+x)})});
+      if(id==="homeOut"&&/^«/.test(v2.trim())&&(v2.split("(").length!==v2.split(")").length))v2=v2.replace(/\s*\([^)»]*(?=»)/,"");
+      if(v2!==n2.nodeValue)n2.nodeValue=v2}});
+    ["v-engine","v-table"].forEach(function(id){var e=document.getElementById(id);if(e)walk(e,false)})}
+  function renderAll(){renderMothers();renderHouses();renderJudg();cleanQ()}
+  (function(){var sel=document.getElementById("jaN");for(var i=1;i<=16;i++){var o=document.createElement("option");o.value=i;o.textContent=i+" — "+FIG[i-1][0];if(i===6)o.selected=true;sel.appendChild(o)}
+    document.getElementById("jaGo").onclick=function(){var n=parseInt(sel.value,10),hs=[],nm=[];
+      for(var k=0;k<4;k++){var hh=((n-1+6*k)%16)+1;hs.push(hh);nm.push(FIG[hh-1][1])}
+      M=nm;renderAll();document.getElementById("jaNote").textContent="خانه‌ها: "+hs.join("، ")+" ← "+nm.map(function(x){return NAME[x]}).join("، ")}})();
+  document.getElementById("ex").onclick=function(){D=null;M=["1101","0000","1010","1010"];renderAll();document.getElementById("exnote").textContent="نمونه: مادرها از نمودار ص ۱۴ (خانهٔ اول، دوم، سوم و چهارم). خانهٔ ۵ باید «نقی الخد» شود."};
+  astroBuild();
+  var tabs={home:"v-home",engine:"v-engine",table:"v-table",about:"v-about"};
+  Object.keys(tabs).forEach(function(k){
+    document.getElementById("t-"+k).onclick=function(){
+      Object.keys(tabs).forEach(function(j){document.getElementById(tabs[j]).hidden=(j!==k);document.getElementById("t-"+j).setAttribute("aria-pressed",j===k?"true":"false")});
+    }});
+  (function(){
+    var c=document.getElementById("cast");
+    for(var i=0;i<16;i++){var w=document.createElement("label");w.style.fontSize="12px";w.textContent="سطر "+(i+1);
+      var n=document.createElement("input");n.type="number";n.min="1";n.inputMode="numeric";n.id="cn"+i;n.style.cssText="display:block;width:100%;box-sizing:border-box;font:inherit;padding:6px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink)";
+      w.appendChild(n);c.appendChild(w)}
+    document.getElementById("diceBtn").onclick=function(){THROWN=true;REUSE=null;SFX.roll();document.body.classList.add("roll");setTimeout(function(){document.body.classList.remove("roll")},3000);
+      var rf=function(){return FIG[Math.floor(Math.random()*16)][1]};
+      M=[rf(),rf(),rf(),rf()];D=[rf(),rf(),rf(),rf()];renderAll();histSave();renderJudg();astroUpdate(dayCls(build()));var vh=document.querySelector('#homeOut .note[style*="border:2px"] h3');if(vh){SFX.verdict(vh.textContent);setTimeout(function(){try{if(localStorage.getItem("bgmOff")!=="1"&&SAY.s)speakFa(SAY.s)}catch(e){}},2500)}
+      document.getElementById("exnote").textContent="طاس ریخته شد: میلهٔ اول = مادرها، میلهٔ دوم = دخترها (روش محقق؛ دخترها مستقل‌اند، نه از ردیف مادرها)."};
+    document.getElementById("castrnd").onclick=function(){THROWN=true;
+      for(var j=0;j<16;j++){document.getElementById("cn"+j).value=7+Math.floor(Math.random()*6)}
+      document.getElementById("castgo").click();
+      document.getElementById("castnote").textContent+=" (شانزده عدد را خود برنامه تصادفی زد؛ این جایگزینِ نقطه‌زدنِ دست روی ریگ است و در کتاب نیست.)"
+    };
+    document.getElementById("castgo").onclick=function(){THROWN=true;
+      var v=[],bad=[],i;
+      for(i=0;i<16;i++){var x=parseInt(document.getElementById("cn"+i).value,10);if(!(x>0)){document.getElementById("castnote").textContent="همهٔ شانزده سطر را پر کن.";return}v.push(x);if(x<7||x>12)bad.push(i+1)}
+      var nm=[];for(var m=0;m<4;m++){var b="";for(var r=0;r<4;r++)b+=(v[4*m+r]%2===1)?"1":"0";nm.push(b)}
+      M=nm;renderAll();
+      document.getElementById("castnote").textContent="مادرها ساخته شد: "+nm.map(function(b,k){var nmz=FIG.filter(function(f){return f[1]===b})[0];return "مادر "+(k+1)+" = "+b+" ("+(nmz?nmz[0]:"?")+")"}).join("، ")+". نتیجه همان بخش «چهار مادر» بالا و «خانه‌ها» پایین هم نشان داده شد."+(bad.length?" هشدار: سطر "+bad.join("، ")+" بیرون از «هفت تا دوازده» ص ۹ است (محاسبه انجام شد).":"")
+    }
+  })();
+  renderTable();renderNotes();renderAll();
+  document.getElementById("exnote").textContent="نمونه: مادرها از نمودار ص ۱۴. خانهٔ ۵ باید «نقی الخد» شود.";
+window.__ok=1;
+})();
+</script>
+
+<script>
+(function(){var U="https://github.com/Ghashghai/Anvar-al-Raml",box=document.getElementById("qrBox");if(!box)return;
+var sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js";
+sc.onload=function(){try{var q=qrcode(0,"M");q.addData(U);q.make();box.style.cssText="display:inline-block;width:176px;height:176px;background:#fff;border-radius:12px;padding:8px;line-height:0";box.innerHTML=q.createSvgTag({cellSize:4,margin:0,scalable:true});var sv=box.querySelector("svg");if(sv){sv.style.width="100%";sv.style.height="100%"}}catch(e){}};
+document.head.appendChild(sc)})();
+</script>
+</body></html>

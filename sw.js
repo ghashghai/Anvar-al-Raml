@@ -1,0 +1,8 @@
+var C="ramal-v164";
+var F=["./","index.html","manifest.webmanifest","sage_intro.mp4","sage_face.jpg","bgm.mp3","ads.json","icon-192.png","icon-512.png","Vazirmatn-Regular.woff2","Vazirmatn-SemiBold.woff2","Vazirmatn-ExtraBold.woff2","Vazirmatn-Black.woff2"];
+self.addEventListener("install",function(e){e.waitUntil(caches.open(C).then(function(c){return Promise.all(F.map(function(u){return c.add(u).catch(function(){})}))}).then(function(){return self.skipWaiting()}))});
+self.addEventListener("activate",function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(x){return x!==C}).map(function(x){return caches.delete(x)}))}).then(function(){return self.clients.claim()}))});
+self.addEventListener("fetch",function(e){var r=e.request;if(r.method!=="GET")return;var u=new URL(r.url);if(u.origin!==location.origin)return;
+if(u.pathname.slice(-8)==="ads.json"){e.respondWith(fetch(r).then(function(x){var y=x.clone();caches.open(C).then(function(c){c.put(r,y)});return x}).catch(function(){return caches.match(r)}));return}
+if(r.headers.has("range")){e.respondWith(caches.match(u.pathname.split("/").pop()||"index.html").then(function(m){return m?m.arrayBuffer().then(function(b){var h=r.headers.get("range").match(/bytes=(\d*)-(\d*)/),s=+h[1]||0,en=h[2]?+h[2]:b.byteLength-1;return new Response(b.slice(s,en+1),{status:206,headers:{"Content-Type":m.headers.get("Content-Type")||"application/octet-stream","Content-Range":"bytes "+s+"-"+en+"/"+b.byteLength}})}):fetch(r)}));return}
+e.respondWith(caches.match(r,{ignoreSearch:true}).then(function(m){return m||fetch(r).then(function(x){var y=x.clone();caches.open(C).then(function(c){c.put(r,y)});return x})}))});
