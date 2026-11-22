@@ -5,4 +5,5 @@
         "package_name": "ir.ghashghai.anvaralraml",
         "sha256_cert_fingerprints": ["3C:54:8D:17:59:C9:ED:68:17:7C:6D:48:A7:85:E4:29:8D:55:DE:FA:6E:61:F1:A2:FC:9A:2F:DA:B5:27:01:41"]
       }
-    }]
+    
+},{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"cafebazaar_twa","package_name":"ir.ghashghai.anvaralraml"}}]
