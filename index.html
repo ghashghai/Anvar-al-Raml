@@ -720,6 +720,30 @@ window.addEventListener("error",function(){setTimeout(function(){try{document.ge
         var u=new SpeechSynthesisUtterance(parts[k++]);u.lang="fa-IR";u.rate=0.85;u.pitch=0.75;if(fa)u.voice=fa;
         u.onstart=function(){BG.duck(true);if(bx)bx.classList.add("talk")};u.onend=next;u.onerror=function(){BG.duck(false);if(bx)bx.classList.remove("talk");if(!HASREC){document.body.classList.add("novoice");if(note)note.textContent="صدا روی این دستگاه کار نکرد؛ جواب را بخوان."}};speechSynthesis.speak(u)}
       next()}catch(e){if(note)note.textContent="خواندن با صدا ممکن نشد."}}
+  function theftRules(h){
+    var S=function(i){return !!SAD9[h[i-1]]},K=function(i){return KIND[h[i-1]]},NM=function(i){return NAME[h[i-1]]||"-"};
+    var inn=function(i){return K(i)==="d"||K(i)==="s"},out=function(i){return K(i)==="x"};
+    var R=[],y=0,n=0;
+    var add=function(t,v,note,pg){R.push({t:t,v:v,note:note,pg:pg});if(v==="y")y++;else if(v==="n")n++};
+    var a7=NM(7)+" ("+(S(7)?"سعد":"نحس")+"، "+KN[K(7)]+")";
+    if(S(7)&&K(7)==="d")add("خانهٔ ۷ (دزد): "+a7,"y","سعدِ داخل: دزدیده‌شده باز یافته می‌شود","ص ۴۹۲");
+    else if(S(7)&&K(7)==="x")add("خانهٔ ۷ (دزد): "+a7,"y","سعدِ خارج: شاید مال را خودت جا گذاشته‌ای و پیدا می‌شود","ص ۱۱۰");
+    else if(!S(7)&&K(7)==="x")add("خانهٔ ۷ (دزد): "+a7,"n","نحسِ خارج: واقعاً دزدیده شده","ص ۱۱۰");
+    else add("خانهٔ ۷ (دزد): "+a7,"u","کتاب برای این حالت حکم روشنی نمی‌دهد","ص ۱۱۰");
+    var ok6=S(6)&&S(12)&&inn(6)&&inn(12),no6=out(6)&&out(12);
+    add("خانهٔ ۶ و ۱۲: "+NM(6)+" و "+NM(12),ok6?"y":no6?"n":"u",ok6?"هر دو سعد و داخل یا ثابت: دزد گرفته می‌شود و مال پیدا می‌شود":no6?"هر دو خارج: مال رفته است":"حالت میانه؛ حکم روشنی نیست","ص ۱۰۲");
+    var ok8=S(8)&&S(2)&&K(8)==="d"&&K(2)==="d",no8=!S(8)&&!S(2)&&out(8)&&out(2);
+    add("خانهٔ ۸ (مال دزد) و ۲ (مال صاحب): "+NM(8)+" و "+NM(2),ok8?"y":no8?"n":"u",ok8?"هر دو سعدِ داخل: مال دزدیده نشده یا برمی‌گردد":no8?"هر دو نحسِ خارج: مال واقعاً دزدیده شده":"حالت میانه؛ حکم روشنی نیست","ص ۱۱۰");
+    var rep7=[1,2,3,4].some(function(i){return h[i-1]===h[6]});
+    add("شکل خانهٔ ۷ ("+NM(7)+") در مادرها (خانهٔ ۱ تا ۴)",rep7?"y":"u",rep7?"شکل دزد در مادرها تکرار شده: مال برمی‌گردد":"در مادرها تکرار نشده؛ رأیی نیست","ص ۱۱۱");
+    var sp=inn(2)&&inn(8)?"خرج نشده":out(2)&&out(8)?"خرج شده":"روشن نیست";
+    add("خانهٔ ۲ و ۸: خرج شدن مال","i",sp+" (داخل یا ثابت: خرج نشده؛ خارج: خرج شده)","ص ۱۰۹");
+    var among=inn(1)&&inn(7)?"دزد از میان همین آدم‌هاست":out(1)&&out(7)?"دزد از میان آن‌ها نیست":"روشن نیست";
+    add("خانهٔ ۱ و ۷: دزد از میان آن‌هاست یا نه","i",among,"ص ۱۰۷");
+    var dir=y>n?"y":n>y?"n":null;
+    var txt="از فصل دزدی کتاب: "+y+" قاعده به سود یافتن و "+n+" قاعده به زیان";
+    return {rows:R,y:y,n:n,dir:dir,txt:txt};
+  }
   function verdict(h){
     var want=(QT==="a")?"d":"x",opp=(QT==="a")?"x":"d";
     var V=[],cnt={y:0,n:0,w:0,b:0},dc=dayCls(h);
@@ -760,27 +784,32 @@ window.addEventListener("error",function(){setTimeout(function(){try{document.ge
     else V.push(["هشت مثلث (حکم‌ها)","برابر","بدون رأی",tn,"ص ۲۱۰"]);
     if(dc.l)V.push(["روز "+dc.nm+" و شکل طالع: "+dc.f,dc.l,"بدون رأی","فقط بر میزان اطمینان اثر دارد؛ جدول روزها","ص ۳۵۶"]);
     var jt=judgTopic(h),jv=jt.tot.g>jt.tot.b?"g":jt.tot.b>jt.tot.g?"b":(jt.tot.g+jt.tot.b?"m":"n");
-    var jdir=jv==="g"?"y":jv==="b"?"n":jv==="m"?"w":null;
+    var jdir=jv==="g"?"y":jv==="b"?"n":jv==="m"?"w":null,jdir8=jdir,TH=/^دزدی/.test(INTENTS[QI].t)?theftRules(h):null;
+    if(TH&&TH.dir)jdir=TH.dir;
     // جمع
     var order=["y","n","w","b"],mxv=Math.max(cnt.y,cnt.n,cnt.w,cnt.b),win=order.filter(function(k){return cnt[k]===mxv});
     var o='<div class="note"><h3>هشت حکم و قاضی؛ حکم‌های مربوط به نیت</h3>';
     o+='<p><b>نیت:</b> '+INTENTS[QI].t+' (خانهٔ '+QH+')'+' · نوع سؤال: '+(QT==="a"?"اتصال (رسیدن، حصول): داخل = شدن":"انفصال (سفر، خلاصی): خارج = شدن")+'</p>';
     var JL={g:"متن خوب",b:"متن بد",m:"متن مختلط",u:"متن بی‌نظر",n:"ذکر نشده"},JC={g:"var(--good)",b:"var(--bad)",m:"var(--muted)",u:"var(--muted)",n:"var(--muted)"};
-    o+='<h3 style="margin-top:12px">۱) هشت حکم؛ فقط بخش‌های مربوط به نیت</h3><p style="font-size:11px">از متن هر حکم، تکه‌هایی که به نیت (خانهٔ '+QH+') مربوط است جدا شد؛ خوب یا بد بودن هر تکه از واژه‌های خودِ متن (مانند خیر، کشایش، سلامت / خسارت، غم، ترس) شمرده شد. اگر خودِ واژهٔ نیت خوب یا بد بود (مثل «غم» یا «خیر») شمرده شد، مگر در نیت‌های ناخوشایند (ترس، دزدی، دشمنان، دعوا، بیماری)؛ «هیچ … نبود» معنا را وارونه می‌کند. شمارش خودکار است؛ خودت هم بخوان.</p>';
+    if(TH){o+='<h3 style="margin-top:12px">فصل دزدی کتاب (سارق و مسروق)</h3><p style="font-size:11px">برای این نیت، حکم اصلی از قاعده‌های خودِ فصل دزدی کتاب گرفته می‌شود. هر قاعده سعد یا نحس بودن و داخل یا خارج بودن خانه‌های نام‌برده را می‌سنجد. اکثریتِ قاعده‌ها حکم را می‌دهد. اگر برابر شوند، به هشت حکم و بعد قاضی برمی‌گردیم.</p>';
+      TH.rows.forEach(function(r){var c=r.v==="y"?"var(--good)":r.v==="n"?"var(--bad)":"var(--muted)",l=r.v==="y"?"به سود یافتن":r.v==="n"?"به زیان":r.v==="i"?"آگاهی":"بدون رأی";o+='<div style="border-top:1px solid #8884;padding:4px 0;font-size:12px"><b>'+esc(r.t)+'</b> <span style="color:'+c+'"><b>'+l+'</b></span><br><span style="opacity:.85">'+esc(r.note)+' ('+r.pg+')</span></div>'});
+      o+='<p><b>'+TH.txt+'</b> ← <b>'+(TH.dir?VL[TH.dir]:"برابر؛ جواب از هشت حکم و قاضی")+'</b></p>'}
+    o+='<h3 style="margin-top:12px">'+(TH?'۱) ':'۱) ')+'هشت حکم؛ فقط بخش‌های مربوط به نیت</h3><p style="font-size:11px">از متن هر حکم، تکه‌هایی که به نیت (خانهٔ '+QH+') مربوط است جدا شد؛ خوب یا بد بودن هر تکه از واژه‌های خودِ متن (مانند خیر، کشایش، سلامت / خسارت، غم، ترس) شمرده شد. اگر خودِ واژهٔ نیت خوب یا بد بود (مثل «غم» یا «خیر») شمرده شد، مگر در نیت‌های ناخوشایند (ترس، دزدی، دشمنان، دعوا، بیماری)؛ «هیچ … نبود» معنا را وارونه می‌کند. شمارش خودکار است؛ خودت هم بخوان.</p>';
     jt.rows.forEach(function(r){o+='<div style="border-top:1px solid #8884;padding:4px 0;font-size:12px"><b>'+r.t[0]+'+'+r.t[1]+'←'+r.t[2]+' '+esc(r.name)+'</b> <span style="color:'+JC[r.v]+'"><b>'+JL[r.v]+'</b></span>'+(r.hits.length?'<br><span style="opacity:.85">«'+r.hits.map(esc).join('» … «')+'»</span>':'')+'</div>'});
-    o+='<p><b>رأی هشت حکم:</b> خوب '+jt.tot.g+' · بد '+jt.tot.b+' · مختلط '+jt.tot.m+' · بی‌نظر '+jt.tot.u+' · ذکر نشده '+jt.tot.n+' ← <b>'+(jdir?VL[jdir]:"هیچ حکمی دربارهٔ این نیت نیامده")+'</b></p>';
+    o+='<p><b>رأی هشت حکم:</b> خوب '+jt.tot.g+' · بد '+jt.tot.b+' · مختلط '+jt.tot.m+' · بی‌نظر '+jt.tot.u+' · ذکر نشده '+jt.tot.n+' ← <b>'+(jdir8?VL[jdir8]:"در هشت حکم روشن نیست؛ جواب از قاضی")+'</b></p>';
     o+='<h3 style="margin-top:12px">۲) قاضی و ابزارها (برای وارسی؛ جمع نمی‌شوند و در حکم نهایی رأی ندارند)</h3><p style="font-size:11px">قاضی و ابزارها را از نوع شکل می‌سنجند (آمدن، رفتن، توقف، برگشت)، نه از خوبی یا بدیِ متن. برای همین یک شکل می‌تواند در بخش ۱ «متن خوب» باشد و در بخش ۲ «برگشت». حکم نهایی از بخش ۱ می‌آید؛ قاضی برای وارسی است و اگر بخش ۱ چیزی نگفته باشد، جواب از قاضی گرفته می‌شود.</p>';
     V.forEach(function(r){o+='<div style="border-top:1px solid #8884;padding:6px 0;font-size:12px;width:100%"><b>'+esc(r[0])+'</b> <span style="float:left;font-weight:700">'+r[2]+'</span><br><span style="opacity:.75">'+esc(r[1])+(r[3]?" · "+esc(r[3]):"")+' ('+r[4]+')</span></div>'});
     var tw=vote(jam?KIND[h[12]]:KIND[h[14]]),twT=VL[tw]+" (قاضی: "+(NAME[h[14]]||"؟")+")";
     var f;
-    if(jdir){f=(jdir===tw)?"حکم محکم: "+VL[jdir]+" — هشت حکم و قاضی هم‌نظرند":"حکم هشت‌گانه: "+VL[jdir]+" · قاضی: "+twT+" ← ناهم‌نظر؛ با احتیاط بخوان"}
-    else f="هشت حکم دربارهٔ این نیت چیزی نگفته؛ حکم قاضی: "+twT;
+    if(TH&&TH.dir){f=(jdir===tw)?"حکم محکم: "+VL[jdir]+" — فصل دزدی و قاضی هم‌نظرند":"فصل دزدی: "+VL[jdir]+" · قاضی: "+twT+" ← ناهم‌نظر؛ با احتیاط بخوان"}
+    else if(jdir){f=(jdir===tw)?"حکم محکم: "+VL[jdir]+" — هشت حکم و قاضی هم‌نظرند":"حکم هشت‌گانه: "+VL[jdir]+" · قاضی: "+twT+" ← ناهم‌نظر؛ با احتیاط بخوان"}
+    else f="کتاب در هشت حکم از این نیت روشن نگفته؛ حکم قاضی: "+twT;
     var sa=SAD9[na1]?"سعد ← با آسانی و اختیار":"نحس ← با دشواری و بی‌اختیار";
     o+='<p style="font-size:16px"><b>'+f+'</b></p><p style="font-size:12px">سعد و نحسی نشان الامر ('+(NAME[na1]||"؟")+'): '+sa+' (ص ۵۲ و ۳۵۷). '+(jam?'میزان جماعت است؛ طبق کتاب این حکم قطعی است.':'')+'</p>';
     o+='</div>';
     var fk=jdir||tw,agreeF=jdir?(jdir===tw):null;
     var SIMP={y:"می‌شود",n:"نمی‌شود",w:"می‌شود، ولی دیر",b:"می‌شود، ولی نمی‌ماند"},SC={y:"var(--good)",n:"var(--bad)",w:"var(--wait)",b:"var(--wait)"};
-    var why=jdir?(jt.tot.g+" حکم خوب و "+jt.tot.b+" حکم بد از هشت حکم"+(jt.tot.m?"، "+jt.tot.m+" مختلط":"")+"؛ قاضی ("+(NAME[h[14]]||"؟")+"، شکل "+KLAB[KIND[h[14]]]+") "+(agreeF?"هم‌نظر است":"نظر دیگری دارد: "+VL[tw])):"هشت حکم دربارهٔ این نیت ساکت است؛ جواب از قاضی ("+(NAME[h[14]]||"؟")+") گرفته شد";
+    var why=(TH&&TH.dir)?(TH.txt+"؛ قاضی ("+(NAME[h[14]]||"-")+") "+(agreeF?"هم‌نظر است":"نظر دیگری دارد: "+VL[tw])):jdir8?(jt.tot.g+" حکم خوب و "+jt.tot.b+" حکم بد از هشت حکم"+(jt.tot.m?"، "+jt.tot.m+" مختلط":"")+"؛ قاضی ("+(NAME[h[14]]||"؟")+"، شکل "+KLAB[KIND[h[14]]]+") "+(agreeF?"هم‌نظر است":"نظر دیگری دارد: "+VL[tw])):(function(){var mn=jt.tot.g+jt.tot.b+jt.tot.m+jt.tot.u;return (mn?"فقط "+mn+" حکم از هشت حکم به این نیت اشاره کرده و روشن نیست؛":"در هیچ‌کدام از هشت حکم کتاب از این نیت سخنی نیامده؛")+" بنا بر کتاب جواب از قاضی ("+(NAME[h[14]]||"؟")+"، شکل "+KLAB[KIND[h[14]]]+") گرفته شد"})();
     var conf=jam?"قطعی (میزان جماعت)":agreeF===true?"محکم":agreeF===false?"با احتیاط":"متوسط";
     if(!jam&&dc.c==="n"&&conf==="محکم"&&(fk==="y"||fk==="b"))conf="با احتیاط (روز نحس)";
     var ease=(fk==="y"||fk==="b")?(SAD9[na1]?" · با آسانی":" · با دشواری"):"";
@@ -804,7 +833,7 @@ window.addEventListener("error",function(){setTimeout(function(){try{document.ge
     var advNeg=!(fk==="y"&&(ADV[1]==="ab"||ADV[1]==="ah"));SAY.vk=fk;SAY.vt={y:"آری، می‌شود",n:"خیر، نمی‌شود",w:"می‌شود، اما دیر",b:"می‌شود، ولی نمی‌ماند"}[fk];
     SAY.seg=(REUSE?["r0"]:[]).concat(["o"+OPK+(sd%3+1),"i"+(QI+1<10?"0":"")+(QI+1),fk+((sd>>1)%3+1)],(fk==="y"||fk==="b")?[SAD9[na1]?"e1":"e2"]:[],jam?["c1"]:agreeF===true?["c2"]:agreeF===false?["c3"]:[],dc.c?["d"+({s:1,m:2,n:3}[dc.c])]:[],[ADV[1]]);
     var sage='<div class="sage" id="sageBox"><div class="face" id="sageFace" style="background-image:url(sage_face.jpg)"></div><div class="bub"><span class="name">مرد ماهی</span>'+SAY.s.slice(0,SAY.s.length-ADV[0].length-1)+'<b class="adv '+(advNeg?'neg':'pos')+'">'+ADV[0]+'.</b><br><button class="btn" id="saySage" type="button" style="margin-top:6px">🔊 بشنو</button></div></div>';
-    return sage+head+'<details><summary>جزئیات از کتاب (هشت حکم و قاضی)</summary>'+o+'</details>'}
+    return sage+head+'<details><summary>جزئیات از کتاب ('+(TH?'فصل دزدی، ':'')+'هشت حکم و قاضی)</summary>'+o+'</details>'}
   var SFX=(function(){var ctx=null,mg=null;
     function on(){try{return localStorage.getItem("bgmOff")!=="1"}catch(e){return true}}
     function init(){if(ctx)return ctx;try{var C=window.AudioContext||window.webkitAudioContext;ctx=new C();mg=ctx.createGain();mg.gain.value=.55;mg.connect(ctx.destination)}catch(e){ctx=null}if(ctx&&ctx.state==="suspended")ctx.resume();return ctx}

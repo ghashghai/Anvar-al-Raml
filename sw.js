@@ -1,4 +1,4 @@
-var C="ramal-v164";
+var C="ramal-v166";
 var F=["./","index.html","manifest.webmanifest","sage_intro.mp4","sage_face.jpg","bgm.mp3","ads.json","icon-192.png","icon-512.png","Vazirmatn-Regular.woff2","Vazirmatn-SemiBold.woff2","Vazirmatn-ExtraBold.woff2","Vazirmatn-Black.woff2"];
 self.addEventListener("install",function(e){e.waitUntil(caches.open(C).then(function(c){return Promise.all(F.map(function(u){return c.add(u).catch(function(){})}))}).then(function(){return self.skipWaiting()}))});
 self.addEventListener("activate",function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.filter(function(x){return x!==C}).map(function(x){return caches.delete(x)}))}).then(function(){return self.clients.claim()}))});
